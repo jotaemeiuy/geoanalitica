@@ -1,0 +1,309 @@
+---
+import Figura from "../components/Figura.astro";
+import Hero from "../components/Hero.astro";
+import Math from "../components/Math.astro";
+import Nota from "../components/Nota.astro";
+import Seccion from "../components/Seccion.astro";
+import Split from "../components/Split.astro";
+import Toc from "../components/Toc.astro";
+import Topbar from "../components/Topbar.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/capitulo1.css";
+---
+
+<BaseLayout
+  title="Práctico — Puntos y Segmentos | Geometría Analítica"
+  description="Práctico 2 de Geometría Analítica (Duffour): medida algebraica, distancia, punto medio y simetría, con ejemplos resueltos y 21 problemas propuestos con solución."
+>
+  <Topbar
+    enlaces={[
+      { href: "/", texto: "← Portada" },
+      { href: "/capitulo-1/", texto: "← Capítulo 1" },
+      { href: "/capitulo-2", texto: "Capítulo 2 →" },
+      { href: "/formulas", texto: "Fórmulas" },
+      { href: "#p1", texto: "1 · Medida" },
+      { href: "#p2", texto: "2 · Distancia" },
+      { href: "#p3", texto: "3 · Punto medio" },
+      { href: "#p4", texto: "4 · Simetría" },
+      { href: "#p5", texto: "5 · Problemas" },
+    ]}
+  />
+
+  <main id="contenido">
+    <Hero
+      kicker="PRÁCTICO · 2"
+      numero="2"
+      tituloHtml="PUNTOS <span>Y</span> SEGMENTOS"
+      subtitulo="Geometría Analítica · Práctico"
+    />
+
+    <Toc
+      items={[
+        { href: "#p1", texto: "Medida algebraica de un segmento" },
+        { href: "#p2", texto: "Distancia entre dos puntos" },
+        { href: "#p3", texto: "Punto medio entre dos puntos" },
+        { href: "#p4", texto: "Simetría" },
+        { href: "#p5", texto: "Problemas propuestos (1–21)" },
+      ]}
+    />
+
+    <Nota etiqueta="NOTA">
+      EN TODOS LOS PROBLEMAS DE GEOMETRÍA ANALÍTICA ES ACONSEJABLE, AL RESOLVER
+      EL PROBLEMA, PLANTEAR EL MISMO EN UN DIBUJO A ESCALA SOBRE UNA HOJA
+      CUADRICULADA.
+    </Nota>
+
+    <Seccion id="p1" tituloHtml="1 — <em>MEDIDA ALGEBRAICA DE UN SEGMENTO</em>">
+      <p>
+        La medida algebraica de un segmento significa la longitud de ese segmento,
+        medido con una determinada unidad de medida (u.d.l.; unidad de longitud)
+        que puede ser el centímetro, la pulgada, etc.
+      </p>
+      <h3>Primer caso</h3>
+      <p>
+        El segmento a medir está sobre los ejes coordenados o es paralelo a uno
+        de ellos. En este caso la medida algebraica es igual a la coordenada
+        correspondiente del segundo punto menos la coordenada del primero. La
+        coordenada correspondiente es la abscisa x, o la ordenada y, según sea
+        el caso.
+      </p>
+      <div class="prob">
+        <strong>EJEMPLO 1.</strong> Dados los puntos A(1, 2) y B(1, 5), hallar la
+        medida del segmento de recta que determinan.
+        <Split>
+          <Figura simbolo="ej1-vertical" descripcion="Segmento vertical AB sobre x igual a 1" viewBox="0 0 300 170" />
+          <div>
+            <p>
+              En este caso la medida del segmento AB será la ordenada del segundo
+              punto menos la del primero.
+            </p>
+            <Math tex="\overline{AB} = 5 - 2" />
+            <Math tex="\boxed{\overline{AB} = 3 \text{ u.d.l.}}" />
+          </div>
+        </Split>
+      </div>
+      <h3>Segundo caso</h3>
+      <p>
+        El segmento a medir no es paralelo a los ejes coordenados, y está
+        determinado por los puntos <Math tex="P_2(x_2,y_2)" display={false} /> y
+        <Math tex="P_1(x_1,y_1)" display={false} />. La longitud de este segmento
+        viene dada por la fórmula:
+      </p>
+      <Split>
+        <Figura simbolo="ej2-caso" descripcion="Segmento P1P2 con proyecciones a los ejes" viewBox="0 0 300 230" />
+        <div>
+          <Math tex="\boxed{\overline{P_2P_1} = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}}" />
+          <Nota etiqueta="NOTA">
+            EL ORDEN EN QUE SE TOMEN LOS PUNTOS NO AFECTA EL RESULTADO.
+          </Nota>
+        </div>
+      </Split>
+    </Seccion>
+
+    <Seccion id="p2" tituloHtml="2 — <em>DISTANCIA ENTRE DOS PUNTOS · EJEMPLOS</em>">
+      <div class="prob">
+        <strong>EJEMPLO 2.</strong> Dados los puntos A(1, 2) y B(−2, −2), hallar
+        la medida del segmento de recta que determinan.
+        <Split>
+          <Figura simbolo="ej2-dist" descripcion="Segmento AB con A en el primer cuadrante y B en el tercero" viewBox="0 0 300 220" />
+          <div>
+            <p>Para calcular la longitud del segmento AB se usa la fórmula anterior.</p>
+            <Math tex="\overline{AB} = \sqrt{(1-(-2))^2+(2-(-2))^2}" />
+            <Math tex="\boxed{\overline{AB} = 5 \text{ u.d.l.}}" />
+          </div>
+        </Split>
+      </div>
+      <div class="prob">
+        <strong>EJEMPLO 3.</strong> Se considera el triángulo de vértices A(−2, 2),
+        B(1, 8), C(4, −1). Verificar que es isósceles.
+        <Split>
+          <Figura simbolo="ej3-triang" descripcion="Triángulo ABC con AB igual a AC" viewBox="0 0 300 200" />
+          <div>
+            <p>Hallando la longitud de sus lados, se debe comprobar que dos de ellos miden igual.</p>
+            <Math tex="\overline{AB} = \sqrt{(-2-1)^2+(2-8)^2} = \sqrt{45}" />
+            <Math tex="\overline{BC} = \sqrt{(1-4)^2+(8+1)^2} = \sqrt{90}" />
+            <Math tex="\overline{AC} = \sqrt{(-2-4)^2+(2+1)^2} = \sqrt{45}" />
+            <Math tex="\boxed{\overline{AB} = \overline{AC}}" />
+          </div>
+        </Split>
+      </div>
+      <div class="prob">
+        <strong>EJEMPLO 4.</strong> Hallar las coordenadas de un punto A sobre el
+        eje x, sabiendo que <Math tex="\overline{AB} = 5" display={false} />
+        siendo B(2, 4).
+        <p>
+          Para calcular la longitud del segmento AB se usa la fórmula anterior de
+          distancia entre dos puntos, con A(a, 0) y B(2, 4):
+        </p>
+        <Math tex="5 = \sqrt{(a-2)^2+(0-4)^2} \qquad 5 = \sqrt{a^2-4a+4+16}" />
+        <p>Resulta una ecuación de segundo grado:</p>
+        <Math tex="a^2-4a-5 = 0" />
+        <Math tex="\boxed{A(5,0) \text{ o } A(-1,0)}" />
+      </div>
+    </Seccion>
+
+    <Seccion id="p3" tituloHtml="3 — <em>PUNTO MEDIO ENTRE DOS PUNTOS · EJEMPLOS</em>">
+      <p>
+        Hallar el punto medio entre otros dos resulta, en todos los casos,
+        determinar la semisuma de las abscisas y la semisuma de las ordenadas.
+        Sean los puntos <Math tex="P_1(x_1,y_1)" display={false} /> y
+        <Math tex="P_2(x_2,y_2)" display={false} />. Las coordenadas del punto
+        medio M vienen dadas por:
+      </p>
+      <Math tex="\boxed{M\left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)}" />
+      <div class="prob">
+        <strong>EJEMPLO 5.</strong> Hallar el punto medio C, determinado por los
+        puntos A(−1, 6) y B(5, 0).
+        <Split>
+          <Figura simbolo="ej5-pmedio" descripcion="Punto medio C entre A y B" viewBox="0 0 300 200" />
+          <div>
+            <Math tex="x_C = \frac{-1+5}{2} \qquad x_C = 2" />
+            <Math tex="y_C = \frac{6+0}{2} \qquad y_C = 3" />
+            <Math tex="\boxed{C(2,3)}" />
+          </div>
+        </Split>
+      </div>
+    </Seccion>
+
+    <Seccion id="p4" tituloHtml="4 — <em>SIMETRÍA</em>">
+      <p>
+        Para determinar puntos simétricos, se recurre siempre al concepto de punto
+        medio. Pues el centro de simetría es punto medio entre el punto dado y el
+        simétrico a determinar. De modo que, planteadas las fórmulas del punto
+        medio, se trata luego de despejar la coordenada incógnita.
+      </p>
+      <div class="prob">
+        <strong>EJEMPLO 6.</strong> Hallar el simétrico de A(−1, −3) con respecto
+        al punto B(1, 1).
+        <Split>
+          <Figura simbolo="ej6-simetria" descripcion="Simétrico S de A respecto del centro B" viewBox="0 0 300 200" />
+          <div>
+            <p>En este caso el punto B es el punto medio entre A y el simétrico S. Se cumple que:</p>
+            <Math tex="x_B = \frac{x_A+x_S}{2} \qquad 1 = \frac{-1+x_S}{2} \qquad x_S = 3" />
+            <Math tex="y_B = \frac{y_A+y_S}{2} \qquad 1 = \frac{-3+y_S}{2} \qquad y_S = 5" />
+            <p>El punto buscado es el: <Math tex="S(3,5)" display={false} />.</p>
+          </div>
+        </Split>
+      </div>
+    </Seccion>
+
+    <Seccion id="p5" tituloHtml="5 — <em>PROBLEMAS PROPUESTOS</em>">
+      <p><em>Resultados pág. 150 del libro. Las soluciones se verifican con el botón de cada problema.</em></p>
+      <div class="prob">
+        <strong>1)</strong> Calcular AB si: i) A(2, 1), B(6, 1); ii) A(−1, −1),
+        B(−1, 3); iii) A(3, −5), B(3, −2).
+        <RevealSolucion boton="Solución 1)" solucion="i) 4 u.d.l. ii) 4 u.d.l. iii) 3 u.d.l." />
+      </div>
+      <div class="prob">
+        <strong>2)</strong> Sean A(2, 5), B(−3, 2). a) Hallar la longitud del
+        segmento AB. b) Hallar la longitud de sus proyecciones sobre OX y OY.
+        <RevealSolucion boton="Solución 2)" solucion="a) √34 u.d.l. b) Sobre OX: 5 u.d.l.; sobre OY: 3 u.d.l." />
+      </div>
+      <div class="prob">
+        <strong>3)</strong> Dados los puntos (−1, 3) y (4, 1), hallar el punto
+        medio del segmento de recta que los une.
+        <RevealSolucion boton="Solución 3)" solucion="(3/2, 2)." />
+      </div>
+      <div class="prob">
+        <strong>4)</strong> Dados A(5, 3), B(−2, 7), C(4, 1), D(−3, −4), E(7, −2),
+        F(−1, −5), hallar las distancias: 1) AB 2) CD 3) EF 4) BE.
+        <RevealSolucion boton="Solución 4)" solucion="1) √65 2) √74 3) √73 4) 9√2 u.d.l." />
+      </div>
+      <div class="prob">
+        <strong>5)</strong> Dados A(−1, 1), B(7, 3): i) Calcular el punto medio de
+        AB. ii) Calcular los simétricos C y D de A respecto de B y de B respecto
+        de A. iii) Verificar que el punto medio de AB coincide con el de CD.
+        <RevealSolucion boton="Solución 5)" solucion="i) (3,2). ii) C(15,5); D(−9,−1). iii) ((15−9)/2,(5−1)/2)=(3,2). Coincide con M." />
+      </div>
+      <div class="prob">
+        <strong>6)</strong> Sean A(4, 1), B(5, −3), C(−2, 1). Calcular sus
+        simétricos A′, B′, C′ respecto de M(3, 3).
+        <RevealSolucion boton="Solución 6)" solucion="A'(2,5); B'(1,9); C'(8,5)." />
+      </div>
+      <div class="prob">
+        <strong>7)</strong> Calcular el perímetro del triángulo de vértices A(0, 0),
+        B(0, 4) y C(2√3, 2).
+        <RevealSolucion boton="Solución 7)" solucion="AB=4, AC=4, BC=4. Perímetro 12 u.d.l." />
+      </div>
+      <div class="prob">
+        <strong>8)</strong> Probar que A(3, 3), B(−3, −3) y C(−3√3, 3√3) son los
+        vértices de un triángulo equilátero.
+        <RevealSolucion boton="Solución 8)" solucion="Los tres lados miden √72 = 6√2. Equilátero." />
+      </div>
+      <div class="prob">
+        <strong>9)</strong> Los puntos A(−5, 3) y B(7, −4) son dos vértices
+        adyacentes de un cuadrado. Calcular su área.
+        <RevealSolucion boton="Solución 9)" solucion="Lado √193. Área 193 u²." />
+      </div>
+      <div class="prob">
+        <strong>10)</strong> Determinar si cada triángulo es equilátero, escaleno
+        o isósceles. i) (0, 0), (3, 1), (1, 2). ii) (−1, 0), (2, −1), (1, 4).
+        iii) (−2, √3), (3, 1), (1, √3).
+        <RevealSolucion boton="Solución 10)" solucion="i) √10, √5, √5: isósceles rectángulo. ii) √10, 2√5, √26: escaleno. iii) 3, √(29−2√3), √(8−2√3): escaleno." />
+      </div>
+      <div class="prob">
+        <strong>11)</strong> Determinar la abscisa de M(x, 4) sabiendo que dista
+        de N(1, −2) 10 unidades.
+        <RevealSolucion boton="Solución 11)" solucion="x = 9 o x = −7." />
+      </div>
+      <div class="prob">
+        <strong>12)</strong> Hallar sobre OY el punto que dista 5 unidades de A(−3, 1).
+        <RevealSolucion boton="Solución 12)" solucion="(0,5) y (0,−3)." />
+      </div>
+      <div class="prob">
+        <strong>13)</strong> Hallar sobre OY un punto equidistante del origen y de (3, −5).
+        <RevealSolucion boton="Solución 13)" solucion="(0,−17/5)." />
+      </div>
+      <div class="prob">
+        <strong>14)</strong> Hallar el punto que dista 9 unidades de (2, −5) y
+        tiene ordenada −5.
+        <RevealSolucion boton="Solución 14)" solucion="(11,−5) y (−7,−5)." />
+      </div>
+      <div class="prob">
+        <strong>15)</strong> Hallar sobre OX un punto equidistante de (−1, 0) y (7, 4).
+        <RevealSolucion boton="Solución 15)" solucion="(4,0)." />
+      </div>
+      <div class="prob">
+        <strong>16)</strong> Los puntos A(−3, 2) y C(6, −4) son los vértices
+        opuestos de un cuadrado. Calcular su área.
+        <RevealSolucion boton="Solución 16)" solucion="Diagonal 3√13. Área 117/2 u²." />
+      </div>
+      <div class="prob">
+        <strong>17)</strong> Dados los vértices consecutivos de un paralelogramo
+        A(−3, 5), B(1, 7) y el punto de intersección de sus diagonales M(1, 1),
+        determinar los otros vértices.
+        <RevealSolucion boton="Solución 17)" solucion="C(5,−3); D(1,−5)." />
+      </div>
+      <div class="prob">
+        <strong>18)</strong> Determinar el punto medio M del lado AB y el punto
+        medio N del lado BC del triángulo A(1, 4), B(3, 1), C(−2, −1). Verificar
+        que MN es la mitad de AC.
+        <RevealSolucion boton="Solución 18)" solucion="M(2,5/2); N(1/2,0). MN = √34/2 = AC/2. Verificado." />
+      </div>
+      <div class="prob">
+        <strong>19)</strong> i) Representar en un sistema cartesiano los puntos
+        A(1, −3), B(2, 2), C(0, 5), E(−5, −3). ii) Calcular: A′ simétrico de A
+        respecto de (0, 0); B′ simétrico de B respecto de OX; C′ simétrico de C
+        respecto del origen; E′ y E″ simétricos de E respecto de OX y de OY.
+        Calcular el punto medio de E′E″.
+        <RevealSolucion boton="Solución 19)" solucion="i) A: IV; B: I; C: eje OY; E: III. ii) A'(−1,3); B'(2,−2); C'(0,−5); E'(−5,3); E''(5,−3). Punto medio de E'E'': (0,0)." />
+      </div>
+      <div class="prob">
+        <strong>20)</strong> Los puntos A(2, 1), B(3, 3), C(6, 2) son los puntos
+        medios de los lados de un triángulo. Calcular las coordenadas de sus tres
+        vértices.
+        <RevealSolucion boton="Solución 20)" solucion="Vértices (5,0), (−1,2) y (7,4)." />
+      </div>
+      <div class="prob">
+        <strong>21)</strong> Dados A(2, 2) y B(5, −2), hallar un punto C ∈ OX para
+        que ACB sea recto.
+        <RevealSolucion boton="Solución 21)" solucion="(1,0) y (6,0)." />
+      </div>
+    </Seccion>
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Práctico “Puntos y segmentos”</p>
+  </footer>
+</BaseLayout>

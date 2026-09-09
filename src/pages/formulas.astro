@@ -1,0 +1,175 @@
+---
+import ChipsNav from "../components/ChipsNav.astro";
+import Figura from "../components/Figura.astro";
+import Formula from "../components/Formula.astro";
+import FormulaCard from "../components/FormulaCard.astro";
+import Masthead from "../components/Masthead.astro";
+import Math from "../components/Math.astro";
+import Nota from "../components/Nota.astro";
+import CalcArea from "../components/calculators/CalcArea.astro";
+import CalcDistancia from "../components/calculators/CalcDistancia.astro";
+import CalcPuntoMedio from "../components/calculators/CalcPuntoMedio.astro";
+import CalcPuntoRecta from "../components/calculators/CalcPuntoRecta.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/formulas.css";
+---
+
+<BaseLayout
+  title="Resumen de Fórmulas — Geometría Analítica"
+  description="Resumen de fórmulas de geometría analítica: punto medio, distancia, recta, paralelismo, ángulo y área del triángulo, con calculadoras interactivas."
+  wide
+>
+  <main id="contenido">
+    <Masthead linea1="RESUMEN DE FORMULAS" linea2="GEOMETRÍA ANALÍTICA" />
+    <p class="sub">
+      Dados los puntos <Math tex="P_1(x_1,y_1)" display={false} /> y <Math
+        tex="P_2(x_2,y_2)"
+        display={false}
+      /> del plano
+    </p>
+
+    <ChipsNav
+      etiqueta="Navegación de fórmulas"
+      enlaces={[
+        { href: "/", texto: "← Portada" },
+        { href: "/capitulo-2", texto: "← Capítulo 2: La recta" },
+        { href: "#medio", texto: "Punto medio" },
+        { href: "#distancia", texto: "Distancia" },
+        { href: "#recta", texto: "Ecuaciones recta" },
+        { href: "#paralelas", texto: "Paralelismo ⊥" },
+        { href: "#punto-recta", texto: "Recta · punto" },
+        { href: "#dist-punto", texto: "Distancia punto-recta" },
+        { href: "#angulo", texto: "Ángulo" },
+        { href: "#area", texto: "Área triángulo" },
+      ]}
+    />
+
+    <div class="grid">
+      <FormulaCard id="medio" titulo="⌖ Punto medio">
+        <Figura simbolo="plano-punto-medio" descripcion="Plano con puntos P1, M y P2" />
+        <Math tex="x_m = \frac{x_1+x_2}{2} \qquad y_m = \frac{y_1+y_2}{2}" />
+        <CalcPuntoMedio />
+      </FormulaCard>
+
+      <FormulaCard id="distancia" titulo="⟷ Distancia entre dos puntos" variante="accent">
+        <Math tex="\overline{P_1P_2} = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}" />
+        <CalcDistancia />
+        <p style="font-size:.85rem">
+          Es Pitágoras aplicado al segmento <Math tex="P_1P_2" display={false} />.
+        </p>
+      </FormulaCard>
+
+      <FormulaCard id="recta" titulo="Ecuaciones de la recta" anchoCompleto>
+        <div class="row2">
+          <Formula>
+            Forma implícita: <Math tex="f(x,y)=0 \longrightarrow" display={false} />
+            <Math tex="Ax+By+C=0" />
+          </Formula>
+          <Formula>
+            Forma explícita: <Math tex="y=f(x) \longrightarrow" display={false} />
+            <Math tex="y = mx+n" />
+          </Formula>
+        </div>
+      </FormulaCard>
+
+      <FormulaCard
+        id="paralelas"
+        titulo="Dadas las rectas — paralelismo y perpendicularidad"
+        variante="accent"
+        anchoCompleto
+      >
+        <Math tex="y = mx+n \qquad y = m'x+n'" />
+        <div class="row2">
+          <Formula>Condición de <b>paralelismo</b>: <Math tex="m = m'" /></Formula>
+          <Formula
+            >Condición de <b>perpendicularidad</b>: <Math tex="m = -\frac{1}{m'}" /></Formula
+          >
+        </div>
+        <Math tex="Ax+By+C=0 \qquad A'x+B'y+C'=0" />
+        <div class="row2">
+          <Formula>Paralelismo: <Math tex="AB'-A'B = 0" /></Formula>
+          <Formula>Perpendicularidad: <Math tex="AA'+BB' = 0" /></Formula>
+        </div>
+      </FormulaCard>
+
+      <FormulaCard titulo="Notas — ejes y casos particulares" anchoCompleto>
+        <Formula>
+          NOTA: la ecuación del eje <Math tex="\overrightarrow{OX}" display={false} /> es: <Math
+            tex="Y=0"
+            display={false}
+          /> · la ecuación del eje <Math tex="\overrightarrow{OY}" display={false} /> es: <Math
+            tex="X=0"
+            display={false}
+          />
+        </Formula>
+        <Nota etiqueta="NOTA">
+          SE DEBE NOTAR QUE EN LOS CASOS PARTICULARES EN QUE LAS RECTAS SON PARALELAS A LOS EJES,
+          NO SE USA LA CONDICIÓN DE PARALELISMO.
+        </Nota>
+      </FormulaCard>
+
+      <FormulaCard id="punto-recta" titulo="Recta por un punto (x₀,y₀)">
+        <Math tex="y = m(x-x_0)+y_0" />
+      </FormulaCard>
+
+      <FormulaCard
+        id="dos-puntos"
+        titulo="Recta por dos puntos (x₁,y₁) (x₂,y₂)"
+        variante="accent"
+      >
+        <Math tex="y-y_1 = \frac{y_2-y_1}{x_2-x_1}\,(x-x_1)" />
+      </FormulaCard>
+
+      <FormulaCard id="dist-punto" titulo="Distancia del punto (x₀,y₀) a la recta Ax+By+C=0">
+        <Math tex="h = \left|\frac{Ax_0+By_0+C}{\pm\sqrt{A^2+B^2}}\right|" />
+        <CalcPuntoRecta />
+      </FormulaCard>
+
+      <FormulaCard id="dist-punto2" titulo="Distancia del punto (x₀,y₀) a la recta y=mx+n">
+        <Math tex="h = \left|\frac{Y_0-Mx_0-N}{\pm\sqrt{1+M^2}}\right|" />
+      </FormulaCard>
+
+      <FormulaCard id="angulo" titulo="Ángulo ω entre dos rectas">
+        <Math tex="\mathrm{tg}\,\omega = \frac{m-m'}{1+m\cdot m'}" />
+        <Nota etiqueta="OJO">
+          Al utilizar esta fórmula se debe tener en cuenta que <Math
+            tex="\omega"
+            display={false}
+          /> se mide en sentido antihorario.
+        </Nota>
+      </FormulaCard>
+
+      <FormulaCard
+        id="area"
+        titulo="Área de un triángulo P₁P₂P₃"
+        variante="accent"
+        anchoCompleto
+      >
+        <div class="row2" style="align-items:start">
+          <div>
+            <Figura
+              simbolo="plano-triangulo"
+              descripcion="Triángulo P1 P2 P3 en el plano"
+              viewBox="0 0 300 170"
+              pie="Vértices numerados en sentido antihorario: P₁ → P₂ → P₃."
+            />
+          </div>
+          <div>
+            <Math
+              tex="P_1P_2P_3 = \frac{1}{2}\,\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\big]"
+            />
+            <Nota etiqueta="NOTA">
+              ES IMPORTANTE QUE LA NUMERACIÓN DE LOS VÉRTICES SE HAGA EN SENTIDO ANTIHORARIO,
+              PARA QUE LA FÓRMULA DÉ UN VALOR POSITIVO.
+            </Nota>
+            <CalcArea />
+          </div>
+        </div>
+      </FormulaCard>
+    </div>
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Resumen de fórmulas </p>
+  </footer>
+</BaseLayout>

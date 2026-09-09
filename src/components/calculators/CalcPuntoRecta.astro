@@ -1,0 +1,28 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Calcular" id="calc-punto-recta">
+  <form data-calc="punto-recta">
+    <div class="inputs">
+      <label>A<input type="number" name="a" value="3" required /></label>
+      <label>B<input type="number" name="b" value="4" required /></label>
+      <label>C<input type="number" name="c" value="-5" required /></label>
+      <label>x₀<input type="number" name="x0" value="1" required /></label>
+      <label>y₀<input type="number" name="y0" value="1" required /></label>
+      <button type="submit">Calcular</button>
+    </div>
+    <output data-result aria-live="polite">h = …</output>
+  </form>
+</CalculatorShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="punto-recta"]');
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const h = Math.abs(v("a") * v("x0") + v("b") * v("y0") + v("c")) / Math.hypot(v("a"), v("b"));
+    const out = form.querySelector<HTMLOutputElement>("[data-result]");
+    if (out) out.textContent = "h = " + (isFinite(h) ? h.toFixed(4) : "— (A=B=0)");
+  });
+</script>

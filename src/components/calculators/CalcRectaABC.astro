@@ -1,0 +1,123 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Explorar: cambiá A, B y C y mirá la recta" id="calc-recta-abc">
+  <form data-calc="recta-abc">
+    <div class="inputs">
+      <label>A<input type="number" name="a" value="2" step="any" required /></label>
+      <label>B<input type="number" name="b" value="-3" step="any" required /></label>
+      <label>C<input type="number" name="c" value="6" step="any" required /></label>
+      <button type="submit">Trazar</button>
+    </div>
+    <div class="abc-plot">
+      <svg viewBox="0 0 320 240" role="img" aria-label="Gráfico de la recta Ax más By más C igual a cero">
+        <defs>
+          <pattern id="abc-grid" width="24" height="24" patternUnits="userSpaceOnUse" x="160" y="130">
+            <path d="M24 0 H0 V24" fill="none" stroke="#222" stroke-width="0.5" opacity="0.25"></path>
+          </pattern>
+          <clipPath id="abc-clip"><rect x="4" y="4" width="312" height="232"></rect></clipPath>
+        </defs>
+        <rect x="4" y="4" width="312" height="232" fill="url(#abc-grid)"></rect>
+        <line x1="4" y1="130" x2="316" y2="130" stroke="#222" stroke-width="1.5"></line>
+        <polygon points="316,130 306,125 306,135" fill="#222"></polygon>
+        <line x1="160" y1="236" x2="160" y2="4" stroke="#222" stroke-width="1.5"></line>
+        <polygon points="160,4 155,14 165,14" fill="#222"></polygon>
+        <line data-line x1="0" y1="0" x2="0" y2="0" stroke="#bf2045" stroke-width="2.5" clip-path="url(#abc-clip)"></line>
+        <text x="146" y="146" font-size="12">O</text>
+        <text x="306" y="146" font-size="13">x</text>
+        <text x="168" y="18" font-size="14">y</text>
+      </svg>
+    </div>
+    <output data-result aria-live="polite">…</output>
+  </form>
+</CalculatorShell>
+
+<style>
+  .abc-plot svg {
+    inline-size: 100%;
+    background: #fffdf4;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-m);
+    margin-block-start: 8px;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="recta-abc"]');
+  const svg = form?.querySelector("svg");
+  const line = svg?.querySelector("[data-line]");
+  const out = form?.querySelector<HTMLOutputElement>("[data-result]");
+  const OX = 160;
+  const OY = 130;
+  const S = 24;
+  const X = (x: number) => OX + S * x;
+  const Y = (y: number) => OY - S * y;
+  const z = (v: number) => Math.abs(v) < 1e-9;
+  const fmt = (v: number) => String(parseFloat(v.toFixed(3)));
+
+  function equation(a: number, b: number, c: number) {
+    const parts: string[] = [];
+    const push = (val: number, sym: string) => {
+      if (z(val)) return;
+      const av = Math.abs(val);
+      const mag = av === 1 && sym !== "" ? "" : fmt(av);
+      parts.push((val < 0 ? "- " : parts.length ? "+ " : "") + mag + sym);
+    };
+    push(a, "x");
+    push(b, "y");
+    push(c, "");
+    return (parts.length ? parts.join(" ") : "0") + " = 0";
+  }
+
+  function draw() {
+    if (!form || !out) return;
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const a = v("a");
+    const b = v("b");
+    const c = v("c");
+    const eq = equation(a, b, c);
+    const hide = () => {
+      line?.setAttribute("x1", "0");
+      line?.setAttribute("y1", "0");
+      line?.setAttribute("x2", "0");
+      line?.setAttribute("y2", "0");
+    };
+    if (z(a) && z(b)) {
+      hide();
+      out.textContent = z(c)
+        ? eq + " → indeterminada: todo punto (x, y) la satisface."
+        : eq + " → imposible: ningún punto la satisface.";
+      return;
+    }
+    const p0x = z(b) ? -c / a : 0;
+    const p0y = z(b) ? 0 : -c / b;
+    const len = Math.hypot(-b, a);
+    const dx = (-b / len) * 500;
+    const dy = (a / len) * 500;
+    line?.setAttribute("x1", String(X(p0x - dx)));
+    line?.setAttribute("y1", String(Y(p0y - dy)));
+    line?.setAttribute("x2", String(X(p0x + dx)));
+    line?.setAttribute("y2", String(Y(p0y + dy)));
+    if (z(a)) {
+      out.textContent = z(c)
+        ? eq + " → eje OX (y = 0)."
+        : eq + " → horizontal y = " + fmt(-c / b) + ", paralela a OX.";
+    } else if (z(b)) {
+      out.textContent = z(c)
+        ? eq + " → eje OY (x = 0)."
+        : eq + " → vertical x = " + fmt(-c / a) + ", paralela a OY.";
+    } else if (z(c)) {
+      out.textContent = eq + " → pasa por el origen con m = " + fmt(-a / b) + ".";
+    } else {
+      out.textContent =
+        eq + " → corta en (" + fmt(-c / a) + ", 0) y (0, " + fmt(-c / b) + ") · m = " + fmt(-a / b) + ".";
+    }
+  }
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    draw();
+  });
+  draw();
+</script>

@@ -1,0 +1,525 @@
+---
+import Figura from "../components/Figura.astro";
+import Hero from "../components/Hero.astro";
+import Math from "../components/Math.astro";
+import Nota from "../components/Nota.astro";
+import Seccion from "../components/Seccion.astro";
+import Split from "../components/Split.astro";
+import Toc from "../components/Toc.astro";
+import Topbar from "../components/Topbar.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
+import CalcRectaABC from "../components/calculators/CalcRectaABC.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/capitulo1.css";
+---
+
+<BaseLayout
+  title="Capítulo 2 — Recta | Geometría Analítica"
+  description="Capítulo 2 de Geometría Analítica (Duffour): ecuaciones de la recta, paralelismo, perpendicularidad, distancia punto-recta, ángulo y área del triángulo."
+>
+  <Topbar
+    enlaces={[
+      { href: "/", texto: "← Portada" },
+      { href: "/capitulo-1", texto: "← Capítulo 1" },
+      { href: "/formulas", texto: "Fórmulas →" },
+      { href: "#s1", texto: "1 · Ecuaciones" },
+      { href: "#s2", texto: "2 · Paralelas" },
+      { href: "#s3", texto: "3 · Perpendic." },
+      { href: "#s4", texto: "4 · Distancia" },
+      { href: "#s5", texto: "5 · Ángulo" },
+      { href: "#s6", texto: "6 · Área" },
+      { href: "#s7", texto: "7 · Regiones" },
+      { href: "#s8", texto: "8 · Exámenes" },
+    ]}
+  />
+
+  <main id="contenido">
+    <Hero
+      kicker="TEORICO 2"
+      numero="2"
+      tituloHtml="LA <span>RECTA</span>"
+      subtitulo="Geometría Analítica · Capítulo 2 "
+    />
+
+    <Toc
+      items={[
+        { href: "#s1", texto: "Ecuaciones de la recta" },
+        { href: "#s2", texto: "Rectas paralelas" },
+        { href: "#s3", texto: "Rectas perpendiculares" },
+        { href: "#s4", texto: "Distancia de un punto a una recta" },
+        { href: "#s5", texto: "Ángulo de dos rectas" },
+        { href: "#s6", texto: "Área de un triángulo" },
+        { href: "#s7", texto: "Regiones del plano" },
+        { href: "#s8", texto: "Preguntas de exámenes (solo temas incluidos)" },
+      ]}
+    />
+
+
+    <Seccion id="s1" tituloHtml="1 — <em>ECUACIONES DE LA RECTA</em>">
+      <h3>1.1. Recta paralela al eje de las ordenadas, eje oy̅</h3>
+      <Split>
+        <Figura simbolo="recta-x-h" descripcion="Recta vertical x igual a h" viewBox="0 0 300 170" />
+        <div>
+          <p>
+            Todos los puntos de una recta paralela al eje <Math tex="\overrightarrow{oy}" display={false} />
+            tienen la misma abscisa <Math tex="h" display={false} />. Verifican:
+          </p>
+          <Math tex="\boxed{x = h}" />
+          <p>Es la ecuación de la recta paralela al eje de ordenadas que pasa por (h, 0).</p>
+        </div>
+      </Split>
+
+      <h3>1.2. Recta paralela al eje de las abscisas, eje ox̅</h3>
+      <Split>
+        <Figura simbolo="recta-y-k" descripcion="Recta horizontal y igual a k" viewBox="0 0 300 170" />
+        <div>
+          <p>Todos los puntos tienen la misma ordenada:</p>
+          <Math tex="\boxed{y = k}" />
+          <p>
+            Casos particulares: <Math tex="x = 0" display={false} /> es el eje
+            <Math tex="\overrightarrow{oy}" display={false} />; <Math tex="y = 0" display={false} />
+            es el eje <Math tex="\overrightarrow{ox}" display={false} />.
+          </p>
+        </div>
+      </Split>
+
+      <h3>1.3. Recta que pasa por el origen</h3>
+      <Split>
+        <Figura simbolo="recta-origen" descripcion="Recta por el origen con ángulo omega" viewBox="0 0 300 200" />
+        <div>
+          <p>
+            Sea una recta por (0, 0) que forma un ángulo <Math tex="\omega" display={false} /> con el
+            eje <Math tex="\overrightarrow{ox}" display={false} />. Para P(x, y) sobre ella:
+          </p>
+          <Math tex="\operatorname{tg}\,\omega = \frac{y}{x}" />
+          <p>Designando <Math tex="m = \operatorname{tg}\,\omega" display={false} />:</p>
+          <Math tex="\boxed{y = m \cdot x}" />
+          <p>A <Math tex="m" display={false} /> se le llama <strong>coeficiente angular</strong>.</p>
+        </div>
+      </Split>
+
+      <h3>1.4. Recta cualquiera: y = mx + n</h3>
+      <Split>
+        <Figura simbolo="recta-mxn" descripcion="Recta y igual a mx más n por traslación de ejes" viewBox="0 0 320 220" />
+        <div>
+          <p>
+            Sea <Math tex="O'" display={false} /> el corte con <Math tex="\overrightarrow{oy}" display={false} />
+            y <Math tex="n" display={false} /> su ordenada. Trasladando <Math tex="\overrightarrow{ox}" display={false} />
+            hasta <Math tex="O'" display={false} /> la recta pasa por el origen del sistema
+            <Math tex="x'O'y'" display={false} />: <Math tex="y' = m x'" display={false} />,
+            con <Math tex="m = \operatorname{tg}\,\omega" display={false} />.
+          </p>
+          <Math tex="x = x' \qquad y = y' + n" />
+          <p>Sustituyendo <Math tex="x' = x" display={false} />, <Math tex="y' = y - n" display={false} />:</p>
+          <Math tex="\boxed{y = mx + n}" />
+        </div>
+      </Split>
+      <p>
+        Corta al eje <Math tex="\overrightarrow{oy}" display={false} /> en (0, n):
+        <strong>n es la ordenada en el origen</strong>. Es de primer grado en x e y.
+        Recíprocamente, toda ecuación <Math tex="Ax+By+C=0" display={false} /> con A y B no
+        simultáneamente nulos representa una recta, pues se puede llevar a la forma
+        <Math tex="y = mx+n" display={false} />.
+      </p>
+      <div class="prob">
+        <strong>Ecuaciones de la recta.</strong> Implícita:
+        <Math tex="f(x,y)=0 \longrightarrow Ax+By+C=0" display={false} /> ·
+        Explícita: <Math tex="y=f(x) \longrightarrow y=mx+n" display={false} />.
+      </div>
+
+      <h3>1.8. Recta que pasa por un punto dado P(x₀, y₀)</h3>
+      <Split>
+        <Figura simbolo="recta-punto" descripcion="Haz propio de rectas por el punto P" viewBox="0 0 300 200" />
+        <div>
+          <p>
+            Sea <Math tex="y = mx+n" display={false} />. Si pasa por
+            <Math tex="P(x_0,y_0)" display={false} />, sus coordenadas la verifican:
+          </p>
+          <Math tex="y_0 = m \cdot x_0 + n" />
+          <p>Despejando <Math tex="n = y_0 - m x_0" display={false} /> y sustituyendo:</p>
+          <Math tex="\boxed{y - y_0 = m \cdot (x - x_0)}" />
+        </div>
+      </Split>
+
+      <h3>1.10. Recta que pasa por dos puntos dados</h3>
+      <Split>
+        <Figura simbolo="recta-dos-puntos" descripcion="Recta por P1 y P2 con triángulo P1 R P2" viewBox="0 0 300 220" />
+        <div>
+          <p>
+            Sean <Math tex="P_1(x_1,y_1)" display={false} /> y
+            <Math tex="P_2(x_2,y_2)" display={false} />. Las rectas por
+            <Math tex="P_1" display={false} /> son <Math tex="y-y_1 = m(x-x_1)" display={false} />.
+            En el triángulo <Math tex="P_1RP_2" display={false} />:
+          </p>
+          <Math tex="m = \operatorname{tg}\,\alpha = \frac{y_2-y_1}{x_2-x_1}" />
+        </div>
+      </Split>
+      <Math tex="\boxed{y - y_1 = \frac{y_2-y_1}{x_2-x_1}\,(x - x_1)}" />
+
+      <h3>1.11. Discusión de la ecuación general Ax + By + C = 0</h3>
+      <p>
+        Discutirla es ver qué forma toma la recta cuando A, B o C son cero o distintos de cero.
+        Los ocho casos se resumen en dos tarjetas:
+      </p>
+      <div class="casos">
+        <div class="prob">
+          <strong>Si A = 0</strong>
+          <ul>
+            <li>B = 0, C = 0: <strong>indeterminada</strong> <Math tex="0x+0y+0=0" display={false} /> — todo (x, y) la satisface.</li>
+            <li>B = 0, C ≠ 0: <strong>imposible</strong> — ningún punto la satisface.</li>
+            <li>B ≠ 0, C = 0: <Math tex="y=0" display={false} />, <strong>eje ox</strong>.</li>
+            <li>B ≠ 0, C ≠ 0: <Math tex="y=-(C/B)" display={false} />, <strong>paralela a ox</strong>.</li>
+          </ul>
+        </div>
+        <div class="prob">
+          <strong>Si A ≠ 0</strong>
+          <ul>
+            <li>B = 0, C = 0: <Math tex="x=0" display={false} />, <strong>eje oy</strong>.</li>
+            <li>B = 0, C ≠ 0: <Math tex="x=-(C/A)" display={false} />, <strong>paralela a oy</strong>.</li>
+            <li>B ≠ 0, C = 0: <Math tex="y=-(A/B)\cdot x" display={false} />, <strong>pasa por el origen</strong>.</li>
+            <li>
+              Ninguno nulo: corta a ox en <Math tex="(-C/A,0)" display={false} /> y a oy en
+              <Math tex="(0,-C/B)" display={false} />.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p>Cambiá los coeficientes y mirá cómo queda la recta en cada caso:</p>
+      <CalcRectaABC />
+
+      <style>
+        .casos {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: var(--space-3);
+          margin-block: var(--space-3);
+        }
+        .casos > * {
+          min-inline-size: 0;
+        }
+        .casos ul {
+          margin-block: 8px 0;
+          padding-inline-start: 20px;
+        }
+        .casos li {
+          margin-block: 4px;
+        }
+        @media (max-width: 48rem) {
+          .casos {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+
+      <h3>1.12. Orientación de una recta</h3>
+      <p>Las rectas con m ≠ 0 se orientan en dos sentidos.</p>
+      <Split>
+        <Figura simbolo="recta-orient-pos" descripcion="Recta creciente y igual a 2x menos 5" viewBox="0 0 300 200" />
+        <div>
+          <p><strong>Caso a.</strong> m &gt; 0: va del tercer al primer cuadrante.</p>
+          <Math tex="y = 2x - 5" />
+        </div>
+      </Split>
+      <Split>
+        <Figura simbolo="recta-orient-neg" descripcion="Recta decreciente y igual a menos x más 4" viewBox="0 0 300 200" />
+        <div>
+          <p><strong>Caso b.</strong> m &lt; 0: va del segundo al cuarto cuadrante.</p>
+          <Math tex="y = -x + 4" />
+        </div>
+      </Split>
+    </Seccion>
+
+    <Seccion id="s2" tituloHtml="2 — <em>RECTAS PARALELAS</em>">
+      <Split>
+        <Figura simbolo="rectas-paralelas" descripcion="Dos rectas paralelas con ángulos alfa iguales" viewBox="0 0 320 180" />
+        <div>
+          <p>
+            Dadas <Math tex="y = mx+n" display={false} /> y
+            <Math tex="y = m'x+n'" display={false} /> paralelas, forman el mismo ángulo con
+            <Math tex="\overrightarrow{ox}" display={false} />:
+          </p>
+          <Math tex="\alpha = \alpha' \qquad \operatorname{tg}\,\alpha = \operatorname{tg}\,\alpha' \qquad \boxed{m = m'}" />
+          <p>Condición necesaria (no suficiente: si n = n′ son coincidentes):</p>
+        </div>
+      </Split>
+      <Math tex="\boxed{m = m' \;\begin{cases} n = n' & \text{coincidencia} \\ n \neq n' & \text{paralelismo} \end{cases}}" />
+    </Seccion>
+
+    <Seccion id="s3" tituloHtml="3 — <em>RECTAS PERPENDICULARES</em>">
+      <Split>
+        <Figura simbolo="rectas-perp" descripcion="Dos rectas perpendiculares r y r prima" viewBox="0 0 300 200" />
+        <div>
+          <p>Dadas (r) <Math tex="y = mx+n" display={false} /> y (r′) <Math tex="y = m'x+n'" display={false} />:</p>
+          <Math tex="\gamma + \beta = 180^{\circ} \quad \text{(plano)}" />
+          <Math tex="\alpha + \gamma = 90^{\circ} \quad \text{(triángulo rectángulo)}" />
+          <p>
+            Restando: <Math tex="\beta - \alpha = 90^{\circ}" display={false} />, o sea
+            <Math tex="\beta = \alpha + 90^{\circ}" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <Math tex="\operatorname{tg}\,\beta = \operatorname{tg}\,(\alpha + 90^{\circ}) = \frac{-1}{\operatorname{tg}\,\alpha}" />
+      <p>Con <Math tex="m = \operatorname{tg}\,\alpha" display={false} />, <Math tex="m' = \operatorname{tg}\,\beta" display={false} />:</p>
+      <Math tex="\boxed{m' = \frac{-1}{m}}" />
+      <p>Coeficientes inversos y de signo contrario. La perpendicular a <Math tex="y = mx+n" display={false} /> es <Math tex="y = -\frac{1}{m}\,x + n" display={false} />.</p>
+    </Seccion>
+
+    <Seccion id="s4" tituloHtml="4 — <em>DISTANCIA DE UN PUNTO A UNA RECTA</em>">
+      <Split>
+        <Figura simbolo="dist-punto-recta" descripcion="Distancia h del punto P a la recta r" viewBox="0 0 300 200" />
+        <div>
+          <p>
+            Dado <Math tex="P(x_0,y_0)" display={false} /> y la recta (r)
+            <Math tex="Ax+By+C=0" display={false} />, la distancia h es la longitud del segmento
+            perpendicular de P a (r).
+          </p>
+          <Math tex="\boxed{h = \left|\frac{Ax_0+By_0+C}{\pm\sqrt{A^2+B^2}}\right|}" />
+        </div>
+      </Split>
+      <Nota etiqueta="NOTA">
+        USAR VALOR ABSOLUTO: LA DISTANCIA ES SIEMPRE POSITIVA. Para la recta
+        <Math tex="y = Mx+N" display={false} /> vale
+        <Math tex="h = \left|\frac{y_0-Mx_0-N}{\pm\sqrt{1+M^2}}\right|" display={false} />.
+        Caso particular: distancia del origen: <Math tex="|C|/\sqrt{A^2+B^2}" display={false} />.
+      </Nota>
+      <div class="prob">
+        <strong>Ejemplo.</strong> Distancia de P(−3, 4) a y = −2x + 1, o sea 2x + y − 1 = 0:
+        <Math tex="h = \frac{|2(-3)+4-1|}{\sqrt{5}} = \frac{3}{\sqrt{5}} = \frac{3\sqrt{5}}{5}" />
+      </div>
+    </Seccion>
+
+    <Seccion id="s5" tituloHtml="5 — <em>ÁNGULO DE DOS RECTAS · PARALELISMO Y PERPENDICULARIDAD</em>">
+      <Split>
+        <Figura simbolo="angulo-rectas" descripcion="Ángulo omega entre las rectas r y r prima" viewBox="0 0 300 200" />
+        <div>
+          <p>Dadas (r) <Math tex="y = mx+n" display={false} /> y (r′) <Math tex="y = m'x+n'" display={false} />:</p>
+          <Math tex="\omega = \alpha - \beta \qquad \operatorname{tg}\,\omega = \operatorname{tg}\,(\alpha-\beta)" />
+          <Math tex="\operatorname{tg}\,(\alpha-\beta) = \frac{\operatorname{tg}\,\alpha-\operatorname{tg}\,\beta}{1+\operatorname{tg}\,\alpha\cdot\operatorname{tg}\,\beta}" />
+        </div>
+      </Split>
+      <Math tex="\boxed{\operatorname{tg}\,\omega = \frac{m-m'}{1+m\cdot m'}}" />
+      <Nota etiqueta="OJO">
+        <Math tex="\omega" display={false} /> SE MIDE EN SENTIDO ANTIHORARIO, DE r′ A r.
+      </Nota>
+      <p>
+        Si son perpendiculares, <Math tex="\omega = 90^{\circ}" display={false} /> no tiene tangente:
+        el denominador vale cero, <Math tex="1+m\cdot m' = 0" display={false} />. Si son paralelas,
+        <Math tex="\omega = 0^{\circ}" display={false} />, el numerador vale cero,
+        <Math tex="m - m' = 0" display={false} />.
+      </p>
+      <p>En forma implícita <Math tex="Ax+By+C=0" display={false} />, <Math tex="A'x+B'y+C'=0" display={false} />, con <Math tex="m = -\frac{A}{B}" display={false} />, <Math tex="m' = -\frac{A'}{B'}" display={false} />:</p>
+      <Math tex="\text{Paralelismo: } \boxed{AB'-A'B = 0} \qquad \text{Perpendicularidad: } \boxed{AA'+BB' = 0}" />
+      <Math tex="\operatorname{tg}\,\omega = -\,\frac{AB'-A'B}{AA'+BB'}" />
+    </Seccion>
+
+    <Seccion id="s6" tituloHtml="6 — <em>ÁREA DE UN TRIÁNGULO</em>">
+      <Split>
+        <Figura simbolo="plano-triangulo" descripcion="Triángulo P1 P2 P3 con base P2P3" viewBox="0 0 300 170" />
+        <div>
+          <p>
+            Vértices <Math tex="P_1(x_1,y_1)" display={false} />,
+            <Math tex="P_2(x_2,y_2)" display={false} />,
+            <Math tex="P_3(x_3,y_3)" display={false} />. Base
+            <Math tex="\overline{P_2P_3} = \sqrt{(x_3-x_2)^2+(y_3-y_2)^2}" display={false} />,
+            recta <Math tex="P_2P_3" display={false} />:
+            <Math tex="(x_3-x_2)(y-y_2)-(y_3-y_2)(x-x_2) = 0" display={false} />.
+            La altura h es la distancia de <Math tex="P_1" display={false} /> a esa recta.
+          </p>
+        </div>
+      </Split>
+      <Math tex="\text{Área } P_1P_2P_3 = \frac{1}{2}\,\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\big]" />
+      <Nota etiqueta="NOTA">
+        NUMERAR LOS VÉRTICES EN SENTIDO ANTIHORARIO PARA QUE LA FÓRMULA DÉ UN VALOR POSITIVO.
+      </Nota>
+    </Seccion>
+
+    <Seccion id="s7" tituloHtml="7 — <em>REGIONES DEL PLANO</em>">
+      <h3>9.1. Caso particular</h3>
+      <Split>
+        <Figura simbolo="regiones" descripcion="Recta x más y más 1 igual a cero con semiplanos positivo y negativo" viewBox="0 0 300 200" />
+        <div>
+          <p>
+            Toda recta <Math tex="Ax+By+C=0" display={false} /> divide al plano en dos regiones:
+            <Math tex="Ax+By+C \gt 0" display={false} /> y <Math tex="Ax+By+C \lt 0" display={false} />.
+          </p>
+          <p>
+            Sea <Math tex="x+y+1 = 0" display={false} />: el origen (0, 0) da +1, queda en la
+            región positiva.
+          </p>
+        </div>
+      </Split>
+      <h3>9.2. Caso general</h3>
+      <p>
+        Dada <Math tex="F(x,y) = 0" display={false} />, el plano queda dividido en dos regiones y
+        la curva: <Math tex="f(x,y) \lt 0" display={false} />,
+        <Math tex="f(x,y) = 0" display={false} />, <Math tex="f(x,y) \gt 0" display={false} />.
+      </p>
+      <div class="prob">
+        <strong>Ejemplo.</strong> La recta (r) −2x + 5y + 3 = 0 es borde de dos semiplanos.
+        ¿Está A(5, 1) en el mismo semiplano que el origen? f(0,0) = 3 &gt; 0;
+        f(5,1) = −10 + 5 + 3 = −2 &lt; 0. No, están en semiplanos opuestos.
+      </div>
+    </Seccion>
+
+    <Seccion id="s8" tituloHtml="8 — <em>PREGUNTAS DE EXÁMENES </em>">
+      <p><em>¿Qué se pregunta y cómo se pregunta? Numeración consecutiva 1–20; entre paréntesis el número original del libro.</em></p>
+      <div class="prob">
+        <strong>1)</strong> a) Distancia de un punto a una recta. b) Distancia del origen a ax + by + c = 0.
+        <RevealSolucion
+          boton="Solución 1)"
+          solucion="a) h=|Ax0+By0+C|/√(A²+B²). b) Origen (0,0): h=|C|/√(A²+B²)."
+        />
+      </div>
+      <div class="prob">
+        <strong>2)</strong> a) Intersección de dos rectas. Discusión. Condición de paralelismo.
+        b) Rectas perpendiculares.
+        <RevealSolucion
+          boton="Solución 2)"
+          solucion="a) Sistema Ax+By+C=0, A'x+B'y+C'=0. Si AB'−A'B≠0: un punto. Si =0: paralelas o coincidentes (ver n vs n'). Paralelismo explícito m=m'. b) m'=−1/m; implícito AA'+BB'=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>3)</strong> Área de un triángulo.
+        <RevealSolucion
+          boton="Solución 3)"
+          solucion="Área=1/2·[(x3−x2)(y1−y2)−(y3−y2)(x1−x2)], vértices en antihorario para valor positivo."
+        />
+      </div>
+      <div class="prob">
+        <strong>4)</strong> <span class="orig">(orig. 6c)</span> Distancia de P(−3, 4) a la recta y = −2x + 1.
+        <RevealSolucion
+          boton="Solución 4)"
+          solucion="2x+y−1=0. h=|2(−3)+4−1|/√5=3/√5=3√5/5."
+        />
+      </div>
+      <div class="prob">
+        <strong>5)</strong> <span class="orig">(orig. 7)</span> Demostrar que la condición necesaria para que (r) y (r′) de ecuaciones
+        ax + by + c = 0 y a′x + b′y + c′ = 0 sean paralelas (no coincidentes) es a/b = a′/b′.
+        ¿Es suficiente?
+        <RevealSolucion
+          boton="Solución 5)"
+          solucion="m=−a/b, m'=−a'/b'. Paralelas ⇒ m=m' ⇒ a/b=a'/b'. No es suficiente: falta que c/b≠c'/b' (si también iguales, son coincidentes)."
+        />
+      </div>
+
+      <div class="prob">
+        <strong>6)</strong> <span class="orig">(orig. 9)</span> Coeficiente angular de una recta.
+        <RevealSolucion
+          boton="Solución 6)"
+          solucion="m=tg ω, tangente del ángulo con OX. En y=mx+n es la pendiente; en Ax+By+C=0, m=−A/B (B≠0)."
+        />
+      </div>
+      <div class="prob">
+        <strong>7)</strong> <span class="orig">(orig. 11b–c)</span> b) Signo del semiplano. c) La recta (r) −2x + 5y + 3 = 0 es borde de
+        dos semiplanos. ¿Está A(5, 1) en el mismo semiplano que el origen? Justifique.
+        <RevealSolucion
+          boton="Solución 7)"
+          solucion="b) El signo de Ax0+By0+C indica el semiplano. c) f(0,0)=3>0, f(5,1)=−2<0: semiplanos opuestos."
+        />
+      </div>
+      <div class="prob">
+        <strong>8)</strong> <span class="orig">(orig. 12)</span> Ecuación general de la recta. Directo y recíproco. Casos: a) O(0,0)
+        pertenece; b) no paralela a ejes y el origen no le pertenece; c) paralela a ox̅ o a oy̅.
+        <RevealSolucion
+          boton="Solución 8)"
+          solucion="a) C=0. b) A,B,C≠0: corta en (−C/A,0) y (0,−C/B). c) y=−C/B (paralela OX) o x=−C/A (paralela OY)."
+        />
+      </div>
+      <div class="prob">
+        <strong>9)</strong> <span class="orig">(orig. 13a–b)</span> a) Ángulo de dos rectas. b) Condición de perpendicularidad.
+        <RevealSolucion
+          boton="Solución 9)"
+          solucion="a) tg ω=(m−m')/(1+mm'), ω antihorario de r' a r. b) 1+mm'=0, o sea m'=−1/m; implícito AA'+BB'=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>10)</strong> <span class="orig">(orig. 14a,c,d)</span> a) Definir coeficiente angular. c) Deducir la explícita.
+        d) Ecuación general.
+        <RevealSolucion
+          boton="Solución 10)"
+          solucion="a) m=tg ω. c) Por traslación desde y=mx se llega a y=mx+n. d) Ax+By+C=0 con (A,B)≠(0,0) representa una recta y viceversa."
+        />
+      </div>
+      <div class="prob">
+        <strong>11)</strong> <span class="orig">(orig. 15a)</span> Intersección de rectas. Condición de paralelismo y coincidencia.
+        <RevealSolucion
+          boton="Solución 11)"
+          solucion="Si AB'−A'B≠0 hay un corte único. Si =0 y n≠n' (o C/B≠C'/B') paralelas; si iguales, coincidentes."
+        />
+      </div>
+      <div class="prob">
+        <strong>12)</strong> <span class="orig">(orig. 17a)</span> Condición de paralelismo en explícita e implícita. Demostrar.
+        <RevealSolucion
+          boton="Solución 12)"
+          solucion="Explícita m=m'. Implícita: −A/B=−A'/B' ⇒ AB'−A'B=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>13)</strong> <span class="orig">(orig. 18a–b)</span> a) Ángulo de dos rectas. b) Recta (r) con A(x₀,y₀) ∈ (r) que forme
+        π/4 con ax + by + c = 0.
+        <RevealSolucion
+          boton="Solución 13)"
+          solucion="a) tg ω=(m−m')/(1+mm'). b) Sea m' conocido y tg(π/4)=1: (m−m')/(1+mm')=±1, se despeja m y se usa y−y0=m(x−x0). Dos soluciones."
+        />
+      </div>
+      <div class="prob">
+        <strong>14)</strong> <span class="orig">(orig. 19)</span> a) Intersección de rectas; resolución y discusión. b) Paralelismo y
+        perpendicularidad.
+        <RevealSolucion
+          boton="Solución 14)"
+          solucion="a) Resolver el sistema 2×2; discutir según AB'−A'B. b) Paralelismo AB'−A'B=0; perpendicularidad AA'+BB'=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>15)</strong> <span class="orig">(orig. 20)</span> Dada (E) Ax + By + C = 0. a) ¿Cuándo es ecuación de una recta?
+        b) Estudiar características, pertenencia de (−B, A) y (2B, −2A), ordenada/abscisa de un
+        punto de (n), punto (k, h) fuera de (n). c) Recta (l) paralela a (n) por P. Distancia (l)–(n).
+        <RevealSolucion
+          boton="Solución 15)"
+          solucion="a) Si (A,B)≠(0,0). b) i) Casos 1.11. ii) Ambos verifican (E). iii) Si B≠0: y=−(Ax+C)/B; si B=0: x=−C/A. iv) Elegir k con h≠−(Ak+C)/B. c) (l): A(x−xp)+B(y−yp)=0; h=|Axp+Byp+C|/√(A²+B²)."
+        />
+      </div>
+      <div class="prob">
+        <strong>16)</strong> <span class="orig">(orig. 22)</span> Condición de alineación de tres puntos.
+        <RevealSolucion
+          boton="Solución 16)"
+          solucion="P3 está en la recta P1P2 ⇔ (y3−y1)(x2−x1)=(y2−y1)(x3−x1). Equivale a área P1P2P3=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>17)</strong> <span class="orig">(orig. 25–26)</span> Ángulo entre rectas y posiciones relativas.
+        <RevealSolucion
+          boton="Solución 17)"
+          solucion="tg ω=(m−m')/(1+mm') o −(AB'−A'B)/(AA'+BB'). Casos: denominador 0 ⇒ 90°; numerador 0 ⇒ 0° (paralelas/coincidentes). Posiciones: secantes, paralelas, coincidentes."
+        />
+      </div>
+
+      <div class="prob">
+        <strong>18)</strong> <span class="orig">(orig. 29b–c)</span> b) Ángulo y perpendicularidad. c) Área del triángulo. (Más distancia
+        punto-recta.)
+        <RevealSolucion
+          boton="Solución 18)"
+          solucion="b) tg ω=(m−m')/(1+mm'); perpendiculares mm'=−1. c) 1/2·[(x3−x2)(y1−y2)−(y3−y2)(x1−x2)] en antihorario. Distancia: |Ax0+By0+C|/√(A²+B²)."
+        />
+      </div>
+      <div class="prob">
+        <strong>19)</strong> <span class="orig">(orig. 30)</span> Ángulo entre rectas. Distancia de un punto a la recta.
+        <RevealSolucion
+          boton="Solución 19)"
+          solucion="Ángulo: tg ω=(m−m')/(1+mm'). Distancia: h=|Ax0+By0+C|/√(A²+B²), siempre positiva."
+        />
+      </div>
+      <div class="prob">
+        <strong>20)</strong> <span class="orig">(orig. 31)</span> Deducir la ecuación de la recta que pasa por dos puntos.
+        <RevealSolucion
+          boton="Solución 20)"
+          solucion="Partir de y−y1=m(x−x1) y hallar m=(y2−y1)/(x2−x1) en el triángulo P1RP2."
+        />
+      </div>
+    </Seccion>
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Cap. 2 “Recta” </p>
+  </footer>
+</BaseLayout>

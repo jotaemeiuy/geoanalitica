@@ -1,0 +1,30 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Calcular área" id="calc-area">
+  <form data-calc="area">
+    <div class="inputs">
+      <label>x₁<input type="number" name="x1" value="0" required /></label>
+      <label>y₁<input type="number" name="y1" value="0" required /></label>
+      <label>x₂<input type="number" name="x2" value="4" required /></label>
+      <label>y₂<input type="number" name="y2" value="0" required /></label>
+      <label>x₃<input type="number" name="x3" value="0" required /></label>
+      <label>y₃<input type="number" name="y3" value="3" required /></label>
+      <button type="submit">Calcular</button>
+    </div>
+    <output data-result aria-live="polite">Área = …</output>
+  </form>
+</CalculatorShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="area"]');
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const a = 0.5 * ((v("x3") - v("x2")) * (v("y1") - v("y2")) - (v("y3") - v("y2")) * (v("x1") - v("x2")));
+    const out = form.querySelector<HTMLOutputElement>("[data-result]");
+    if (out)
+      out.textContent = `Área = ${a.toFixed(4)}${a < 0 ? " (negativo: vértices en sentido horario)" : ""}`;
+  });
+</script>

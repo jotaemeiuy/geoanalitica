@@ -1,0 +1,316 @@
+---
+import Figura from "../components/Figura.astro";
+import Hero from "../components/Hero.astro";
+import Math from "../components/Math.astro";
+import Seccion from "../components/Seccion.astro";
+import Split from "../components/Split.astro";
+import Toc from "../components/Toc.astro";
+import Topbar from "../components/Topbar.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/capitulo1.css";
+---
+
+<BaseLayout
+  title="Capítulo 1 — Puntos y Segmentos | Geometría Analítica"
+  description="Capítulo 1 de Geometría Analítica (Duffour): recta orientada, coordenadas cartesianas y lugar geométrico."
+>
+  <Topbar
+    enlaces={[
+      { href: "/", texto: "← Portada" },
+      { href: "/practico-puntos-segmentos", texto: "Práctico →" },
+      { href: "/formulas", texto: "Fórmulas" },
+      { href: "#s1", texto: "1 · Intro" },
+      { href: "#s2", texto: "2 · Conceptos" },
+      { href: "#s4", texto: "3 · Cartesianas" },
+      { href: "#s8", texto: "4 · Lugar geom." },
+      { href: "#s9", texto: "5 · Exámenes" },
+    ]}
+  />
+
+  <main id="contenido">
+    <Hero
+      kicker="TEORICO 1"
+      numero="1"
+      tituloHtml="PUNTOS <span>Y</span> SEGMENTOS"
+      subtitulo="Geometría Analítica · Capítulo 1"
+    />
+
+    <Toc
+      items={[
+        { href: "#s1", texto: "Introducción histórica" },
+        { href: "#s2", texto: "Conceptos generales (2.1–2.4)" },
+        { href: "#s4", texto: "Coordenadas cartesianas rectangulares" },
+        { href: "#s8", texto: "Lugar geométrico" },
+        { href: "#s9", texto: "Preguntas de exámenes" },
+      ]}
+    />
+
+    <Seccion id="s1" tituloHtml="1 — <em>INTRODUCCIÓN HISTÓRICA</em>">
+      <p>
+        Se acredita a <strong>Descartes</strong> (René Descartes, filósofo y matemático francés, 1596–1650)
+        el primero en introducir el álgebra en el estudio de la Geometría, creando una nueva rama de
+        la Matemática que se denominó <strong>Geometría Analítica</strong>, la cual se perfecciona más
+        tarde con la introducción del Cálculo Diferencial.
+      </p>
+      <p>Sus <strong>problemas fundamentales</strong> son:</p>
+      <div class="prob">
+        a) Dada una ecuación, representarla por una curva.<br />b) Dada una curva, definida
+        geométricamente, obtener la ecuación correspondiente.
+      </div>
+    </Seccion>
+
+    <Seccion id="s2" tituloHtml="2 — <em>CONCEPTOS GENERALES</em>">
+      <h3>2.1. Recta orientada</h3>
+      <Split>
+        <Figura simbolo="recta-orientada" descripcion="Recta orientada con sentido positivo" viewBox="0 0 320 120" />
+        <div>
+          <p>
+            Toda recta en que se ha elegido arbitrariamente uno de los sentidos como
+            <strong>positivo</strong>, y como consecuencia el sentido contrario es negativo, recibe el
+            nombre de <strong>recta orientada</strong>.
+          </p>
+          <p>
+            Sean A y B dos puntos de una recta orientada en el sentido positivo indicado con la
+            flecha. Con la notación AB se representa al segmento de recta de
+            <strong>origen A y extremo B</strong>, cuya orientación es de A a B.
+          </p>
+          <p>
+            Tomando el segmento <strong>u</strong> como unidad de medida, la notación <Math
+              tex="\overline{AB}"
+              display={false}
+            /> designa al valor numérico (un número real) del segmento orientado AB, medido con la unidad
+            u: <strong>medida algebraica del segmento AB</strong>.
+          </p>
+        </div>
+      </Split>
+
+      <h3>2.2. Abscisa de un punto</h3>
+      <Split>
+        <Figura simbolo="abscisa-eje" descripcion="Eje orientado con origen O y punto P" viewBox="0 0 320 130" />
+        <div>
+          <p>
+            Sobre una recta orientada, llamada <strong>eje <Math tex="\overrightarrow{ox}" display={false} /></strong>,
+            en que se fijó un punto O (origen), al que le corresponde el número cero, se llama
+            <strong>abscisa del punto P</strong> a la medida de la distancia de O a P, o sea <Math
+              tex="\overline{OP}"
+              display={false}
+            />.
+          </p>
+          <p>
+            El origen O, cuya abscisa es cero, divide a la recta orientada en dos semirrectas: la
+            <strong>positiva</strong> (a la derecha, abscisas positivas) y la
+            <strong>negativa</strong> (a la izquierda, abscisas negativas). Existe así una
+            <strong>correspondencia biunívoca entre los puntos de la recta y los números reales</strong>.
+          </p>
+        </div>
+      </Split>
+
+      <h3>2.3. Distancia entre dos puntos sobre el eje ox̅</h3>
+      <Split>
+        <div style="display:grid;gap:16px;align-content:start">
+          <Figura simbolo="distancia-eje" descripcion="Distancia entre P1 y P2 sobre el eje" viewBox="0 0 320 90" />
+          <Figura simbolo="distancia-eje-ab" descripcion="Eje con puntos O, A y B" viewBox="0 0 320 90" />
+        </div>
+        <div>
+          <p>
+            Sobre una recta orientada (eje <Math tex="\overrightarrow{ox}" display={false} />) se
+            consideran dos puntos <Math tex="P_1" display={false} /> y <Math
+              tex="P_2"
+              display={false}
+            /> de abscisas <Math tex="x_1" display={false} /> y <Math tex="x_2" display={false} />.
+            Se cumple:
+          </p>
+          <Math tex="\overline{P_1P_2}=\overline{OP_2}-\overline{OP_1}\qquad\boxed{\overline{P_1P_2}=x_2-x_1}" />
+          <p>
+            O sea que la distancia entre dos puntos cualesquiera del eje es igual a la
+            <strong>diferencia entre la abscisa del segundo y la del primero</strong>. De esta manera:
+            <Math tex="\overline{AB}=-\overline{BA}" display={false} />, <Math
+              tex="\overline{AB}=x_b-x_a"
+              display={false}
+            />, <Math tex="\overline{BA}=x_a-x_b" display={false} />.
+          </p>
+        </div>
+      </Split>
+
+      <h3>2.4. Punto medio</h3>
+      <Split>
+        <Figura simbolo="punto-medio-eje" descripcion="Punto medio M entre P1 y P2" viewBox="0 0 320 80" />
+        <div>
+          <p>
+            Siendo <Math tex="x_m" display={false} /> la abscisa del punto medio M entre <Math
+              tex="P_1"
+              display={false}
+            /> y <Math tex="P_2" display={false} />, las distancias <Math
+              tex="\overline{P_1M}"
+              display={false}
+            /> y <Math tex="\overline{MP_2}" display={false} /> son iguales: <Math
+              tex="\overline{P_1M}=x_m-x_1"
+              display={false}
+            />, <Math tex="\overline{MP_2}=x_2-x_m" display={false} /> ⇒ <Math
+              tex="x_m-x_1=x_2-x_m"
+              display={false}
+            />.
+          </p>
+          <Math tex="2x_m=x_1+x_2 \Longrightarrow \boxed{x_m=\frac{x_1+x_2}{2}}" />
+          <p>La abscisa del punto medio es la <strong>semisuma de las abscisas de los extremos</strong>.</p>
+        </div>
+      </Split>
+
+    </Seccion>
+
+    <Seccion id="s4" tituloHtml="3 — <em>SISTEMA DE COORDENADAS CARTESIANAS RECTANGULARES</em>">
+      <h3>3.1. Definición</h3>
+      <Split>
+        <Figura simbolo="cuadrantes" descripcion="Cuatro cuadrantes del plano cartesiano" viewBox="0 0 300 220" />
+        <div>
+          <p>
+            Sistema formado por dos ejes perpendiculares <Math tex="\overrightarrow{ox}" display={false} /> y
+            <Math tex="\overrightarrow{oy}" display={false} /> cuyos orígenes coinciden. El eje <Math
+              tex="\overrightarrow{ox}"
+              display={false}
+            />, horizontal graduado hacia la derecha, y el eje <Math
+              tex="\overrightarrow{oy}"
+              display={false}
+            />, vertical graduado hacia arriba, dividen al plano x,y en cuatro regiones llamadas
+            <strong>cuadrantes</strong> (I, II, III, IV). A cada punto P le corresponde un par de valores
+            x e y, sus <strong>coordenadas rectangulares</strong>: x es la <strong>abscisa</strong> e y
+            la <strong>ordenada</strong>.
+          </p>
+        </div>
+      </Split>
+      <Split>
+        <Figura simbolo="punto-xy" descripcion="Punto P(x, y) en el primer cuadrante" viewBox="0 0 300 170" />
+        <div>
+          <p>
+            <strong>Notación P(x, y):</strong> la abscisa x se escribe en primer lugar; por eso (x, y)
+            es un <strong>par ordenado</strong>. Dos pares <Math
+              tex="(x_1,y_1)"
+              display={false}
+            />, <Math tex="(x_2,y_2)" display={false} /> representan al mismo punto ⇔ <Math
+              tex="x_1=x_2,\ y_1=y_2"
+              display={false}
+            />.
+          </p>
+          <p>
+            P(x, y) con x, y &gt; 0 está en el <strong>primer cuadrante (I)</strong>; x &lt; 0, y &gt; 0
+            en el <strong>segundo (II)</strong>; x &lt; 0, y &lt; 0 en el <strong>tercero (III)</strong>;
+            x &gt; 0, y &lt; 0 en el <strong>cuarto (IV)</strong>. Los puntos de ordenada cero P(x, 0)
+            están sobre <Math tex="\overrightarrow{ox}" display={false} />; los de abscisa cero P(0, y)
+            sobre <Math tex="\overrightarrow{oy}" display={false} />. El origen es (0, 0).
+          </p>
+        </div>
+      </Split>
+
+      <h3>3.2. Punto medio entre dos puntos cualesquiera</h3>
+      <Split>
+        <Figura simbolo="punto-medio-plano" descripcion="Punto medio entre P1 y P2 en el plano" viewBox="0 0 300 180" />
+        <div>
+          <p>
+            El punto medio entre <Math tex="P_1(x_1,y_1)" display={false} /> y <Math
+              tex="P_2(x_2,y_2)"
+              display={false}
+            /> viene dado por:
+          </p>
+          <Math tex="\boxed{x_m=\frac{x_1+x_2}{2}\qquad y_m=\frac{y_1+y_2}{2}}" />
+        </div>
+      </Split>
+
+      <h3>3.3. Simetría</h3>
+      <Split>
+        <Figura simbolo="simetria" descripcion="Punto S simétrico de P respecto de C" viewBox="0 0 300 190" />
+        <div>
+          <p>
+            Que S sea <strong>simétrico de P con respecto a C</strong> significa que <Math
+              tex="\overline{PC}=\overline{CS}"
+              display={false}
+            />; C es el punto medio entre S y P. Con <Math tex="P(x_p,y_p)" display={false} />, <Math
+              tex="C(x_c,y_c)"
+              display={false}
+            />, <Math tex="S(x_s,y_s)" display={false} />, despejando de las fórmulas de punto medio:
+          </p>
+          <Math tex="x_c=\frac{x_p+x_s}{2}\;\; \boxed{x_s=2x_c-x_p}" />
+          <Math tex="y_c=\frac{y_p+y_s}{2}\;\; \boxed{y_s=2y_c-y_p}" />
+        </div>
+      </Split>
+
+      <h3>3.4. Distancia entre dos puntos</h3>
+      <Split>
+        <Figura simbolo="distancia-plano" descripcion="Triángulo rectángulo P1 R P2 para Pitágoras" viewBox="0 0 300 230" />
+        <div>
+          <p>
+            Dados <Math tex="P_1(x_1,y_1)" display={false} /> y <Math
+              tex="P_2(x_2,y_2)"
+              display={false}
+            />, por Pitágoras en el triángulo <Math tex="P_1RP_2" display={false} />: <Math
+              tex="\overline{P_1P_2}^2=\overline{P_1R}^2+\overline{P_2R}^2"
+              display={false}
+            />. Además <Math tex="\overline{P_1R}=(x_2-x_1)" display={false} />, <Math
+              tex="\overline{P_2R}=(y_2-y_1)"
+              display={false}
+            />. Por tanto:
+          </p>
+          <Math tex="\overline{P_1P_2}^2=(x_2-x_1)^2+(y_2-y_1)^2" />
+          <Math tex="\boxed{\overline{P_1P_2}=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}}" />
+        </div>
+      </Split>
+    </Seccion>
+
+    <Seccion id="s8" tituloHtml="4 — <em>DEFINICIÓN DE LUGAR GEOMÉTRICO</em>">
+      <p>Un <strong>lugar geométrico</strong> es un conjunto de puntos del plano que tienen una propiedad en común.</p>
+      <p>
+        Determinar un lugar geométrico, cuando cada punto está dado por sus coordenadas cartesianas x
+        e y, es hallar la función <strong>y = f(x)</strong> (forma explícita) o
+        <strong>f(x, y) = 0</strong> (forma implícita) que expresa la propiedad común del conjunto.
+      </p>
+      <p>
+        En los próximos capítulos hallaremos los lugares que estudia la geometría analítica en el
+        plano y que se representan por una ecuación de segundo grado en x e y (circunferencia,
+        parábola, elipse, hipérbola y, como caso límite, rectas). Todas reciben el nombre genérico de
+        <strong>CÓNICAS</strong>.
+      </p>
+    </Seccion>
+
+    <Seccion id="s9" tituloHtml="5 — <em>RECOPILACIÓN DE PREGUNTAS DE EXÁMENES TEÓRICOS</em>">
+      <p><em>¿Qué se pregunta y cómo se pregunta?</em></p>
+      <div class="prob">
+        <strong>1)</strong> a) Dar y demostrar la fórmula de distancia entre dos puntos en un sistema
+        cartesiano ortogonal. b) Calcular los puntos de ordenada 4 que distan 10 unidades del punto
+        A(3, −2).
+        <RevealSolucion
+          boton="Resolver 1b)"
+          solucion="(x−3)²+(4+2)²=100 → (x−3)²=64 → x=11 o x=−5. Puntos: (11,4) y (−5,4)."
+        />
+      </div>
+      <div class="prob">
+        <strong>2)</strong> a) Indicar en qué cuadrante está cada uno de estos puntos:
+        M(−5, 2), N(3, −4), P(−2, −7) y Q(6, 1).
+        b) Hallar los puntos del eje OX que distan 5 unidades del punto A(2, 3).
+        <RevealSolucion
+          boton="Resolver 2)"
+          solucion="a) M: II (x<0, y>0); N: IV (x>0, y<0); P: III (x<0, y<0); Q: I (x>0, y>0). b) (x−2)²+(0−3)²=25 → (x−2)²=16 → x=6 o x=−2. Puntos: (6,0) y (−2,0)."
+        />
+      </div>
+      <div class="prob">
+        <strong>3)</strong> a) Hallar el punto medio entre A(−1, 4) y B(5, −2).
+        b) El punto M(3, −1) es el punto medio entre P(7, 2) y Q. Hallar Q.
+        <RevealSolucion
+          boton="Resolver 3)"
+          solucion="a) M=((−1+5)/2, (4−2)/2)=(2,1). b) Q=(2·3−7, 2·(−1)−2)=(−1,−4)."
+        />
+      </div>
+      <div class="prob">
+        <strong>4)</strong> El punto P(4, −3) tiene por simétrico a S con respecto
+        al centro C(−1, 2). Hallar las coordenadas de S.
+        <RevealSolucion
+          boton="Resolver 4)"
+          solucion="S=(2·(−1)−4, 2·2−(−3))=(−6,7). Verificación: C=((4−6)/2, (−3+7)/2)=(−1,2)."
+        />
+      </div>
+    </Seccion>
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Cap. 1 “Puntos y segmentos” </p>
+  </footer>
+</BaseLayout>

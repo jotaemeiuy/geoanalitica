@@ -1,0 +1,68 @@
+---
+import ChipsNav from "../components/ChipsNav.astro";
+import FormulaCard from "../components/FormulaCard.astro";
+import Masthead from "../components/Masthead.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/formulas.css";
+---
+
+<BaseLayout
+  title="Geometría Analítica — Portada"
+  description="Geometría Analítica (Duffour): capítulos teóricos de puntos, segmentos y recta, práctico con soluciones y resumen de fórmulas con calculadoras."
+  wide
+>
+  <main id="contenido">
+    <Masthead linea1="GEOMETRÍA ANALÍTICA" linea2="GUSTAVO A. DUFFOUR" />
+    <p class="sub">Teórico y práctico · <strong>orden de lectura</strong></p>
+
+    <ChipsNav
+      etiqueta="Navegación del sitio"
+      enlaces={[
+        { href: "/capitulo-1", texto: "1 · Puntos y segmentos" },
+        { href: "/practico-puntos-segmentos", texto: "2 · Práctico" },
+        { href: "/capitulo-2", texto: "3 · La recta" },
+        { href: "/formulas", texto: "4 · Fórmulas" },
+      ]}
+    />
+
+    <div class="grid">
+      <FormulaCard titulo="1 · Puntos y segmentos">
+        <p>
+          Recta orientada, abscisa y distancia sobre el eje, punto medio,
+          coordenadas cartesianas, simetría y lugar geométrico. Con preguntas de
+          exámenes resueltas.
+        </p>
+        <p><a class="entrar" href="/capitulo-1">Entrar al capítulo 1 →</a></p>
+      </FormulaCard>
+
+      <FormulaCard titulo="2 · Práctico: puntos y segmentos">
+        <p>
+          Medida algebraica, distancia, punto medio y simetría, con ejemplos
+          resueltos y 21 problemas propuestos con solución.
+        </p>
+        <p><a class="entrar" href="/practico-puntos-segmentos">Entrar al práctico →</a></p>
+      </FormulaCard>
+
+      <FormulaCard titulo="3 · La recta">
+        <p>
+          Ecuaciones de la recta, paralelismo y perpendicularidad, distancia de
+          un punto a una recta, ángulo entre rectas, área del triángulo y
+          regiones del plano.
+        </p>
+        <p><a class="entrar" href="/capitulo-2">Entrar al capítulo 2 →</a></p>
+      </FormulaCard>
+
+      <FormulaCard titulo="4 · Resumen de fórmulas" variante="accent">
+        <p>
+          Todas las fórmulas juntas —punto medio, distancia, recta, ángulo y
+          área— con calculadoras interactivas para verificar resultados.
+        </p>
+        <p><a class="entrar" href="/formulas">Entrar a fórmulas →</a></p>
+      </FormulaCard>
+    </div>
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA</p>
+  </footer>
+</BaseLayout>
