@@ -4,3 +4,8 @@ dist/
 .tgrep/
 .agents/
 AGENTS.md
+.vercel/
+.env
+.env.local
+DS_Store
+*.tsbuildinfo

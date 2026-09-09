@@ -1,10 +1,10 @@
-import { defineConfig } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
-import remarkMath from "remark-math";
+import { defineConfig } from "astro/config";
 import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 export default defineConfig({
-  site: "https://localhost:4321",
+  site: "https://geoanalitica.vercel.app",
   output: "static",
   // Astro 7 cambió el default a 'jsx' (pega palabras alrededor de elementos
   // inline). Se fija en `true` para conservar el comportamiento clásico,
