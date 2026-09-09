@@ -548,6 +548,27 @@
 <text x="24" y="36" font-size="12">x + y + 1 = 0</text>
 <text x="124" y="162" font-size="12">O</text>
 </symbol>
+<symbol id="recta-ej7" viewBox="0 0 300 220">
+<line x1="10" y1="170" x2="290" y2="170" stroke="#222" stroke-width="1.5" />
+<polygon points="290,170 280,165 280,175" fill="#222" />
+<line x1="60" y1="210" x2="60" y2="10" stroke="#222" stroke-width="1.5" />
+<polygon points="60,10 55,20 65,20" fill="#222" />
+<line x1="0" y1="85" x2="120" y2="205" stroke="#222" stroke-width="2" />
+<line x1="10" y1="95" x2="10" y2="170" stroke="#222" stroke-width="1.2" stroke-dasharray="4 3" />
+<line x1="60" y1="95" x2="10" y2="95" stroke="#222" stroke-width="1.2" stroke-dasharray="4 3" />
+<line x1="110" y1="195" x2="110" y2="170" stroke="#222" stroke-width="1.2" stroke-dasharray="4 3" />
+<line x1="60" y1="195" x2="110" y2="195" stroke="#222" stroke-width="1.2" stroke-dasharray="4 3" />
+<circle cx="10" cy="95" r="5" fill="#222" />
+<circle cx="110" cy="195" r="5" fill="#222" />
+<text x="48" y="184" font-size="13">O</text>
+<text x="282" y="184" font-size="13">x</text>
+<text x="68" y="25" font-size="14">y</text>
+<text x="2" y="186" font-size="12">−2</text>
+<text x="106" y="186" font-size="12">2</text>
+<text x="44" y="99" font-size="12">3</text>
+<text x="40" y="199" font-size="12">−1</text>
+<text x="128" y="200" font-size="13">y = −x + 1</text>
+</symbol>
 <symbol id="recta-orient-pos" viewBox="0 0 300 200">
 <line x1="10" y1="130" x2="290" y2="130" stroke="#222" stroke-width="1.5" />
 <polygon points="290,130 280,125 280,135" fill="#222" />

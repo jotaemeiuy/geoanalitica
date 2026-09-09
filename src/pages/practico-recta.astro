@@ -1,0 +1,542 @@
+---
+import ChapterNav from "../components/ChapterNav.astro";
+import Figura from "../components/Figura.astro";
+import Hero from "../components/Hero.astro";
+import Math from "../components/Math.astro";
+import Nota from "../components/Nota.astro";
+import Seccion from "../components/Seccion.astro";
+import Split from "../components/Split.astro";
+import Toc from "../components/Toc.astro";
+import CalcArea from "../components/calculators/CalcArea.astro";
+import CalcPuntoRecta from "../components/calculators/CalcPuntoRecta.astro";
+import CalcRectaABC from "../components/calculators/CalcRectaABC.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/capitulo1.css";
+---
+
+<BaseLayout
+  title="Práctico — La Recta | Geometría Analítica"
+  description="Práctico 2 de Geometría Analítica (Duffour): representación gráfica, punto sobre recta, paralelismo, determinación de la ecuación, intersección, distancia punto-recta, triángulos y área, con 15 problemas propuestos con solución."
+>
+  <main id="contenido">
+    <Hero
+      kicker="PRÁCTICO · 2"
+      numero="4"
+      tituloHtml="LA <span>RECTA</span>"
+      subtitulo="Geometría Analítica · Práctico"
+    />
+
+    <ChapterNav
+      posicion="top"
+      variante="mini"
+      prev={{ href: "/capitulo-2/", titulo: "Cap 2: Recta" }}
+      actual="Práctico: Recta"
+      next={{ href: "/formulas/", titulo: "Fórmulas" }}
+    />
+
+    <Toc
+      items={[
+        { href: "#r1", texto: "Representación gráfica de una recta" },
+        { href: "#r2", texto: "Un punto sobre una recta" },
+        { href: "#r3", texto: "Paralelismo – perpendicularidad" },
+        { href: "#r4", texto: "Determinación de la ecuación" },
+        { href: "#r5", texto: "Intersección de dos rectas" },
+        { href: "#r6", texto: "Tres rectas concurrentes" },
+        { href: "#r7", texto: "Distancia de un punto a una recta" },
+        { href: "#r8", texto: "Datos útiles sobre triángulos" },
+        { href: "#r9", texto: "Área de un triángulo" },
+        { href: "#r10", texto: "Problemas propuestos (1–15)" },
+      ]}
+    />
+
+    <Seccion id="r1" tituloHtml="1 — <em>REPRESENTACIÓN GRÁFICA DE UNA RECTA</em>">
+      <p>
+        La forma más sencilla de dibujar una recta es hallar <strong>dos puntos</strong> de la
+        misma. Para ello se toman dos valores de <Math tex="x" display={false} />, y se calculan
+        los correspondientes valores de <Math tex="y" display={false} />.
+      </p>
+      <Split>
+        <Figura simbolo="recta-ej7" descripcion="Gráfica de la recta y igual a menos x más 1 con los puntos (2,−1) y (−2,3)" viewBox="0 0 300 220" />
+        <div>
+          <p><strong>EJEMPLO 7.</strong> Dibujar la recta <Math tex="y=-x+1" display={false} />.</p>
+          <p>
+            Se efectúa un cuadro dando valores a <Math tex="x" display={false} /> de
+            <Math tex="2" display={false} /> y <Math tex="-2" display={false} /> y calculando los
+            correspondientes valores de <Math tex="y" display={false} />:
+            <Math tex="x=2 \longrightarrow y=-1" display={false} /> ;
+            <Math tex="x=-2 \longrightarrow y=3" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <Nota etiqueta="IMPORTANTE">
+        SE RECOMIENDA AL ESTUDIANTE QUE EXPRESE SIEMPRE LA ECUACIÓN DE UNA RECTA EN LA FORMA
+        <Math tex="y=mx+n" display={false} />. RESULTA MÁS FÁCIL PARA TRABAJAR Y PONE EN EVIDENCIA
+        CUÁL ES EL COEFICIENTE ANGULAR. EN CONSECUENCIA, CUANDO SE ENCUENTRE CON LA ECUACIÓN
+        <Math tex="Ax+By+C=0" display={false} /> DEBE HACER LAS CUENTAS NECESARIAS PARA LLEVARLA A
+        LA OTRA FORMA.
+      </Nota>
+      <CalcRectaABC />
+    </Seccion>
+
+    <Seccion id="r2" tituloHtml="2 — <em>UN PUNTO SOBRE UNA RECTA</em>">
+      <p>
+        Que un punto pertenezca a una recta significa que al sustituir en la ecuación de la recta
+        la <Math tex="x" display={false} /> por la abscisa del punto, y la
+        <Math tex="y" display={false} /> por la ordenada, se obtiene una igualdad numérica.
+      </p>
+      <div class="prob">
+        <strong>EJEMPLO 8.</strong> Calcular <Math tex="\lambda" display={false} /> para que el
+        punto <Math tex="P(1,3)" display={false} /> pertenezca a la recta
+        <Math tex="y=-3x+\lambda" display={false} />.
+        <RevealSolucion
+          boton="Ver resolución"
+          solucion="En y=−3x+λ: 3=−3(1)+λ → λ=6."
+        />
+      </div>
+    </Seccion>
+
+    <Seccion id="r3" tituloHtml="3 — <em>PARALELISMO – PERPENDICULARIDAD</em>">
+      <p>
+        Dadas dos rectas <Math tex="y=mx+n" display={false} /> e
+        <Math tex="y=m'x+n'" display={false} /> se cumple:
+      </p>
+      <div class="prob">
+        Condición de <strong>paralelismo</strong>: <Math tex="m=m'" />
+      </div>
+      <div class="prob">
+        Condición de <strong>perpendicularidad</strong>: <Math tex="m=-\frac{1}{m'}" />
+      </div>
+      <p>
+        Dos rectas son <strong>paralelas</strong> si tienen el mismo coeficiente angular, y
+        <strong>perpendiculares</strong> si sus coeficientes angulares son inversos y de signo
+        contrario.
+      </p>
+      <div class="figuras-2">
+        <Figura simbolo="rectas-paralelas" descripcion="Dos rectas paralelas con igual pendiente" viewBox="0 0 320 180" />
+        <Figura simbolo="rectas-perp" descripcion="Dos rectas perpendiculares" viewBox="0 0 300 200" />
+      </div>
+    </Seccion>
+
+    <Seccion id="r4" tituloHtml="4 — <em>DETERMINACIÓN DE LA ECUACIÓN DE UNA RECTA</em>">
+      <h3>Primer caso</h3>
+      <p>
+        La recta es paralela al eje <Math tex="\overrightarrow{oy}" display={false} /> y pasa por
+        un punto dado de abscisa <Math tex="b" display={false} />. La ecuación de la recta es
+        <Math tex="x=b" display={false} />.
+      </p>
+      <Split>
+        <Figura simbolo="recta-x-h" descripcion="Recta vertical x igual a menos 1" viewBox="0 0 300 170" />
+        <div>
+          <p>
+            <strong>EJEMPLO 9.</strong> Hallar la ecuación de la recta que pasa por
+            <Math tex="(-1,3)" display={false} /> y es paralela a
+            <Math tex="\overrightarrow{oy}" display={false} />: la recta tiene ecuación
+            <Math tex="x=-1" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <h3>Segundo caso</h3>
+      <p>
+        La recta es paralela al eje <Math tex="\overrightarrow{ox}" display={false} /> y pasa por
+        un punto dado de ordenada <Math tex="h" display={false} />. La ecuación es
+        <Math tex="y=h" display={false} />.
+      </p>
+      <Split>
+        <Figura simbolo="recta-y-k" descripcion="Recta horizontal y igual a 3" viewBox="0 0 300 170" />
+        <div>
+          <p>
+            <strong>EJEMPLO 10.</strong> Hallar la ecuación de la recta que pasa por
+            <Math tex="(-2,3)" display={false} /> y es paralela a
+            <Math tex="\overrightarrow{ox}" display={false} />: la recta tiene ecuación
+            <Math tex="y=3" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <Nota etiqueta="NOTA">
+        LA ECUACIÓN DEL EJE <Math tex="\overrightarrow{OX}" display={false} /> ES:
+        <Math tex="Y=0" display={false} /> · LA ECUACIÓN DEL EJE
+        <Math tex="\overrightarrow{OY}" display={false} /> ES: <Math tex="X=0" display={false} />
+      </Nota>
+      <Nota etiqueta="NOTA">
+        SE DEBE NOTAR QUE EN ESTOS DOS CASOS PARTICULARES EN QUE LAS RECTAS SON PARALELAS A LOS
+        EJES, NO SE USA LA CONDICIÓN DE PARALELISMO.
+      </Nota>
+      <h3>Tercer caso</h3>
+      <p>
+        Determinar la ecuación de una recta conociendo un punto de la misma y el coeficiente
+        angular. Se utiliza la ecuación de recta por un punto:
+      </p>
+      <div class="prob">
+        <Math tex="y=m(x-x_0)+y_0" />
+      </div>
+      <p>
+        El coeficiente angular <Math tex="m" display={false} /> generalmente se conoce, pues se
+        indica que la recta a determinar es paralela o perpendicular a otra conocida.
+      </p>
+      <Split>
+        <Figura simbolo="rectas-paralelas" descripcion="Recta (r) paralela a (t) por el punto (−1,3)" viewBox="0 0 320 180" />
+        <div>
+          <p>
+            <strong>EJEMPLO 11.</strong> Hallar la ecuación de la recta
+            <Math tex="(r)" display={false} /> que pasa por
+            <Math tex="(-1,3)" display={false} /> y es paralela a la recta
+            <Math tex="(t)" display={false} /> <Math tex="y=2x-3" display={false} />.
+          </p>
+          <p>
+            El coeficiente angular por ser paralela a <Math tex="(t)" display={false} /> vale
+            <Math tex="2" display={false} />:
+            <Math tex="(r) \; y=2(x-(-1))+3" display={false} />, o sea
+            <Math tex="(r) \; y=2x+5" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <Split>
+        <Figura simbolo="rectas-perp" descripcion="Recta (r) perpendicular a y igual a 2x por el punto (−1,−2)" viewBox="0 0 300 200" />
+        <div>
+          <p>
+            <strong>EJEMPLO 12.</strong> Hallar la ecuación de la recta
+            <Math tex="(r)" display={false} /> que pasa por
+            <Math tex="(-1,-2)" display={false} /> y es perpendicular a
+            <Math tex="y=2x" display={false} />.
+          </p>
+          <p>
+            El coeficiente angular <Math tex="m" display={false} /> por condición de
+            perpendicularidad vale <Math tex="-\frac{1}{2}" display={false} />:
+            <Math tex="(r) \; y=-\frac{1}{2}(x-(-1))-2" display={false} />, o sea
+            <Math tex="(r) \; y=-\frac{1}{2}x-\frac{5}{2}" display={false} />.
+          </p>
+        </div>
+      </Split>
+      <h3>Cuarto caso</h3>
+      <p>
+        Determinar la ecuación de una recta dada por dos puntos
+        <Math tex="P_1" display={false} /> y <Math tex="P_2" display={false} /> de coordenadas
+        respectivas <Math tex="(x_1,y_1)" display={false} />
+        <Math tex="(x_2,y_2)" display={false} />. Se utiliza la ecuación de recta por dos puntos:
+      </p>
+      <div class="prob">
+        <Math tex="y-y_1=\frac{y_2-y_1}{x_2-x_1}(x-x_1)" />
+      </div>
+      <Split>
+        <Figura simbolo="recta-dos-puntos" descripcion="Recta determinada por los puntos (1,2) y (2,−5)" viewBox="0 0 300 220" />
+        <div>
+          <p>
+            <strong>EJEMPLO 13.</strong> Hallar la ecuación de la recta determinada por los puntos
+            <Math tex="(1,2)" display={false} /> <Math tex="(2,-5)" display={false} />.
+          </p>
+          <p>
+            Llamando a uno de los puntos <Math tex="P_1(1,2)" display={false} /> y al otro
+            <Math tex="P_2(2,-5)" display={false} />:
+            <Math tex="y-2=\frac{-5-2}{2-1}(x-1)" display={false} />, o sea
+            <Math tex="y=-7x+9" display={false} />.
+          </p>
+        </div>
+      </Split>
+    </Seccion>
+
+    <Seccion id="r5" tituloHtml="5 — <em>INTERSECCIÓN DE DOS RECTAS</em>">
+      <p>
+        Dadas dos rectas <Math tex="(r) \; Ax+By+C=0" display={false} /> y
+        <Math tex="(r') \; A'x+B'y+C'=0" display={false} />, el punto de intersección de
+        <Math tex="(r)" display={false} /> y <Math tex="(r')" display={false} /> se encuentra
+        resolviendo el sistema de ecuaciones por ellas formado.
+      </p>
+      <div class="prob">
+        <strong>Sistema determinado:</strong> existen dos valores
+        <Math tex="x_0" display={false} /> e <Math tex="y_0" display={false} /> que satisfacen las
+        dos ecuaciones. Entonces el punto <Math tex="(x_0,y_0)" display={false} /> es el punto de
+        corte.
+      </div>
+      <div class="prob">
+        <strong>Sistema incompatible:</strong> no existe ningún punto que satisfaga a las dos
+        ecuaciones. Entonces las rectas son paralelas no coincidentes.
+      </div>
+      <div class="prob">
+        <strong>Sistema indeterminado:</strong> las dos ecuaciones representan a la misma recta.
+      </div>
+      <div class="prob">
+        <strong>EJEMPLO 14.</strong> Hallar el punto de corte de las rectas
+        <Math tex="2x-y-4=0" display={false} /> y <Math tex="x+y+1=0" display={false} />.
+        <RevealSolucion
+          boton="Ver resolución"
+          solucion="Se suman: 3x−3=0 → x=1. En 1+y+1=0 → y=−2. Punto de corte (1,−2)."
+        />
+      </div>
+    </Seccion>
+
+    <Seccion id="r6" tituloHtml="6 — <em>TRES RECTAS CONCURRENTES</em>">
+      <p>
+        Para verificar que tres rectas se cortan en un punto, basta con determinar el punto de
+        corte de dos cualesquiera de ellas, y verificar que dicho punto pertenece a la tercera
+        recta.
+      </p>
+      <div class="prob">
+        <strong>EJEMPLO 15.</strong> Verificar que las rectas
+        <Math tex="y=2x-3" display={false} />, <Math tex="y=-3x+7" display={false} /> e
+        <Math tex="y=4x-7" display={false} /> se cortan en un punto que se determinará.
+        <RevealSolucion
+          boton="Ver resolución"
+          solucion="Con las dos primeras: 2x−3=−3x+7 → x=2, y=1. En la tercera: 4(2)−7=1 ✓. Punto (2,1)."
+        />
+      </div>
+    </Seccion>
+
+    <Seccion id="r7" tituloHtml="7 — <em>DISTANCIA DE UN PUNTO A UNA RECTA</em>">
+      <p>
+        La distancia del punto <Math tex="P(x_0,y_0)" display={false} /> a la recta
+        <Math tex="(r) \; Ax+By+C=0" display={false} /> es:
+      </p>
+      <div class="prob">
+        <Math tex="d=\left|\frac{Ax_0+By_0+C}{\sqrt{A^2+B^2}}\right|" />
+      </div>
+      <Figura simbolo="dist-punto-recta" descripcion="Distancia perpendicular de un punto P a la recta (r)" viewBox="0 0 300 200" />
+      <CalcPuntoRecta />
+    </Seccion>
+
+    <Seccion id="r8" tituloHtml="8 — <em>DATOS ÚTILES SOBRE TRIÁNGULOS</em>">
+      <h3>Alturas — Ortocentro</h3>
+      <p>
+        Se llama <strong>altura</strong> de un triángulo a las perpendiculares trazadas desde un
+        vértice al lado opuesto. El punto donde se cortan las tres alturas recibe el nombre de
+        <strong>ortocentro</strong> del triángulo.
+      </p>
+      <h3>Medianas — Baricentro</h3>
+      <p>
+        Son los segmentos de rectas que unen un vértice con el punto medio del lado opuesto. El
+        punto de corte de las tres medianas se llama <strong>centro de gravedad o
+        baricentro</strong> del triángulo.
+      </p>
+      <div class="prob">
+        Si los vértices son <Math tex="(x_1,y_1)" display={false} />,
+        <Math tex="(x_2,y_2)" display={false} />, <Math tex="(x_3,y_3)" display={false} />:
+        <Math tex="\text{BARICENTRO}=\left(\frac{x_1+x_2+x_3}{3},\frac{y_1+y_2+y_3}{3}\right)" />
+      </div>
+      <h3>Mediatrices — Circuncentro</h3>
+      <p>
+        Son los segmentos perpendiculares levantados desde el punto medio de cada lado del
+        triángulo. El punto de corte de las tres mediatrices se denomina
+        <strong>circuncentro</strong> y es el centro de la circunferencia circunscripta.
+      </p>
+      <h3>Bisectrices — Incentro</h3>
+      <p>
+        Son las rectas que dividen a cada ángulo en dos ángulos iguales. Las bisectrices del
+        triángulo se cortan en un mismo punto llamado <strong>incentro</strong> y es el centro de
+        la circunferencia inscripta.
+      </p>
+      <Figura simbolo="plano-triangulo" descripcion="Triángulo con sus puntos notables" viewBox="0 0 300 170" />
+      <Nota etiqueta="NOTA">
+        LOS PUNTOS DE CORTE DE LAS ALTURAS, MEDIANAS, MEDIATRICES Y BISECTRICES SE ENCUENTRAN
+        SOBRE UNA LÍNEA RECTA. EN UN TRIÁNGULO EQUILÁTERO ESTOS CUATRO PUNTOS COINCIDEN EN UNO
+        SOLO.
+      </Nota>
+    </Seccion>
+
+    <Seccion id="r9" tituloHtml="9 — <em>ÁREA DE UN TRIÁNGULO</em>">
+      <p>
+        Numerando los vértices del triángulo como en la figura, para tres puntos
+        <Math tex="P_1(x_1,y_1)" display={false} />, <Math tex="P_2(x_2,y_2)" display={false} />,
+        <Math tex="P_3(x_3,y_3)" display={false} />, el área del triángulo viene dada por la
+        ecuación:
+      </p>
+      <div class="prob">
+        <Math tex="\text{Área}=\frac{1}{2}\big|(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\big|" />
+      </div>
+      <div class="prob">
+        <strong>EJEMPLO 22.</strong> Hallar el área del triángulo dado por los vértices
+        <Math tex="P_3(-1,1)" display={false} />, <Math tex="P_2(2,2)" display={false} />,
+        <Math tex="P_1(1,-3)" display={false} />.
+        <RevealSolucion
+          boton="Ver resolución"
+          solucion="Área = ½|(−1−2)(−3−2) − (1−2)(1−2)| = ½|15−1| = 7 unidades de área."
+        />
+      </div>
+      <CalcArea />
+    </Seccion>
+
+    <Seccion id="r10" tituloHtml="10 — <em>PROBLEMAS PROPUESTOS (1–15)</em>">
+      <div class="prob">
+        <strong>1) (22)</strong> Hallar las ecuaciones de las rectas determinadas de los siguientes
+        modos: 1) Pasa por <Math tex="A(2,-3)" display={false} /> y tiene pendiente
+        <Math tex="1/2" display={false} />. 2) Intercepta al eje
+        <Math tex="\overrightarrow{oy}" display={false} /> en el punto
+        <Math tex="(0,4)" display={false} /> y tiene pendiente
+        <Math tex="-2" display={false} />. 3) Pasa por los puntos
+        <Math tex="(-1,4)" display={false} /> y <Math tex="(2/3,1/3)" display={false} />. 4)
+        Intercepta al eje <Math tex="\overrightarrow{ox}" display={false} /> en
+        <Math tex="(-5,0)" display={false} /> y al eje
+        <Math tex="\overrightarrow{oy}" display={false} /> en <Math tex="(0,-1)" display={false} />.
+        5) Pasa por el punto <Math tex="(3,2)" display={false} /> y es paralela a la recta
+        <Math tex="2x-y=7" display={false} />. 6) Pasa por el punto
+        <Math tex="(4,-1)" display={false} /> y es perpendicular a la recta
+        <Math tex="3x+2y=1" display={false} />. 7) Pasa por el punto
+        <Math tex="(3,5)" display={false} /> y es perpendicular a la recta determinada por los
+        puntos <Math tex="(-1,1)" display={false} /> y <Math tex="(4,3)" display={false} />.
+        <RevealSolucion
+          boton="Solución 1)"
+          solucion="1) x−2y−8=0. 2) 2x+y−4=0. 3) m=−11/5, 11x+5y−9=0. 4) x+5y+5=0. 5) m=2, 2x−y−4=0. 6) m=2/3, 2x−3y−11=0. 7) m=−5/2, 5x+2y−25=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>2) (25)</strong> Los puntos <Math tex="A(-1,2)" display={false} /> y
+        <Math tex="B(2,3)" display={false} /> determinan una recta. Hallar los puntos de
+        intersección de la recta con los ejes coordenados.
+        <RevealSolucion
+          boton="Solución 2)"
+          solucion="Recta x−3y+7=0. Con OX: (−7,0). Con OY: (0,7/3)."
+        />
+      </div>
+      <div class="prob">
+        <strong>3) (27)</strong> Demostrar que la recta que pasa por los puntos
+        <Math tex="(-1,0)" display={false} /> y <Math tex="(1,3)" display={false} /> es paralela a
+        la recta que pasa por <Math tex="(2,1)" display={false} /> y
+        <Math tex="(3,-5/2)" display={false} />.
+        <RevealSolucion
+          boton="Solución 3)"
+          solucion="m1=3/2 y m2=−7/2: con los datos impresos NO son paralelas. Probable errata del libro: si el punto fuera (3,5/2), m2=3/2 y sí son paralelas."
+        />
+      </div>
+      <div class="prob">
+        <strong>4) (28)</strong> Encontrar la ecuación de la perpendicular al segmento determinado
+        por los puntos <Math tex="(-2,3)" display={false} /> y <Math tex="(4,-2)" display={false} />
+        en su punto medio.
+        <RevealSolucion
+          boton="Solución 4)"
+          solucion="Punto medio (1,1/2), m del segmento=−5/6, m perpendicular=6/5: 12x−10y−7=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>5) (29)</strong> a) Hallar la ecuación de la recta que pasa por
+        <Math tex="(-2,1)" display={false} /> y es paralela a la recta que pasa por
+        <Math tex="(0,1)" display={false} /> y <Math tex="(1,5)" display={false} />. b) Hallar la
+        ecuación de la recta que pasa por <Math tex="(6,3)" display={false} /> y es perpendicular
+        a la recta que pasa por <Math tex="(1,2)" display={false} /> y
+        <Math tex="(0,5)" display={false} />.
+        <RevealSolucion
+          boton="Solución 5)"
+          solucion="a) m=4: 4x−y+9=0. b) m de la dada=−3, m perpendicular=1/3: x−3y+3=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>6) (31)</strong> Hallar la recta que pasa por la intersección de
+        <Math tex="(r) \; x+5y+2=0" display={false} /> y
+        <Math tex="(r') \; 3x+4y-5=0" display={false} /> y por el punto
+        <Math tex="A(-2,3)" display={false} />.
+        <RevealSolucion
+          boton="Solución 6)"
+          solucion="Corte en (3,−1). Por (3,−1) y (−2,3), m=−4/5: 4x+5y−7=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>7) (32)</strong> Las ecuaciones de los lados de un triángulo son:
+        <Math tex="4x+3y-5=0" display={false} />, <Math tex="x-3y+10=0" display={false} /> y
+        <Math tex="x-4=0" display={false} />. Hallar las coordenadas de los vértices.
+        <RevealSolucion
+          boton="Solución 7)"
+          solucion="Vértices: (−1,3), (4,−11/3) y (4,14/3)."
+        />
+      </div>
+      <div class="prob">
+        <strong>8) (33)</strong> Las coordenadas de los vértices de un triángulo son
+        <Math tex="A(4,5)" display={false} />, <Math tex="B(-4,1)" display={false} />,
+        <Math tex="C(8,-5)" display={false} />. Hallar: a) Las ecuaciones de los lados. b) Las
+        ecuaciones de las alturas. c) Las ecuaciones de las medianas. d) Verificar que las alturas
+        se cortan en un punto y hallar sus coordenadas. e) Verificar que las medianas se cortan
+        en un punto y hallar sus coordenadas.
+        <RevealSolucion
+          boton="Solución 8)"
+          solucion="a) AB: x−2y+6=0; BC: x+2y+2=0; AC: 5x+2y−30=0. b) Alturas: 2x+y−11=0, 2x−5y+13=0, 2x−y−3=0. c) Medianas: x+y−3=0, 7x−2y−18=0, x+10y−6=0. d) Ortocentro (7/2,4). e) Baricentro (8/3,1/3)."
+        />
+      </div>
+      <div class="prob">
+        <strong>9) (34)</strong> Dado el triángulo cuyos vértices son
+        <Math tex="A(-1,6)" display={false} />, <Math tex="B(7,3)" display={false} /> y
+        <Math tex="C(4,2)" display={false} />. Hallar: 1) Las coordenadas del punto de intersección
+        de la altura relativa al lado <Math tex="(BC)" display={false} /> con la mediana relativa
+        a <Math tex="(AC)" display={false} />. 2) La longitud de la altura relativa al lado
+        <Math tex="(BC)" display={false} />. 3) El área del triángulo.
+        <RevealSolucion
+          boton="Solución 9)"
+          solucion="1) Altura 3x+y−3=0 y mediana 2x+11y−47=0: P(−14/31,135/31). 2) h=17/√10. 3) Área=17/2."
+        />
+      </div>
+      <div class="prob">
+        <strong>10) (36)</strong> Sean <Math tex="A(1,3)" display={false} /> y
+        <Math tex="(r)" display={false} /> la recta de ecuación
+        <Math tex="y=-x+4" display={false} />. a) Hallar <Math tex="B" display={false} /> punto de
+        intersección de <Math tex="(r)" display={false} /> con el eje
+        <Math tex="\overrightarrow{ox}" display={false} /> y <Math tex="C" display={false} /> punto
+        de intersección de la recta de ecuación <Math tex="x=2" display={false} /> y de la paralela
+        a la recta de ecuación <Math tex="2x-2y+1=0" display={false} /> por
+        <Math tex="B" display={false} />. b) Clasificar el triángulo
+        <Math tex="ABC" display={false} />. c) Calcular sus ángulos.
+        <RevealSolucion
+          boton="Solución 10)"
+          solucion="a) B(4,0), C(2,−2). b) AB²+BC²=18+8=26=AC²: rectángulo en B. c) A≈33,7°, B=90°, C≈56,3°."
+        />
+      </div>
+      <div class="prob">
+        <strong>11) (38)</strong> En la recta que determinan los puntos
+        <Math tex="(1,2)" display={false} /> y <Math tex="(-3,-10)" display={false} /> hallar un
+        punto que tenga: a) abscisa <Math tex="6" display={false} /> b) ordenada
+        <Math tex="10" display={false} /> c) abscisa igual a su ordenada d) abscisa igual a dos
+        veces la ordenada e) el punto de corte con el eje
+        <Math tex="\overrightarrow{ox}" display={false} /> f) el punto de corte con el eje
+        <Math tex="\overrightarrow{oy}" display={false} />.
+        <RevealSolucion
+          boton="Solución 11)"
+          solucion="Recta 3x−y−1=0. a) (6,17). b) (11/3,10). c) (1/2,1/2). d) (2/5,1/5). e) (1/3,0). f) (0,−1)."
+        />
+      </div>
+      <div class="prob">
+        <strong>12) (43)</strong> <Math tex="A(2,-5)" display={false} /> es el vértice de un
+        cuadrado, uno de cuyos lados está en la recta
+        <Math tex="x-2y-7=0" display={false} />. Calcular su área.
+        <RevealSolucion
+          boton="Solución 12)"
+          solucion="Lado = distancia de A a la recta = 5/√5 = √5. Área = 5."
+        />
+      </div>
+      <div class="prob">
+        <strong>13) (45)</strong> Dar las coordenadas del punto simétrico de
+        <Math tex="P(3,4)" display={false} /> con relación a la recta que une los puntos
+        <Math tex="A(-1,3)" display={false} /> y <Math tex="B(4,-2)" display={false} />.
+        <RevealSolucion
+          boton="Solución 13)"
+          solucion="Recta x+y−2=0, pie (1/2,3/2): simétrico (−2,−1)."
+        />
+      </div>
+      <div class="prob">
+        <strong>14) (50)</strong> Un cuadrado tiene uno de sus vértices en el origen y el vértice
+        opuesto es el punto <Math tex="(-6,2)" display={false} />. Determinar: a) Las coordenadas
+        de los otros vértices. b) Las ecuaciones de sus lados. c) Las ecuaciones de sus
+        diagonales.
+        <RevealSolucion
+          boton="Solución 14)"
+          solucion="a) (−4,−2) y (−2,4). b) x−2y=0, 2x+y=0, 2x+y+10=0, x−2y+10=0. c) x+3y=0, 3x−y+10=0."
+        />
+      </div>
+      <div class="prob">
+        <strong>15) (62)</strong> Representar las siguientes regiones: a)
+        <Math tex="x-y+2 \gt 0" display={false} /> b) <Math tex="2x-y-2 \lt 0" display={false} /> c)
+        <Math tex="y+3 \gt 0" display={false} /> d)
+        <Math tex="(x+y-1)(2x-y+3) \gt 0" display={false} /> e) <Math tex="x+y \lt 1" display={false} />
+        f) <Math tex="(x+y-16)(2x-y) \lt 0" display={false} />.
+        <RevealSolucion
+          boton="Solución 15)"
+          solucion="a) Semiplano sobre x−y+2=0 (incluye al origen). b) Bajo 2x−y−2=0 (incluye al origen). c) Sobre y=−3. d) Unión de dos regiones opuestas: donde ambos factores son positivos o ambos negativos. e) Bajo x+y=1 (incluye al origen). f) Donde los factores tienen distinto signo."
+        />
+      </div>
+    </Seccion>
+
+    <ChapterNav
+      posicion="bottom"
+      prev={{ href: "/capitulo-2/", titulo: "Cap 2: Recta" }}
+      next={{ href: "/formulas/", titulo: "Fórmulas" }}
+    />
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Práctico “Recta”</p>
+  </footer>
+</BaseLayout>

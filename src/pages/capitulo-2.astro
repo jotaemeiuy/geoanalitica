@@ -1,4 +1,5 @@
 ---
+import ChapterNav from "../components/ChapterNav.astro";
 import Figura from "../components/Figura.astro";
 import Hero from "../components/Hero.astro";
 import Math from "../components/Math.astro";
@@ -6,7 +7,6 @@ import Nota from "../components/Nota.astro";
 import Seccion from "../components/Seccion.astro";
 import Split from "../components/Split.astro";
 import Toc from "../components/Toc.astro";
-import Topbar from "../components/Topbar.astro";
 import RevealSolucion from "../components/calculators/RevealSolucion.astro";
 import CalcRectaABC from "../components/calculators/CalcRectaABC.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -17,28 +17,20 @@ import "../styles/capitulo1.css";
   title="Capítulo 2 — Recta | Geometría Analítica"
   description="Capítulo 2 de Geometría Analítica (Duffour): ecuaciones de la recta, paralelismo, perpendicularidad, distancia punto-recta, ángulo y área del triángulo."
 >
-  <Topbar
-    enlaces={[
-      { href: "/", texto: "← Portada" },
-      { href: "/capitulo-1", texto: "← Capítulo 1" },
-      { href: "/formulas", texto: "Fórmulas →" },
-      { href: "#s1", texto: "1 · Ecuaciones" },
-      { href: "#s2", texto: "2 · Paralelas" },
-      { href: "#s3", texto: "3 · Perpendic." },
-      { href: "#s4", texto: "4 · Distancia" },
-      { href: "#s5", texto: "5 · Ángulo" },
-      { href: "#s6", texto: "6 · Área" },
-      { href: "#s7", texto: "7 · Regiones" },
-      { href: "#s8", texto: "8 · Exámenes" },
-    ]}
-  />
-
   <main id="contenido">
     <Hero
       kicker="TEORICO 2"
       numero="2"
       tituloHtml="LA <span>RECTA</span>"
       subtitulo="Geometría Analítica · Capítulo 2 "
+    />
+
+    <ChapterNav
+      posicion="top"
+      variante="mini"
+      prev={{ href: "/practico-puntos-segmentos/", titulo: "Práctico: Puntos" }}
+      actual="Cap 2: Recta"
+      next={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
     />
 
     <Toc
@@ -517,6 +509,12 @@ import "../styles/capitulo1.css";
         />
       </div>
     </Seccion>
+
+    <ChapterNav
+      posicion="bottom"
+      prev={{ href: "/practico-puntos-segmentos/", titulo: "Práctico: Puntos" }}
+      next={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
+    />
   </main>
 
   <footer>

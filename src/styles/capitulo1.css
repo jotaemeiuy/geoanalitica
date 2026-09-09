@@ -162,6 +162,34 @@
     }
   }
 
+  /* Dos figuras lado a lado a ancho completo (tras el texto).
+     Ambas cajas quedan del mismo tamaño: el svg rellena sin deformar. */
+  .figuras-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    align-items: stretch;
+    margin-block: var(--space-3);
+
+    & figure.fig {
+      display: flex;
+      flex-direction: column;
+      block-size: 100%;
+
+      & svg {
+        flex: 1 1 auto;
+        min-block-size: 0;
+        inline-size: 100%;
+        block-size: 100%;
+      }
+    }
+
+    /* Móvil: apilar */
+    @media (max-width: 40rem) {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* Ajustes del tema lector sobre componentes */
   .formula {
     background: #fff8f0;

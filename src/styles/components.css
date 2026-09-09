@@ -140,4 +140,86 @@
       padding: 6px 10px;
     }
   }
+
+  /* ---------- Chapter nav (entre capítulos: prev/next) ---------- */
+  .chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block: var(--space-5);
+  }
+
+  .chapter-nav__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper-2);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-m);
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+    &:hover {
+      background: var(--accent);
+      color: var(--paper-2);
+      border-color: var(--accent-dark);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-dark);
+      outline-offset: 2px;
+    }
+
+    &[rel="prev"] {
+      order: 1;
+    }
+
+    &[rel="next"] {
+      order: 2;
+      margin-inline-start: auto;
+    }
+  }
+
+  /* ---------- Chapter nav mini (breadcrumb superior) ---------- */
+  .chapter-nav--mini {
+    justify-content: center;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-block: var(--space-3) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .chapter-nav__mini-link {
+    color: var(--muted);
+    text-decoration: none;
+    border-block-end: 1px dotted var(--accent);
+
+    &:hover {
+      color: var(--accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+
+  .chapter-nav__actual {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chapter-nav__btn {
+      transition: none;
+    }
+  }
 }

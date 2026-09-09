@@ -1,11 +1,11 @@
 ---
+import ChapterNav from "../components/ChapterNav.astro";
 import Figura from "../components/Figura.astro";
 import Hero from "../components/Hero.astro";
 import Math from "../components/Math.astro";
 import Seccion from "../components/Seccion.astro";
 import Split from "../components/Split.astro";
 import Toc from "../components/Toc.astro";
-import Topbar from "../components/Topbar.astro";
 import RevealSolucion from "../components/calculators/RevealSolucion.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/capitulo1.css";
@@ -15,25 +15,20 @@ import "../styles/capitulo1.css";
   title="Capítulo 1 — Puntos y Segmentos | Geometría Analítica"
   description="Capítulo 1 de Geometría Analítica (Duffour): recta orientada, coordenadas cartesianas y lugar geométrico."
 >
-  <Topbar
-    enlaces={[
-      { href: "/", texto: "← Portada" },
-      { href: "/practico-puntos-segmentos", texto: "Práctico →" },
-      { href: "/formulas", texto: "Fórmulas" },
-      { href: "#s1", texto: "1 · Intro" },
-      { href: "#s2", texto: "2 · Conceptos" },
-      { href: "#s4", texto: "3 · Cartesianas" },
-      { href: "#s8", texto: "4 · Lugar geom." },
-      { href: "#s9", texto: "5 · Exámenes" },
-    ]}
-  />
-
   <main id="contenido">
     <Hero
       kicker="TEORICO 1"
       numero="1"
       tituloHtml="PUNTOS <span>Y</span> SEGMENTOS"
       subtitulo="Geometría Analítica · Capítulo 1"
+    />
+
+    <ChapterNav
+      posicion="top"
+      variante="mini"
+      prev={{ href: "/", titulo: "Portada" }}
+      actual="Cap 1: Puntos"
+      next={{ href: "/practico-puntos-segmentos/", titulo: "Práctico: Puntos" }}
     />
 
     <Toc
@@ -308,6 +303,12 @@ import "../styles/capitulo1.css";
         />
       </div>
     </Seccion>
+
+    <ChapterNav
+      posicion="bottom"
+      prev={{ href: "/", titulo: "Portada" }}
+      next={{ href: "/practico-puntos-segmentos/", titulo: "Práctico: Puntos" }}
+    />
   </main>
 
   <footer>

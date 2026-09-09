@@ -1,4 +1,5 @@
 ---
+import ChapterNav from "../components/ChapterNav.astro";
 import ChipsNav from "../components/ChipsNav.astro";
 import Figura from "../components/Figura.astro";
 import Formula from "../components/Formula.astro";
@@ -28,11 +29,16 @@ import "../styles/formulas.css";
       /> del plano
     </p>
 
+    <ChapterNav
+      posicion="top"
+      variante="mini"
+      prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
+      actual="Fórmulas"
+    />
+
     <ChipsNav
       etiqueta="Navegación de fórmulas"
       enlaces={[
-        { href: "/", texto: "← Portada" },
-        { href: "/capitulo-2", texto: "← Capítulo 2: La recta" },
         { href: "#medio", texto: "Punto medio" },
         { href: "#distancia", texto: "Distancia" },
         { href: "#recta", texto: "Ecuaciones recta" },
@@ -167,6 +173,12 @@ import "../styles/formulas.css";
         </div>
       </FormulaCard>
     </div>
+
+    <ChapterNav
+      posicion="bottom"
+      prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
+      next={{ href: "/", titulo: "Portada" }}
+    />
   </main>
 
   <footer>
