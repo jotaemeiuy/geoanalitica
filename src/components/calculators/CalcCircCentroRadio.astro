@@ -1,0 +1,44 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Centro y radio desde la ecuación general" id="calc-circ-centro">
+  <form data-calc="circ-centro">
+    <div class="inputs">
+      <label>A<input type="number" name="a" value="1" step="any" required /></label>
+      <label>D<input type="number" name="d" value="-2" step="any" required /></label>
+      <label>E<input type="number" name="e" value="-6" step="any" required /></label>
+      <label>F<input type="number" name="f" value="-18" step="any" required /></label>
+      <button type="submit">Calcular</button>
+    </div>
+    <output data-result aria-live="polite">Centro y radio = …</output>
+  </form>
+  <p style="font-size:.85rem">Para <em>Ax² + Dx + Ay² + Ey + F = 0</em> (sin término en <em>xy</em> y con igual coeficiente en <em>x²</em> e <em>y²</em>). Si <em>A ≠ 1</em> se divide todo entre <em>A</em>.</p>
+</CalculatorShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="circ-centro"]');
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const out = form.querySelector<HTMLOutputElement>("[data-result]");
+    const a = v("a");
+    if (!out) return;
+    if (a === 0) {
+      out.textContent = "A debe ser ≠ 0 (si no, no es ecuación de segundo grado).";
+      return;
+    }
+    const d = v("d") / a;
+    const ee = v("e") / a;
+    const f = v("f") / a;
+    const al = -d / 2;
+    const be = -ee / 2;
+    const r2 = al * al + be * be - f;
+    if (r2 < 0) {
+      out.textContent = "No es circunferencia real: α²+β²−F = " + r2.toFixed(4) + " < 0.";
+      return;
+    }
+    out.textContent =
+      "C(" + al.toFixed(4) + ", " + be.toFixed(4) + "), r = " + Math.sqrt(r2).toFixed(4);
+  });
+</script>

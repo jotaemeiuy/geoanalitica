@@ -1,0 +1,53 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Corte de recta y circunferencia" id="calc-circ-recta">
+  <form data-calc="circ-recta">
+    <div class="inputs">
+      <label>α<input type="number" name="al" value="0" step="any" required /></label>
+      <label>β<input type="number" name="be" value="0" step="any" required /></label>
+      <label>F<input type="number" name="f" value="0" step="any" required /></label>
+      <label>m<input type="number" name="m" value="2" step="any" required /></label>
+      <label>n<input type="number" name="n" value="0" step="any" required /></label>
+      <button type="submit">Calcular</button>
+    </div>
+    <output data-result aria-live="polite">Puntos de corte = …</output>
+  </form>
+  <p style="font-size:.85rem">Circunferencia <em>x² + y² − 2αx − 2βy + F = 0</em> con recta <em>y = mx + n</em> (sustitución).</p>
+</CalculatorShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="circ-recta"]');
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const out = form.querySelector<HTMLOutputElement>("[data-result]");
+    if (!out) return;
+    const al = v("al");
+    const be = v("be");
+    const f = v("f");
+    const m = v("m");
+    const n = v("n");
+    // x² + (mx+n)² − 2αx − 2β(mx+n) + F = 0
+    const a = 1 + m * m;
+    const b = 2 * m * n - 2 * al - 2 * be * m;
+    const c = n * n - 2 * be * n + f;
+    const disc = b * b - 4 * a * c;
+    if (disc < -1e-12) {
+      out.textContent = "Exterior: sin puntos reales (Δ = " + disc.toFixed(4) + ").";
+      return;
+    }
+    if (Math.abs(disc) <= 1e-12) {
+      const x = -b / (2 * a);
+      out.textContent = "Tangente: (" + x.toFixed(4) + ", " + (m * x + n).toFixed(4) + ").";
+      return;
+    }
+    const s = Math.sqrt(disc);
+    const x1 = (-b + s) / (2 * a);
+    const x2 = (-b - s) / (2 * a);
+    out.textContent =
+      "Secante: (" + x1.toFixed(4) + ", " + (m * x1 + n).toFixed(4) + ") y (" +
+      x2.toFixed(4) + ", " + (m * x2 + n).toFixed(4) + ").";
+  });
+</script>

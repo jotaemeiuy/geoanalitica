@@ -1,0 +1,38 @@
+---
+import CalculatorShell from "../CalculatorShell.astro";
+---
+
+<CalculatorShell titulo="Eje radical de dos circunferencias" id="calc-eje-radical">
+  <form data-calc="eje-radical">
+    <div class="inputs">
+      <label>α<input type="number" name="al" value="2" step="any" required /></label>
+      <label>β<input type="number" name="be" value="3" step="any" required /></label>
+      <label>F<input type="number" name="f" value="9" step="any" required /></label>
+      <label>α′<input type="number" name="alp" value="4" step="any" required /></label>
+      <label>β′<input type="number" name="bep" value="1" step="any" required /></label>
+      <label>F′<input type="number" name="fp" value="13" step="any" required /></label>
+      <button type="submit">Calcular</button>
+    </div>
+    <output data-result aria-live="polite">Eje radical = …</output>
+  </form>
+  <p style="font-size:.85rem">Resta de <em>x² + y² − 2αx − 2βy + F = 0</em> y <em>x² + y² − 2α′x − 2β′y + F′ = 0</em>. Los cortes se hallan con una circunferencia + el eje.</p>
+</CalculatorShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-calc="eje-radical"]');
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (n: string) => Number((form.elements.namedItem(n) as HTMLInputElement).value);
+    const out = form.querySelector<HTMLOutputElement>("[data-result]");
+    if (!out) return;
+    const a = 2 * (v("alp") - v("al"));
+    const b = 2 * (v("bep") - v("be"));
+    const c = v("f") - v("fp");
+    if (Math.abs(a) < 1e-12 && Math.abs(b) < 1e-12) {
+      out.textContent = "Concéntricas (mismo centro): no hay eje radical único.";
+      return;
+    }
+    const fmt = (k: number) => (k >= 0 ? "+ " + k.toFixed(4) : "− " + Math.abs(k).toFixed(4));
+    out.textContent = "Eje radical: " + a.toFixed(4) + "·x " + fmt(b) + "·y " + fmt(c) + " = 0.";
+  });
+</script>

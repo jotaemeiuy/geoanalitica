@@ -1,0 +1,214 @@
+---
+import ChapterNav from "../components/ChapterNav.astro";
+import Hero from "../components/Hero.astro";
+import Math from "../components/Math.astro";
+import Seccion from "../components/Seccion.astro";
+import Toc from "../components/Toc.astro";
+import CalcCircCentroRadio from "../components/calculators/CalcCircCentroRadio.astro";
+import CalcCorteRectaCirc from "../components/calculators/CalcCorteRectaCirc.astro";
+import CalcEjeRadical from "../components/calculators/CalcEjeRadical.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/capitulo1.css";
+---
+
+<BaseLayout
+  title="Práctico — Circunferencia | Geometría Analítica"
+  description="Práctico 3 de Geometría Analítica (Duffour): ecuación de la circunferencia, reconocimiento, tangencias, corte con rectas, eje radical y regiones, con 9 grupos de problemas (475–483) con solución."
+>
+  <main id="contenido">
+    <Hero
+      kicker="PRÁCTICO · 3"
+      numero="6"
+      tituloHtml="LA <span>CIRCUNFERENCIA</span>"
+      subtitulo="Geometría Analítica · Práctico"
+    />
+
+    <ChapterNav
+      posicion="top"
+      variante="mini"
+      prev={{ href: "/capitulo-3/", titulo: "Cap 3: Circunferencia" }}
+      actual="Práctico: Circunferencia"
+      next={{ href: "/formulas/", titulo: "Fórmulas" }}
+    />
+
+    <Toc
+      items={[
+        { href: "#c1", texto: "Ecuación: centro, radio y puntos (475)" },
+        { href: "#c2", texto: "Reconocimiento (476)" },
+        { href: "#c3", texto: "Tangencias y casos particulares (477)" },
+        { href: "#c4", texto: "Concéntrica (478)" },
+        { href: "#c5", texto: "Tres puntos y cortes con ejes (479)" },
+        { href: "#c6", texto: "Diámetro sobre una cuerda (480)" },
+        { href: "#c7", texto: "Recta por el centro (481)" },
+        { href: "#c8", texto: "Corte recta-circunferencia (482)" },
+        { href: "#c9", texto: "Corte de dos circunferencias (483)" },
+      ]}
+    />
+
+    <Seccion id="c1" tituloHtml="1 — <em>ECUACIÓN: CENTRO, RADIO Y PUNTOS (475)</em>">
+      <p>En cada ejercicio hallar la ecuación de la circunferencia que cumple:</p>
+      <div class="prob">
+        <strong>1)</strong> Centro en el origen y radio igual a <Math tex="3" display={false} />.
+        <RevealSolucion boton="Solución 1)" solucion="x²+y²=9." />
+      </div>
+      <div class="prob">
+        <strong>2)</strong> Radio igual a <Math tex="6" display={false} />, y centro en
+        <Math tex="(-1,2)" display={false} />.
+        <RevealSolucion boton="Solución 2)" solucion="(x+1)²+(y−2)²=36, o sea x²+y²+2x−4y−31=0." />
+      </div>
+      <div class="prob">
+        <strong>3)</strong> Centro en <Math tex="(5,3)" display={false} /> y pasa por
+        <Math tex="(2,7)" display={false} />.
+        <RevealSolucion boton="Solución 3)" solucion="r²=(2−5)²+(7−3)²=25: x²+y²−10x−6y+9=0." />
+      </div>
+      <div class="prob">
+        <strong>4)</strong> Centro en <Math tex="(6,-8)" display={false} /> y pasa por el origen.
+        <RevealSolucion boton="Solución 4)" solucion="r²=36+64=100: x²+y²−12x+16y=0 (sin término independiente)." />
+      </div>
+      <div class="prob">
+        <strong>5)</strong> Los puntos <Math tex="(3,2)" display={false} />
+        <Math tex="(-1,6)" display={false} /> son extremos de uno de sus diámetros.
+        <RevealSolucion boton="Solución 5)" solucion="Centro (1,4), r²=8: x²+y²−2x−8y+9=0." />
+      </div>
+      <div class="prob">
+        <strong>6)</strong> Pasa por <Math tex="(1,2)" display={false} /> y tiene su centro en
+        <Math tex="(5,-1)" display={false} />.
+        <RevealSolucion boton="Solución 6)" solucion="r²=16+9=25: x²+y²−10x+2y+1=0." />
+      </div>
+      <div class="prob">
+        <strong>7)</strong> Pasa por <Math tex="(6,0)" display={false} />,
+        <Math tex="(0,8)" display={false} />, <Math tex="(0,0)" display={false} />.
+        <RevealSolucion boton="Solución 7)" solucion="F=0, α=3, β=4: x²+y²−6x−8y=0, centro (3,4), r=5." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c2" tituloHtml="2 — <em>RECONOCIMIENTO (476)</em>">
+      <p>
+        ¿Cuáles representan a una circunferencia y cuáles no? ¿Por qué? Dar centro y radio, si
+        corresponde.
+      </p>
+      <div class="prob">
+        <strong>i)</strong> <Math tex="x^2+y^2-2x+4y-20 = 0" display={false} />
+        <RevealSolucion boton="Solución i)" solucion="Sí: A=C=1, B=0, centro (1,−2), r²=1+4+20=25, r=5." />
+      </div>
+      <div class="prob">
+        <strong>ii)</strong> <Math tex="x^2+y^2-2x+4y+20 = 0" display={false} />
+        <RevealSolucion boton="Solución ii)" solucion="No: r²=1+4−20=−15 <0, radio imaginario." />
+      </div>
+      <div class="prob">
+        <strong>iii)</strong> <Math tex="x^2+y^2 = -1" display={false} />
+        <RevealSolucion boton="Solución iii)" solucion="No: r²=−1 <0." />
+      </div>
+      <CalcCircCentroRadio />
+    </Seccion>
+
+    <Seccion id="c3" tituloHtml="3 — <em>TANGENCIAS Y CASOS PARTICULARES (477)</em>">
+      <div class="prob">
+        <strong>1)</strong> Tangente a los ejes coordenados y que pasa por
+        <Math tex="(2,1)" display={false} />.
+        <RevealSolucion boton="Solución 1)" solucion="α=β: α²−6α+5=0 → x²+y²−2x−2y+1=0 (r=1) y x²+y²−10x−10y+25=0 (r=5)." />
+      </div>
+      <div class="prob">
+        <strong>2)</strong> Tangente al eje <Math tex="x" display={false} /> en
+        <Math tex="(3,0)" display={false} /> y pasa por <Math tex="(5,2)" display={false} />.
+        <RevealSolucion boton="Solución 2)" solucion="Centro (3,β), r=|β|: 4+(2−β)²=β² → β=2: x²+y²−6x−4y+9=0." />
+      </div>
+      <div class="prob">
+        <strong>3)</strong> Pasa por <Math tex="(2,3)" display={false} />, por el origen y tiene
+        centro sobre <Math tex="x" display={false} />.
+        <RevealSolucion boton="Solución 3)" solucion="Centro (α,0), F=0: 13−4α=0 → α=13/4: x²+y²−(13/2)x=0." />
+      </div>
+      <div class="prob">
+        <strong>4)</strong> Tiene centro en <Math tex="(12,9)" display={false} /> y pasa por el punto
+        medio del segmento determinado por <Math tex="3x+4y-24 = 0" display={false} /> al cortarse
+        con los ejes.
+        <RevealSolucion boton="Solución 4)" solucion="Cortes (8,0),(0,6), medio (4,3), r=10: x²+y²−24x−18y+125=0." />
+      </div>
+      <div class="prob">
+        <strong>5)</strong> Por <Math tex="A(4,2)" display={false} /> pasa una circunferencia tangente
+        a los ejes. Hallar su ecuación (dos soluciones).
+        <RevealSolucion boton="Solución 5)" solucion="α²−12α+20=0 → x²+y²−4x−4y+4=0 y x²+y²−20x−20y+100=0." />
+      </div>
+      <div class="prob">
+        <strong>6)</strong> Tangente a <Math tex="x" display={false} /> con centro sobre
+        <Math tex="y = x-2" display={false} />, y pasa por <Math tex="(4,4)" display={false} />.
+        <RevealSolucion boton="Solución 6)" solucion="Centro (α,α−2), r=|α−2|: α²−16α+48=0 → x²+y²−8x−4y+16=0 y x²+y²−24x−20y+144=0." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c4" tituloHtml="4 — <em>CONCÉNTRICA (478)</em>">
+      <div class="prob">
+        <strong>478)</strong> ¿Cuál es la ecuación de la circunferencia de radio igual a
+        <Math tex="5" display={false} />, concéntrica a
+        <Math tex="x^2+y^2+6x+10y-15 = 0" display={false} />?
+        <RevealSolucion boton="Solución 478)" solucion="Mismo centro (−3,−5): (x+3)²+(y+5)²=25, o sea x²+y²+6x+10y+9=0." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c5" tituloHtml="5 — <em>TRES PUNTOS Y CORTES CON EJES (479)</em>">
+      <div class="prob">
+        <strong>a)</strong> Hallar la ecuación de la circunferencia que pasa por:
+        <Math tex="(5,2)" display={false} />, <Math tex="(3,4)" display={false} />,
+        <Math tex="(1,-2)" display={false} />.
+        <RevealSolucion boton="Solución a)" solucion="α=2, β=1, F=−5: x²+y²−4x−2y−5=0." />
+      </div>
+      <div class="prob">
+        <strong>b)</strong> Hallar los cortes de esa circunferencia con: i) el eje
+        <Math tex="x" display={false} />. ii) el eje <Math tex="y" display={false} />.
+        <RevealSolucion boton="Solución b)" solucion="i) y=0: x²−4x−5=0 → (5,0),(−1,0). ii) x=0: y²−2y−5=0 → y=1±√6." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c6" tituloHtml="6 — <em>DIÁMETRO SOBRE UNA CUERDA (480)</em>">
+      <div class="prob">
+        <strong>480)</strong> Encontrar la ecuación de una circunferencia
+        <Math tex="(C)" display={false} />, cuyo diámetro es el segmento determinado por la
+        intersección de la recta <Math tex="3x+y-25 = 0" display={false} /> y la circunferencia
+        <Math tex="x^2+y^2 = 65" display={false} />.
+        <RevealSolucion boton="Solución 480)" solucion="Cortes (7,4),(8,1). Centro (15/2,5/2), r²=5/2: x²+y²−15x−5y+60=0." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c7" tituloHtml="7 — <em>RECTA POR EL CENTRO (481)</em>">
+      <div class="prob">
+        <strong>481)</strong> Determinar la ecuación de una recta
+        <Math tex="(r)" display={false} /> que pasa por el centro de
+        <Math tex="x^2+y^2-2x+4y-4 = 0" display={false} /> y es perpendicular a
+        <Math tex="3x-2y+7 = 0" display={false} />.
+        <RevealSolucion boton="Solución 481)" solucion="Centro (1,−2), m perpendicular=−2/3: 2x+3y+4=0." />
+      </div>
+    </Seccion>
+
+    <Seccion id="c8" tituloHtml="8 — <em>CORTE RECTA-CIRCUNFERENCIA (482)</em>">
+      <div class="prob">
+        <strong>482)</strong> ¿Cuáles son los puntos de intersección de la recta
+        <Math tex="x+y = 3" display={false} /> y la circunferencia
+        <Math tex="x^2+y^2 = 5" display={false} />?
+        <RevealSolucion boton="Solución 482)" solucion="y=3−x: 2x²−6x+4=0 → (1,2) y (2,1). Secante." />
+      </div>
+      <CalcCorteRectaCirc />
+    </Seccion>
+
+    <Seccion id="c9" tituloHtml="9 — <em>CORTE DE DOS CIRCUNFERENCIAS (483)</em>">
+      <div class="prob">
+        <strong>483)</strong> Hallar los puntos de intersección de la circunferencia
+        <Math tex="(C)" display={false} /> de centro <Math tex="(2,0)" display={false} /> y radio
+        <Math tex="4" display={false} /> y la circunferencia <Math tex="(C')" display={false} /> de
+        centro en <Math tex="(5,0)" display={false} /> y que pasa por el origen.
+        <RevealSolucion boton="Solución 483)" solucion="(C): x²+y²−4x−12=0. (C′): x²+y²−10x=0. Eje radical x=2 → (2,4),(2,−4)." />
+      </div>
+      <CalcEjeRadical />
+    </Seccion>
+
+    <ChapterNav
+      posicion="bottom"
+      prev={{ href: "/capitulo-3/", titulo: "Cap 3: Circunferencia" }}
+      next={{ href: "/formulas/", titulo: "Fórmulas" }}
+    />
+  </main>
+
+  <footer>
+    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Práctico “Circunferencia”</p>
+  </footer>
+</BaseLayout>

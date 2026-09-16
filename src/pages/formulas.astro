@@ -8,6 +8,7 @@ import Masthead from "../components/Masthead.astro";
 import Math from "../components/Math.astro";
 import Nota from "../components/Nota.astro";
 import CalcArea from "../components/calculators/CalcArea.astro";
+import CalcCircCentroRadio from "../components/calculators/CalcCircCentroRadio.astro";
 import CalcDistancia from "../components/calculators/CalcDistancia.astro";
 import CalcPuntoMedio from "../components/calculators/CalcPuntoMedio.astro";
 import CalcPuntoRecta from "../components/calculators/CalcPuntoRecta.astro";
@@ -17,7 +18,7 @@ import "../styles/formulas.css";
 
 <BaseLayout
   title="Resumen de Fórmulas — Geometría Analítica"
-  description="Resumen de fórmulas de geometría analítica: punto medio, distancia, recta, paralelismo, ángulo y área del triángulo, con calculadoras interactivas."
+  description="Resumen de fórmulas de geometría analítica: punto medio, distancia, recta, paralelismo, ángulo, área del triángulo y circunferencia, con calculadoras interactivas."
   wide
 >
   <main id="contenido">
@@ -32,7 +33,7 @@ import "../styles/formulas.css";
     <ChapterNav
       posicion="top"
       variante="mini"
-      prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
+      prev={{ href: "/practico-circunferencia/", titulo: "Práctico: Circunferencia" }}
       actual="Fórmulas"
     />
 
@@ -47,6 +48,7 @@ import "../styles/formulas.css";
         { href: "#dist-punto", texto: "Distancia punto-recta" },
         { href: "#angulo", texto: "Ángulo" },
         { href: "#area", texto: "Área triángulo" },
+        { href: "#circ", texto: "Circunferencia" },
       ]}
     />
 
@@ -172,11 +174,35 @@ import "../styles/formulas.css";
           </div>
         </div>
       </FormulaCard>
+      <FormulaCard id="circ" titulo="Circunferencia de centro (α,β) y radio r" variante="accent" anchoCompleto>
+        <div class="row2" style="align-items:start">
+          <div>
+            <Figura
+              simbolo="circ-centro-radio"
+              descripcion="Circunferencia de centro C y radio r"
+              viewBox="0 0 300 200"
+              pie="Centro C(α,β), radio r."
+            />
+          </div>
+          <div>
+            <Math tex="(x-\alpha)^2+(y-\beta)^2 = r^2" />
+            <Math tex="x^2+y^2-2\alpha x-2\beta y+F = 0 \qquad F = \alpha^2+\beta^2-r^2" />
+            <Math tex="r = \sqrt{\alpha^2+\beta^2-F}" />
+            <p style="font-size:.85rem">
+              Reconocimiento: <Math tex="A = C" display={false} />,
+              <Math tex="B = 0" display={false} /> y
+              <Math tex="r^2 \gt 0" display={false} />. Eje radical de dos
+              circunferencias: restar ambas ecuaciones.
+            </p>
+            <CalcCircCentroRadio />
+          </div>
+        </div>
+      </FormulaCard>
     </div>
 
     <ChapterNav
       posicion="bottom"
-      prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
+      prev={{ href: "/practico-circunferencia/", titulo: "Práctico: Circunferencia" }}
       next={{ href: "/", titulo: "Portada" }}
     />
   </main>

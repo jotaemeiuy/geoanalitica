@@ -52,6 +52,11 @@
       inline-size: 100%;
     }
 
+    & img {
+      inline-size: 100%;
+      block-size: auto;
+    }
+
     & figcaption {
       margin-block-start: 8px;
       font-size: 0.85rem;
