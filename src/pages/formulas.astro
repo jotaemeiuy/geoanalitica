@@ -9,6 +9,7 @@ import Math from "../components/Math.astro";
 import Nota from "../components/Nota.astro";
 import CalcArea from "../components/calculators/CalcArea.astro";
 import CalcCircCentroRadio from "../components/calculators/CalcCircCentroRadio.astro";
+import CalcCorteRectaCirc from "../components/calculators/CalcCorteRectaCirc.astro";
 import CalcDistancia from "../components/calculators/CalcDistancia.astro";
 import CalcPuntoMedio from "../components/calculators/CalcPuntoMedio.astro";
 import CalcPuntoRecta from "../components/calculators/CalcPuntoRecta.astro";
@@ -174,7 +175,7 @@ import "../styles/formulas.css";
           </div>
         </div>
       </FormulaCard>
-      <FormulaCard id="circ" titulo="Circunferencia de centro (α,β) y radio r" variante="accent" anchoCompleto>
+<FormulaCard id="circ" titulo="Circunferencia de centro (α,β) y radio r" variante="accent" anchoCompleto>
         <div class="row2" style="align-items:start">
           <div>
             <Figura
@@ -188,15 +189,84 @@ import "../styles/formulas.css";
             <Math tex="(x-\alpha)^2+(y-\beta)^2 = r^2" />
             <Math tex="x^2+y^2-2\alpha x-2\beta y+F = 0 \qquad F = \alpha^2+\beta^2-r^2" />
             <Math tex="r = \sqrt{\alpha^2+\beta^2-F}" />
-            <p style="font-size:.85rem">
-              Reconocimiento: <Math tex="A = C" display={false} />,
-              <Math tex="B = 0" display={false} /> y
-              <Math tex="r^2 \gt 0" display={false} />. Eje radical de dos
-              circunferencias: restar ambas ecuaciones.
-            </p>
             <CalcCircCentroRadio />
           </div>
         </div>
+        <div class="row2" style="align-items:start">
+          <div>
+            <strong>Reconocimiento:</strong> <Math tex="Ax^2+Dx+Ay^2+Ey+F=0" display={false} /> es
+            circunferencia si <Math tex="A = C" display={false} /> (mismo coeficiente en
+            <Math tex="x^2" display={false} /> e <Math tex="y^2" display={false} />),
+            <Math tex="B = 0" display={false} /> (sin término en <Math tex="xy" display={false} />) y
+            el radio al cuadrado <Math tex="\alpha^2+\beta^2-F" display={false} /> es positivo.
+          </div>
+          <div>
+            <strong>Casos particulares:</strong>
+            centro en el origen: <Math tex="\alpha=\beta=0" display={false} />;
+            sobre <Math tex="\overrightarrow{OX}" display={false} />: <Math tex="\beta=0" display={false} />;
+            sobre <Math tex="\overrightarrow{OY}" display={false} />: <Math tex="\alpha=0" display={false} />;
+            tangente a OX: <Math tex="r=|\beta|" display={false} />;
+            tangente a OY: <Math tex="r=|\alpha|" display={false} />;
+            tangente a ambos ejes: <Math tex="|\alpha|=|\beta|=r" display={false} />;
+            por el origen: <Math tex="F=0" display={false} />.
+          </div>
+        </div>
+        <div class="row2" style="align-items:start">
+          <div>
+            <strong>Corte recta-circunferencia:</strong> sustituir
+            <Math tex="y=mx+n" display={false} /> en la ecuación general; el discriminante
+            <Math tex="\Delta" display={false} /> de la cuadrática resultante distingue secante
+            (<Math tex="\Delta \gt 0" display={false} />), tangente
+            (<Math tex="\Delta = 0" display={false} />) y exterior
+            (<Math tex="\Delta \lt 0" display={false} />).
+          </div>
+          <div>
+            <strong>Eje radical de dos circunferencias:</strong> restar ambas ecuaciones da la recta
+            <Math tex="2(\alpha'-\alpha)x+2(\beta'-\beta)y+F-F' = 0" display={false} />;
+            los puntos de corte salen de resolver el sistema de una circunferencia con esa recta.
+          </div>
+        </div>
+        <div class="row2" style="align-items:start">
+          <div>
+            <strong>Regiones del plano:</strong> si <Math tex="f(x,y)=0" display={false} /> es la
+            ecuación, entonces <Math tex="f(x,y) \lt 0" display={false} /> es el interior,
+            <Math tex="f(x,y) \gt 0" display={false} /> es el exterior y
+            <Math tex="f(x,y) = 0" display={false} /> es la circunferencia.
+          </div>
+          <div>
+            <CalcCorteRectaCirc />
+          </div>
+        </div>
+      </FormulaCard>
+      <FormulaCard id="circ-casos" titulo="Figuras de los casos particulares" anchoCompleto>
+        <div class="casos-circ">
+          <Figura simbolo="circ-origen" descripcion="Circunferencia con centro en el origen" viewBox="0 0 300 200" pie="Centro en el origen" />
+          <Figura simbolo="circ-sobre-ox" descripcion="Circunferencia con centro sobre el eje x" viewBox="0 0 300 200" pie="Centro sobre OX" />
+          <Figura simbolo="circ-sobre-oy" descripcion="Circunferencia con centro sobre el eje y" viewBox="0 0 300 200" pie="Centro sobre OY" />
+          <Figura simbolo="circ-tang-ox" descripcion="Circunferencia tangente al eje x" viewBox="0 0 300 200" pie="Tangente a OX" />
+          <Figura simbolo="circ-tang-oy" descripcion="Circunferencia tangente al eje y" viewBox="0 0 300 200" pie="Tangente a OY" />
+          <Figura simbolo="circ-tang-ambos" descripcion="Circunferencia tangente a ambos ejes" viewBox="0 0 300 200" pie="Tangente a ambos ejes" />
+        </div>
+        <style>
+          .casos-circ {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-3);
+          }
+          .casos-circ > * {
+            min-inline-size: 0;
+          }
+          @media (max-width: 48rem) {
+            .casos-circ {
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+          @media (max-width: 40rem) {
+            .casos-circ {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
       </FormulaCard>
     </div>
 

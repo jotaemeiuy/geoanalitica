@@ -7,10 +7,10 @@ import Nota from "../components/Nota.astro";
 import Seccion from "../components/Seccion.astro";
 import Split from "../components/Split.astro";
 import Toc from "../components/Toc.astro";
-import RevealSolucion from "../components/calculators/RevealSolucion.astro";
 import CalcCircCentroRadio from "../components/calculators/CalcCircCentroRadio.astro";
 import CalcCorteRectaCirc from "../components/calculators/CalcCorteRectaCirc.astro";
 import CalcEjeRadical from "../components/calculators/CalcEjeRadical.astro";
+import RevealSolucion from "../components/calculators/RevealSolucion.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/capitulo1.css";
 ---
@@ -32,7 +32,10 @@ import "../styles/capitulo1.css";
       variante="mini"
       prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
       actual="Cap 3: Circunferencia"
-      next={{ href: "/practico-circunferencia/", titulo: "Práctico: Circunferencia" }}
+      next={{
+        href: "/practico-circunferencia/",
+        titulo: "Práctico: Circunferencia",
+      }}
     />
 
     <Toc
@@ -47,11 +50,17 @@ import "../styles/capitulo1.css";
       ]}
     />
 
-    <Seccion id="s1" tituloHtml="1 — <em>DEFINICIÓN Y ECUACIÓN DE LA CIRCUNFERENCIA</em>">
+    <Seccion
+      id="s1"
+      tituloHtml="1 — <em>DEFINICIÓN Y ECUACIÓN DE LA CIRCUNFERENCIA</em>"
+    >
       <h3>1.1. Definición</h3>
       <p>
-        La circunferencia es el lugar geométrico de los puntos del plano que se encuentran a
-        una distancia constante de un punto fijo <Math tex="C" display={false} />.
+        La circunferencia es el lugar geométrico de los puntos del plano que se
+        encuentran a una distancia constante de un punto fijo <Math
+          tex="C"
+          display={false}
+        />.
       </p>
       <p>
         Al punto fijo <Math tex="C" display={false} />, de coordenadas
@@ -63,13 +72,18 @@ import "../styles/capitulo1.css";
 
       <h3>1.2. Ecuación de la circunferencia</h3>
       <Split>
-        <Figura simbolo="circ-centro-radio" descripcion="Circunferencia de centro C alfa beta y radio r" viewBox="0 0 300 200" />
+        <Figura
+          simbolo="circ-centro-radio"
+          descripcion="Circunferencia de centro C alfa beta y radio r"
+          viewBox="0 0 300 200"
+        />
         <div>
           <p>
             Siendo el centro <Math tex="C(\alpha,\beta)" display={false} /> y
-            <Math tex="P(x,y)" display={false} /> un punto genérico sobre ella, el radio
-            <Math tex="r" display={false} /> es la distancia entre estos dos puntos. Por
-            definición se cumple: <Math tex="d(P,C) = r" display={false} />.
+            <Math tex="P(x,y)" display={false} /> un punto genérico sobre ella, el
+            radio
+            <Math tex="r" display={false} /> es la distancia entre estos dos puntos.
+            Por definición se cumple: <Math tex="d(P,C) = r" display={false} />.
           </p>
           <Math tex="\sqrt{(x-\alpha)^2+(y-\beta)^2} = r" />
           <p>Se elevan al cuadrado ambos miembros:</p>
@@ -99,24 +113,37 @@ import "../styles/capitulo1.css";
       <p>
         Para determinar la ecuación es necesario encontrar el centro
         <Math tex="C(\alpha,\beta)" display={false} /> y el radio
-        <Math tex="r" display={false} />. Pero en muchos casos es más sencillo tomar como
-        incógnita el centro <Math tex="C(\alpha,\beta)" display={false} /> y el término
-        independiente <Math tex="F" display={false} />. Se hace la sustitución:
+        <Math tex="r" display={false} />. Pero en muchos casos es más sencillo
+        tomar como incógnita el centro <Math
+          tex="C(\alpha,\beta)"
+          display={false}
+        /> y el término independiente <Math tex="F" display={false} />. Se hace
+        la sustitución:
       </p>
       <Math tex="\alpha^2+\beta^2-r^2 = F" />
-      <Math tex="\boxed{\text{Ecuación de la circunferencia: } x^2+y^2-2\alpha x-2\beta y+F = 0}" />
+      <Math
+        tex="\boxed{\text{Ecuación de la circunferencia: } x^2+y^2-2\alpha x-2\beta y+F = 0}"
+      />
       <p>
-        A partir de la ecuación general se exige que los puntos dados la verifiquen, al
-        sustituir <Math tex="x" display={false} /> e <Math tex="y" display={false} /> por las
-        coordenadas dadas. El primer paso para resolver el sistema es multiplicar una de las
-        ecuaciones por <Math tex="-1" display={false} /> y sumarla a las otras dos, para
-        eliminar en primer lugar <Math tex="F" display={false} />.
+        A partir de la ecuación general se exige que los puntos dados la
+        verifiquen, al sustituir <Math tex="x" display={false} /> e <Math
+          tex="y"
+          display={false}
+        /> por las coordenadas dadas. El primer paso para resolver el sistema es multiplicar
+        una de las ecuaciones por <Math tex="-1" display={false} /> y sumarla a las
+        otras dos, para eliminar en primer lugar <Math
+          tex="F"
+          display={false}
+        />.
       </p>
 
       <div class="prob">
         <strong>Ejemplo.</strong> Determinar la ecuación de la circunferencia
         <Math tex="(C)" display={false} /> conociendo tres de sus puntos:
-        <Math tex="(9,5)" display={false} />, <Math tex="(7,1)" display={false} />,
+        <Math tex="(9,5)" display={false} />, <Math
+          tex="(7,1)"
+          display={false}
+        />,
         <Math tex="(3,5)" display={false} />.
         <Math tex="(9,5) \in (C) \Rightarrow 81+25-18\alpha-10\beta+F = 0" />
         <Math tex="(7,1) \in (C) \Rightarrow 49+1-14\alpha-2\beta+F = 0" />
@@ -132,46 +159,66 @@ import "../styles/capitulo1.css";
       <div class="prob">
         <strong>Ejemplo.</strong> Hallar la ecuación de la circunferencia
         <Math tex="(C)" display={false} /> sabiendo que
-        <Math tex="(3,-5)" display={false} /> y <Math tex="(-7,7)" display={false} /> son
-        extremos de un diámetro.
+        <Math tex="(3,-5)" display={false} /> y <Math
+          tex="(-7,7)"
+          display={false}
+        /> son extremos de un diámetro.
         <p>
-          Dos puntos diametralmente opuestos bastan: por punto medio se obtienen las
-          coordenadas del centro, y para el término independiente se exige que uno de los
-          extremos pertenezca a la circunferencia.
+          Dos puntos diametralmente opuestos bastan: por punto medio se obtienen
+          las coordenadas del centro, y para el término independiente se exige
+          que uno de los extremos pertenezca a la circunferencia.
         </p>
-        <Math tex="\text{Centro } \left(\frac{3+(-7)}{2},\frac{-5+7}{2}\right) = (-2,1)" />
+        <Math
+          tex="\text{Centro } \left(\frac{3+(-7)}{2},\frac{-5+7}{2}\right) = (-2,1)"
+        />
         <p>
           O sea <Math tex="\alpha = -2" display={false} />,
           <Math tex="\beta = 1" display={false} />:
           <Math tex="(C) \quad x^2+y^2-2(-2)x-2(1)y+F = 0" display={false} />.
         </p>
-        <Math tex="(3,-5) \in (C) \Rightarrow (3)^2+(-5)^2+4(3)-2(-5)+F = 0 \quad F = -56" />
+        <Math
+          tex="(3,-5) \in (C) \Rightarrow (3)^2+(-5)^2+4(3)-2(-5)+F = 0 \quad F = -56"
+        />
         <Math tex="\boxed{(C) \quad x^2+y^2+4x-2y-56 = 0}" />
       </div>
     </Seccion>
 
-    <Seccion id="s2" tituloHtml="2 — <em>RECONOCIMIENTO DE LA ECUACIÓN DE UNA CIRCUNFERENCIA</em>">
+    <Seccion
+      id="s2"
+      tituloHtml="2 — <em>RECONOCIMIENTO DE LA ECUACIÓN DE UNA CIRCUNFERENCIA</em>"
+    >
       <div class="prob">
         <strong>Ejemplo.</strong> Dada la ecuación
-        <Math tex="x^2+y^2-2x-6y-18 = 0" display={false} />, indicar si es la ecuación de
-        una circunferencia y por qué.
+        <Math tex="x^2+y^2-2x-6y-18 = 0" display={false} />, indicar si es la
+        ecuación de una circunferencia y por qué.
       </div>
       <p>Se parte de la ecuación general de segundo grado en dos incógnitas:</p>
       <Math tex="Ax^2+Bxy+Cy^2+Dx+Ey+F = 0" />
-      <p>Para que represente a una circunferencia deben cumplirse tres condiciones:</p>
       <p>
-        <strong>1) <Math tex="A = C" display={false} /></strong> (los coeficientes de
-        <Math tex="x^2" display={false} /> e <Math tex="y^2" display={false} /> iguales en
-        valor y signo). Se constata en forma inmediata observando la ecuación.
+        Para que represente a una circunferencia deben cumplirse tres
+        condiciones:
       </p>
       <p>
-        <strong>2) <Math tex="B = 0" display={false} /></strong> (no debe tener término en
+        <strong>1) <Math tex="A = C" display={false} /></strong> (los coeficientes
+        de
+        <Math tex="x^2" display={false} /> e <Math tex="y^2" display={false} /> iguales
+        en valor y signo). Se constata en forma inmediata observando la ecuación.
+      </p>
+      <p>
+        <strong>2) <Math tex="B = 0" display={false} /></strong> (no debe tener término
+        en
         <Math tex="xy" display={false} />). El ejemplo no lo tiene.
       </p>
       <p>
         <strong>3)</strong> El radio debe ser positivo. Cálculo del centro:
-        <Math tex="-2\alpha = -2" display={false} />, <Math tex="\alpha = 1" display={false} />;
-        <Math tex="-2\beta = -6" display={false} />, <Math tex="\beta = 3" display={false} />.
+        <Math tex="-2\alpha = -2" display={false} />, <Math
+          tex="\alpha = 1"
+          display={false}
+        />;
+        <Math tex="-2\beta = -6" display={false} />, <Math
+          tex="\beta = 3"
+          display={false}
+        />.
       </p>
       <Math tex="r = \sqrt{\alpha^2+\beta^2-F}" />
       <Math tex="r = \sqrt{(1)^2+(3)^2-(-18)} \qquad \boxed{r = \sqrt{28}}" />
@@ -181,81 +228,160 @@ import "../styles/capitulo1.css";
         <Math tex="\sqrt{28}" display={false} />.
       </p>
       <Nota etiqueta="NOTA">
-        CUANDO <Math tex="A = C \neq 1" display={false} />, PARA HALLAR EL CENTRO Y EL RADIO
-        DEBE DIVIDIRSE PRIMERO TODA LA ECUACIÓN ENTRE EL VALOR DE
+        CUANDO <Math tex="A = C \neq 1" display={false} />, PARA HALLAR EL
+        CENTRO Y EL RADIO DEBE DIVIDIRSE PRIMERO TODA LA ECUACIÓN ENTRE EL VALOR
+        DE
         <Math tex="A" display={false} />.
       </Nota>
-      <p>Probá con tus coeficientes: la calculadora valida las tres condiciones.</p>
+      <p>
+        Probá con tus coeficientes: la calculadora valida las tres condiciones.
+      </p>
       <CalcCircCentroRadio />
     </Seccion>
 
     <Seccion id="s3" tituloHtml="3 — <em>ALGUNOS CASOS PARTICULARES</em>">
-      <p>Según dónde esté el centro o a qué sea tangente, la ecuación se simplifica:</p>
+      <p>
+        Según dónde esté el centro o a qué sea tangente, la ecuación se
+        simplifica:
+      </p>
       <div class="casos">
         <div class="prob">
           <strong>Centro en el origen</strong>
-          <Figura simbolo="circ-origen" descripcion="Circunferencia con centro en el origen" viewBox="0 0 300 200" />
-          <p>Si <Math tex="C(\alpha,\beta)" display={false} /> está en el origen: <Math tex="\alpha = 0 \quad \beta = 0" display={false} />.</p>
+          <Figura
+            simbolo="circ-origen"
+            descripcion="Circunferencia con centro en el origen"
+            viewBox="0 0 300 200"
+          />
+          <p>
+            Si <Math tex="C(\alpha,\beta)" display={false} /> está en el origen: <Math
+              tex="\alpha = 0 \quad \beta = 0"
+              display={false}
+            />.
+          </p>
         </div>
         <div class="prob">
           <strong>Centro sobre el eje de las abscisas</strong>
-          <Figura simbolo="circ-sobre-ox" descripcion="Circunferencia con centro sobre el eje x" viewBox="0 0 300 200" />
-          <p>Si está sobre el eje de las abscisas: <Math tex="\beta = 0" display={false} />; centro <Math tex="C(\alpha,0)" display={false} />.</p>
+          <Figura
+            simbolo="circ-sobre-ox"
+            descripcion="Circunferencia con centro sobre el eje x"
+            viewBox="0 0 300 200"
+          />
+          <p>
+            Si está sobre el eje de las abscisas: <Math
+              tex="\beta = 0"
+              display={false}
+            />; centro <Math tex="C(\alpha,0)" display={false} />.
+          </p>
         </div>
         <div class="prob">
           <strong>Centro sobre el eje de las ordenadas</strong>
-          <Figura simbolo="circ-sobre-oy" descripcion="Circunferencia con centro sobre el eje y" viewBox="0 0 300 200" />
-          <p>Si está sobre el eje de las ordenadas: <Math tex="\alpha = 0" display={false} />; centro <Math tex="C(0,\beta)" display={false} />.</p>
+          <Figura
+            simbolo="circ-sobre-oy"
+            descripcion="Circunferencia con centro sobre el eje y"
+            viewBox="0 0 300 200"
+          />
+          <p>
+            Si está sobre el eje de las ordenadas: <Math
+              tex="\alpha = 0"
+              display={false}
+            />; centro <Math tex="C(0,\beta)" display={false} />.
+          </p>
         </div>
         <div class="prob">
           <strong>Tangente al eje de las ordenadas</strong>
-          <Figura simbolo="circ-tang-oy" descripcion="Circunferencia tangente al eje y, radio igual al valor absoluto de alfa" viewBox="0 0 300 200" />
+          <Figura
+            simbolo="circ-tang-oy"
+            descripcion="Circunferencia tangente al eje y, radio igual al valor absoluto de alfa"
+            viewBox="0 0 300 200"
+          />
           <p>El radio es igual a: <Math tex="|\alpha|" display={false} />.</p>
         </div>
         <div class="prob">
           <strong>Tangente al eje de las abscisas</strong>
-          <Figura simbolo="circ-tang-ox" descripcion="Circunferencia tangente al eje x, radio igual al valor absoluto de beta" viewBox="0 0 300 200" />
+          <Figura
+            simbolo="circ-tang-ox"
+            descripcion="Circunferencia tangente al eje x, radio igual al valor absoluto de beta"
+            viewBox="0 0 300 200"
+          />
           <p>El radio es igual a: <Math tex="|\beta|" display={false} />.</p>
         </div>
         <div class="prob">
           <strong>Tangente a ambos ejes</strong>
-          <Figura simbolo="circ-tang-ambos" descripcion="Circunferencia tangente a ambos ejes coordenados" viewBox="0 0 300 200" />
-          <p>Se cumple <Math tex="|\alpha| = |\beta| = r" display={false} /> entre centro y radio.</p>
+          <Figura
+            simbolo="circ-tang-ambos"
+            descripcion="Circunferencia tangente a ambos ejes coordenados"
+            viewBox="0 0 300 200"
+          />
+          <p>
+            Se cumple <Math tex="|\alpha| = |\beta| = r" display={false} /> entre
+            centro y radio.
+          </p>
         </div>
       </div>
       <Nota etiqueta="NOTA">
-        EL RADIO SIEMPRE ES POSITIVO. SI <Math tex="\alpha" display={false} /> O
-        <Math tex="\beta" display={false} /> SON NEGATIVOS NO SE PUEDE PONER
-        <Math tex="r = \alpha" display={false} />: SE DEBE CONSIDERAR
-        <Math tex="r = |\alpha| \qquad r = |\beta|" display={false} />.
+        EL RADIO SIEMRE ES POSITIVO. SI <Math tex="\alpha" display={false} /> o
+        <Math tex="\beta" display={false} /> son negativos se debe considerar
+        <Math tex="r = |\alpha|" display={false} /> o <Math
+          tex="r = |\beta|"
+          display={false}
+        /> según corresponda.
       </Nota>
 
       <Split>
-        <Figura simbolo="circ-por-origen" descripcion="Circunferencia que pasa por el origen, triángulo de lados alfa beta y radio r" viewBox="0 0 300 200" />
+        <Figura
+          simbolo="circ-por-origen"
+          descripcion="Circunferencia que pasa por el origen, triángulo de lados alfa beta y radio r"
+          viewBox="0 0 300 200"
+        />
         <div>
-          <p><strong>Circunferencia que pasa por el origen.</strong> Por Pitágoras:</p>
-          <Math tex="\alpha^2+\beta^2 = r^2 \quad \text{o sea} \quad \alpha^2+\beta^2-r^2 = 0" />
-          <p>Por lo tanto no tiene término independiente (<Math tex="F = 0" display={false} />).</p>
+          <p>
+            <strong>Circunferencia que pasa por el origen.</strong> Por Pitágoras:
+          </p>
+          <Math
+            tex="\alpha^2+\beta^2 = r^2 \quad \text{o sea} \quad \alpha^2+\beta^2-r^2 = 0"
+          />
+          <p>
+            Por lo tanto no tiene término independiente (<Math
+              tex="F = 0"
+              display={false}
+            />).
+          </p>
         </div>
       </Split>
       <Nota etiqueta="NOTA">
-        LA ECUACIÓN DE UNA CURVA QUE PASE POR EL ORIGEN NO TIENE TÉRMINO INDEPENDIENTE. PROPIEDAD ÚTIL: SI
-        <Math tex="A" display={false} /> Y <Math tex="B" display={false} /> SON DIAMETRALMENTE OPUESTOS, PARA CUALQUIER
+        LA ECUACIÓN DE UNA CURVA QUE PASE POR EL ORIGEN NO TIENE TÉRMINO
+        INDEPENDIENTE. PROPIEDAD ÚTIL: SI
+        <Math tex="A" display={false} /> Y <Math tex="B" display={false} /> SON DIAMETRALMENTE
+        OPUESTOS, PARA CUALQUIER
         <Math tex="P" display={false} /> SOBRE LA CIRCUNFERENCIA EL ÁNGULO
         <Math tex="APB" display={false} /> ES RECTO.
       </Nota>
 
       <div class="prob">
-        <strong>Ejemplo.</strong> Hallar la ecuación de una circunferencia tangente a los ejes
-        coordenados y que pasa por <Math tex="(-4,-2)" display={false} />.
+        <strong>Ejemplo.</strong> Hallar la ecuación de una circunferencia tangente
+        a los ejes coordenados y que pasa por <Math
+          tex="(-4,-2)"
+          display={false}
+        />.
         <p>
-          Si es tangente a los ejes, <Math tex="|\alpha| = |\beta| = r" display={false} />. La
-          ecuación se expresa como
-          <Math tex="x^2+y^2-2\alpha x-2\alpha y+\alpha^2 = 0" display={false} />. Si
+          Si es tangente a los ejes, <Math
+            tex="|\alpha| = |\beta| = r"
+            display={false}
+          />. La ecuación se expresa como
+          <Math
+            tex="x^2+y^2-2\alpha x-2\alpha y+\alpha^2 = 0"
+            display={false}
+          />. Si
           <Math tex="(-4,-2)" display={false} /> pertenece:
-          <Math tex="(-4)^2+(-2)^2-2\alpha(-4)-2\alpha(-2)+\alpha^2 = 0" display={false} />, o sea
+          <Math
+            tex="(-4)^2+(-2)^2-2\alpha(-4)-2\alpha(-2)+\alpha^2 = 0"
+            display={false}
+          />, o sea
           <Math tex="\alpha^2+12\alpha+20 = 0" display={false} />, de soluciones
-          <Math tex="\alpha = -2" display={false} />, <Math tex="\alpha = -10" display={false} />.
+          <Math tex="\alpha = -2" display={false} />, <Math
+            tex="\alpha = -10"
+            display={false}
+          />.
         </p>
         <Math tex="\text{Con } \alpha = -2 \to x^2+y^2+4x+4y+4 = 0" />
         <Math tex="\text{Con } \alpha = -10 \to x^2+y^2+20x+20y+100 = 0" />
@@ -286,28 +412,61 @@ import "../styles/capitulo1.css";
       </style>
     </Seccion>
 
-    <Seccion id="s4" tituloHtml="4 — <em>PUNTOS DE CORTE DE UNA CIRCUNFERENCIA Y UNA RECTA</em>">
+    <Seccion
+      id="s4"
+      tituloHtml="4 — <em>PUNTOS DE CORTE DE UNA CIRCUNFERENCIA Y UNA RECTA</em>"
+    >
       <p>
-        La manera de hallar los puntos de corte es resolver el sistema formado por sus
-        respectivas ecuaciones:
+        La manera de hallar los puntos de corte es resolver el sistema formado
+        por sus respectivas ecuaciones:
       </p>
-      <Math tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ y = mx+n \end{cases}" />
+      <Math
+        tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ y = mx+n \end{cases}"
+      />
       <p>
-        Se despeja la <Math tex="x" display={false} /> o la <Math tex="y" display={false} /> en
-        la ecuación de primer grado y se sustituye en la de segundo grado. Según el
-        discriminante de la cuadrática resultante:
+        Se despeja la <Math tex="x" display={false} /> o la <Math
+          tex="y"
+          display={false}
+        /> en la ecuación de primer grado y se sustituye en la de segundo grado. Según
+        el discriminante de la cuadrática resultante:
       </p>
       <Split>
-        <Figura simbolo="circ-recta-secante" descripcion="Recta secante que corta a la circunferencia en dos puntos" viewBox="0 0 300 200" />
-        <div><p><strong>Secante:</strong> dos soluciones reales y distintas; la recta corta en dos puntos.</p></div>
+        <Figura
+          simbolo="circ-recta-secante"
+          descripcion="Recta secante que corta a la circunferencia en dos puntos"
+          viewBox="0 0 300 200"
+        />
+        <div>
+          <p>
+            <strong>Secante:</strong> dos soluciones reales y distintas; la recta
+            corta en dos puntos.
+          </p>
+        </div>
       </Split>
       <Split>
-        <Figura simbolo="circ-recta-tangente" descripcion="Recta tangente con un solo punto en común" viewBox="0 0 300 200" />
-        <div><p><strong>Tangente:</strong> dos soluciones reales e iguales; un solo punto en común.</p></div>
+        <Figura
+          simbolo="circ-recta-tangente"
+          descripcion="Recta tangente con un solo punto en común"
+          viewBox="0 0 300 200"
+        />
+        <div>
+          <p>
+            <strong>Tangente:</strong> dos soluciones reales e iguales; un solo punto
+            en común.
+          </p>
+        </div>
       </Split>
       <Split>
-        <Figura simbolo="circ-recta-exterior" descripcion="Recta exterior sin puntos de contacto" viewBox="0 0 300 200" />
-        <div><p><strong>Exterior:</strong> soluciones imaginarias; ningún punto de contacto.</p></div>
+        <Figura
+          simbolo="circ-recta-exterior"
+          descripcion="Recta exterior sin puntos de contacto"
+          viewBox="0 0 300 200"
+        />
+        <div>
+          <p>
+            <strong>Exterior:</strong> soluciones imaginarias; ningún punto de contacto.
+          </p>
+        </div>
       </Split>
 
       <div class="prob">
@@ -316,36 +475,63 @@ import "../styles/capitulo1.css";
         <Math tex="y = 2x" display={false} />.
         <Math tex="x^2+(2x)^2+3x-4(2x) = 0 \qquad 5x^2-5x = 0" />
         <p>
-          Raíces <Math tex="x = 0" display={false} /> y <Math tex="x = 1" display={false} />; en
-          la recta: <Math tex="(0,0)" display={false} /> y <Math tex="(1,2)" display={false} />.
+          Raíces <Math tex="x = 0" display={false} /> y <Math
+            tex="x = 1"
+            display={false}
+          />; en la recta: <Math tex="(0,0)" display={false} /> y <Math
+            tex="(1,2)"
+            display={false}
+          />.
         </p>
       </div>
       <CalcCorteRectaCirc />
     </Seccion>
 
-    <Seccion id="s5" tituloHtml="5 — <em>PUNTOS DE CORTE DE DOS CIRCUNFERENCIAS</em>">
+    <Seccion
+      id="s5"
+      tituloHtml="5 — <em>PUNTOS DE CORTE DE DOS CIRCUNFERENCIAS</em>"
+    >
       <p>
-        Hallar los puntos de corte de dos circunferencias (no concéntricas) consiste en resolver:
+        Hallar los puntos de corte de dos circunferencias (no concéntricas)
+        consiste en resolver:
       </p>
-      <Math tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ x^2+y^2-2\alpha'x-2\beta'y+F' = 0 \end{cases}" />
+      <Math
+        tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ x^2+y^2-2\alpha'x-2\beta'y+F' = 0 \end{cases}"
+      />
       <p>El primer paso es <strong>restar</strong> ambas ecuaciones:</p>
       <Math tex="(2\alpha'-2\alpha)x+(2\beta'-2\beta)y+F-F' = 0" />
       <p>
         Al restar se obtiene una recta (primer grado en
         <Math tex="x" display={false} /> e <Math tex="y" display={false} />): el
-        <strong>eje radical</strong>. Luego se resuelve el sistema de una circunferencia con el
-        eje radical, por sustitución.
+        <strong>eje radical</strong>. Luego se resuelve el sistema de una
+        circunferencia con el eje radical, por sustitución.
       </p>
       <Split>
-        <Figura simbolo="circ-dos-secantes" descripcion="Dos circunferencias secantes con su eje radical" viewBox="0 0 300 200" />
-        <div><p><strong>Secantes:</strong> dos puntos solución; se cortan en esos puntos.</p></div>
+        <Figura
+          simbolo="circ-dos-secantes"
+          descripcion="Dos circunferencias secantes con su eje radical"
+          viewBox="0 0 300 200"
+        />
+        <div>
+          <p>
+            <strong>Secantes:</strong> dos puntos solución; se cortan en esos puntos.
+          </p>
+        </div>
       </Split>
       <Split>
-        <Figura simbolo="circ-dos-tangentes" descripcion="Dos circunferencias tangentes con su eje radical" viewBox="0 0 300 200" />
+        <Figura
+          simbolo="circ-dos-tangentes"
+          descripcion="Dos circunferencias tangentes con su eje radical"
+          viewBox="0 0 300 200"
+        />
         <div><p><strong>Tangentes:</strong> un solo punto solución.</p></div>
       </Split>
       <Split>
-        <Figura simbolo="circ-dos-externas" descripcion="Dos circunferencias externas con su eje radical" viewBox="0 0 300 200" />
+        <Figura
+          simbolo="circ-dos-externas"
+          descripcion="Dos circunferencias externas con su eje radical"
+          viewBox="0 0 300 200"
+        />
         <div><p><strong>Externas:</strong> ningún punto solución.</p></div>
       </Split>
 
@@ -359,23 +545,35 @@ import "../styles/capitulo1.css";
           Eje radical <Math tex="x-y-1 = 0" display={false} />, o sea
           <Math tex="x = y+1" display={false} />. Sustituyendo en la primera:
         </p>
-        <Math tex="(y+1)^2+y^2-4(y+1)-6y+9 = 0 \quad \longrightarrow \quad 2y^2-8y+6 = 0" />
+        <Math
+          tex="(y+1)^2+y^2-4(y+1)-6y+9 = 0 \quad \longrightarrow \quad 2y^2-8y+6 = 0"
+        />
         <p>
-          Raíces <Math tex="y = 1" display={false} />, <Math tex="y = 3" display={false} />:
-          soluciones <Math tex="(2,1)" display={false} /> y
+          Raíces <Math tex="y = 1" display={false} />, <Math
+            tex="y = 3"
+            display={false}
+          />: soluciones <Math tex="(2,1)" display={false} /> y
           <Math tex="(4,3)" display={false} />.
         </p>
       </div>
       <CalcEjeRadical />
     </Seccion>
 
-    <Seccion id="s6" tituloHtml="6 — <em>REGIONES DEL PLANO CON RESPECTO A UNA CIRCUNFERENCIA</em>">
+    <Seccion
+      id="s6"
+      tituloHtml="6 — <em>REGIONES DEL PLANO CON RESPECTO A UNA CIRCUNFERENCIA</em>"
+    >
       <Split>
-        <Figura simbolo="circ-region" descripcion="Circunferencia con interior negativo y exterior positivo" viewBox="0 0 300 200" />
+        <Figura
+          simbolo="circ-region"
+          descripcion="Circunferencia con interior negativo y exterior positivo"
+          viewBox="0 0 300 200"
+        />
         <div>
           <p>
-            Sea <Math tex="f(x,y) = 0" display={false} /> la ecuación. Generalmente el interior
-            responde a <Math tex="f(x,y) \lt 0" display={false} /> y el exterior a
+            Sea <Math tex="f(x,y) = 0" display={false} /> la ecuación. Generalmente
+            el interior responde a <Math tex="f(x,y) \lt 0" display={false} /> y el
+            exterior a
             <Math tex="f(x,y) \gt 0" display={false} />; sobre la curva
             <Math tex="f(x,y) = 0" display={false} />.
           </p>
@@ -385,7 +583,11 @@ import "../styles/capitulo1.css";
         <strong>Ejemplo.</strong> Resolver
         <Math tex="-x^2-y^2+2x-4y \gt 0" display={false} />.
         <Split>
-          <Figura simbolo="circ-region-ej1" descripcion="Disco sombreado de centro (1,-2) y radio raíz de 5, sin incluir el borde" viewBox="0 0 300 200" />
+          <Figura
+            simbolo="circ-region-ej1"
+            descripcion="Disco sombreado de centro (1,-2) y radio raíz de 5, sin incluir el borde"
+            viewBox="0 0 300 200"
+          />
           <div>
             <p>
               Es el interior de la circunferencia de centro
@@ -396,21 +598,32 @@ import "../styles/capitulo1.css";
           </div>
         </Split>
         <p>
-          Para identificar la región conviene probar un punto interior: si verifica la desigualdad, la inecuación
-          representa al interior; si no, al exterior.
+          Para identificar la región conviene probar un punto interior: si
+          verifica la desigualdad, la inecuación representa al interior; si no,
+          al exterior.
         </p>
       </div>
       <div class="prob">
         <strong>Ejemplo.</strong> Resolver
         <Math tex="(x^2+y^2-4x)(x^2+y^2-1) \leq 0" display={false} />.
         <Split>
-          <Figura simbolo="circ-region-ej2" descripcion="Zonas sombreadas: interior de una circunferencia y exterior de la otra, incluyendo los bordes" viewBox="0 0 300 200" />
+          <Figura
+            simbolo="circ-region-ej2"
+            descripcion="Zonas sombreadas: interior de una circunferencia y exterior de la otra, incluyendo los bordes"
+            viewBox="0 0 300 200"
+          />
           <div>
             <p>
               <Math tex="x^2+y^2-4x = 0" display={false} /> es centro
-              <Math tex="(2,0)" display={false} />, radio <Math tex="2" display={false} />;
+              <Math tex="(2,0)" display={false} />, radio <Math
+                tex="2"
+                display={false}
+              />;
               <Math tex="x^2+y^2-1 = 0" display={false} /> es centro
-              <Math tex="(0,0)" display={false} />, radio <Math tex="1" display={false} />.
+              <Math tex="(0,0)" display={false} />, radio <Math
+                tex="1"
+                display={false}
+              />.
             </p>
             <p>Solución: zona sombreada incluyendo las circunferencias.</p>
           </div>
@@ -419,24 +632,31 @@ import "../styles/capitulo1.css";
     </Seccion>
 
     <Seccion id="s7" tituloHtml="7 — <em>¿SERÁ CIERTO?</em>">
-      <p><em>Responder «verdadero» o «falso», y justificar la respuesta.</em></p>
+      <p>
+        <em>Responder «verdadero» o «falso», y justificar la respuesta.</em>
+      </p>
       <div class="prob">
-        <strong>i)</strong> Si los puntos A, B y C forman un triángulo rectángulo en A, entonces
-        los tres puntos se ubican en una circunferencia donde el segmento [BC] es un diámetro.
+        <strong>i)</strong> Si los puntos A, B y C forman un triángulo rectángulo
+        en A, entonces los tres puntos se ubican en una circunferencia donde el segmento
+        [BC] es un diámetro.
         <RevealSolucion
           boton="Solución i)"
           solucion="Verdadero: la hipotenusa BC es diámetro (el ángulo APB subtendido por un diámetro es recto)."
         />
       </div>
       <div class="prob">
-        <strong>ii)</strong> <Math tex="4x^2+4y^2-3 = 0" display={false} /> es la ecuación cartesiana de una circunferencia.
+        <strong>ii)</strong>
+        <Math tex="4x^2+4y^2-3 = 0" display={false} /> es la ecuación cartesiana de
+        una circunferencia.
         <RevealSolucion
           boton="Solución ii)"
           solucion="Verdadero: A=C=4, B=0; dividiendo entre 4: x²+y²=3/4, centro (0,0), r=√3/2."
         />
       </div>
       <div class="prob">
-        <strong>iii)</strong> <Math tex="x^2+y^2+Dx+Ey+F = 0" display={false} /> es siempre la ecuación de una circunferencia real.
+        <strong>iii)</strong>
+        <Math tex="x^2+y^2+Dx+Ey+F = 0" display={false} /> es siempre la ecuación
+        de una circunferencia real.
         <RevealSolucion
           boton="Solución iii)"
           solucion="Falso: falta que r²=α²+β²−F>0. Contraejemplo: x²+y²−2x+4y+20=0 da r²=−15."
@@ -455,13 +675,15 @@ import "../styles/capitulo1.css";
         </figure>
         <div>
           <p>
-            La superficie esférica se define como el lugar geométrico de los puntos del espacio
-            que equidistan de un punto fijo. La distancia constante se llama
+            La superficie esférica se define como el lugar geométrico de los
+            puntos del espacio que equidistan de un punto fijo. La distancia
+            constante se llama
             <strong>radio</strong> y el punto fijo <strong>centro</strong>.
           </p>
           <p>
-            La superficie esférica cuyo centro es el origen de coordenadas y cuyo radio es la
-            constante <Math tex="r" display={false} /> tiene por ecuación:
+            La superficie esférica cuyo centro es el origen de coordenadas y
+            cuyo radio es la constante <Math tex="r" display={false} /> tiene por
+            ecuación:
           </p>
           <Math tex="x^2+y^2+z^2 = r^2" />
         </div>
@@ -471,11 +693,17 @@ import "../styles/capitulo1.css";
     <ChapterNav
       posicion="bottom"
       prev={{ href: "/practico-recta/", titulo: "Práctico: Recta" }}
-      next={{ href: "/practico-circunferencia/", titulo: "Práctico: Circunferencia" }}
+      next={{
+        href: "/practico-circunferencia/",
+        titulo: "Práctico: Circunferencia",
+      }}
     />
   </main>
 
   <footer>
-    <p>Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA · Cap. 3 “Circunferencia”</p>
+    <p>
+      Material extraido del libro de GUSTAVO A. DUFFOUR — GEOMETRÍA ANALÍTICA ·
+      Cap. 3 “Circunferencia”
+    </p>
   </footer>
 </BaseLayout>
