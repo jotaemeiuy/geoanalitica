@@ -1,12 +1,15 @@
 ---
+import DescargarPdf from "./DescargarPdf.astro";
+
 interface Props {
   kicker: string;
   numero: string;
   tituloHtml: string;
   subtitulo: string;
+  pdf?: boolean;
 }
 
-const { kicker, numero, tituloHtml, subtitulo } = Astro.props;
+const { kicker, numero, tituloHtml, subtitulo, pdf = false } = Astro.props;
 ---
 
 <header class="hero">
@@ -14,4 +17,5 @@ const { kicker, numero, tituloHtml, subtitulo } = Astro.props;
   <p class="num" aria-hidden="true">{numero}</p>
   <h1 set:html={tituloHtml} />
   <p>{subtitulo}</p>
+  {pdf && <DescargarPdf />}
 </header>

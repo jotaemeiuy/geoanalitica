@@ -1,0 +1,129 @@
+/* ============================================================
+   print.css — estilos de impresión (botón "Descargar PDF")
+   Propósito sin @layer a propósito: las reglas sin capa ganan
+   a cualquier @layer (page incluida) sin necesidad de !important.
+   ============================================================ */
+
+@page {
+  size: A4;
+  margin: 18mm 15mm;
+}
+
+@media print {
+  /* ---------- Base: papel blanco, tinta negra ---------- */
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .wrap,
+  .wrap--wide {
+    inline-size: auto;
+    max-inline-size: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* ---------- Chrome de la página: oculto ---------- */
+  .skip-link,
+  .topbar,
+  .chapter-nav,
+  nav.toc,
+  .btn-pdf,
+  footer,
+  button {
+    display: none;
+  }
+
+  /* ---------- Islas interactivas: fuera ---------- */
+  /* Cubre calculadoras (.calc) y revelados de solución del
+     práctico: las soluciones nunca se imprimen. */
+  .calc {
+    display: none;
+  }
+
+  /* ---------- Hero simplificado ---------- */
+  header.hero {
+    background: none;
+    border: none;
+    border-block-end: 2px solid #000;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 12px;
+
+    & .num {
+      border-inline-start-color: #000;
+    }
+  }
+
+  /* ---------- Notas y tarjetas ---------- */
+  .nota,
+  .card {
+    background: none;
+    box-shadow: none;
+  }
+
+  /* ---------- Fórmulas: nunca cortadas ni recortadas ---------- */
+  .katex-display {
+    overflow: visible;
+  }
+
+  /* ---------- Disposición como en la web ----------
+     El viewport de impresión (~680px) es más estrecho que el
+     breakpoint de 48rem, así que el layout de dos columnas de
+     .split se apilaría y las figuras saldrían a página completa
+     y desproporcionadas. Restauramos la rejilla de escritorio con
+     la proporción de la web (figura ≈34% del ancho de contenido). */
+  .split {
+    display: grid;
+    grid-template-columns: 34% 1fr;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  /* Las figuras recuperan su ancho relativo (antes a todo el
+     ancho de página, lo que pixelaba las raster). */
+  .fig img,
+  .fig svg {
+    inline-size: 100%;
+    block-size: auto;
+    max-inline-size: none;
+  }
+
+  /* ---------- Saltos de página ---------- */
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  .formula,
+  .prob,
+  figure,
+  .nota,
+  table {
+    break-inside: avoid;
+  }
+
+  /* .split ya no se evita entero: con dos columnas es más alto y
+     forzar salto dejaría huecos. Se permite partir entre páginas. */
+
+  /* ---------- Saltos pedidos a mano (cap. 3) ----------
+     La sección 6 (Regiones del plano) y la 7 (¿Será cierto?) con
+     todo su contenido arrancan cada una en página nueva. Los ID
+     tienen prioridad sobre las clases, así que no hacen falta
+     !important. */
+  #s6,
+  #s7 {
+    break-before: page;
+  }
+}

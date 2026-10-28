@@ -25,6 +25,7 @@ import "../styles/capitulo1.css";
       numero="3"
       tituloHtml="LA <span>CIRCUNFERENCIA</span>"
       subtitulo="Geometría Analítica · Capítulo 3"
+      pdf={true}
     />
 
     <ChapterNav
@@ -64,7 +65,7 @@ import "../styles/capitulo1.css";
       </p>
       <p>
         Al punto fijo <Math tex="C" display={false} />, de coordenadas
-        <Math tex="C(\alpha,\beta)" display={false} />, se le llama
+        <Math tex="C(\\alpha,\\beta)" display={false} />, se le llama
         <strong>centro</strong> de la circunferencia, y a la distancia constante
         <Math tex="r" display={false} /> (un número real no negativo),
         <strong>radio</strong> de la circunferencia.
@@ -79,21 +80,21 @@ import "../styles/capitulo1.css";
         />
         <div>
           <p>
-            Siendo el centro <Math tex="C(\alpha,\beta)" display={false} /> y
+            Siendo el centro <Math tex="C(\\alpha,\\beta)" display={false} /> y
             <Math tex="P(x,y)" display={false} /> un punto genérico sobre ella, el
             radio
             <Math tex="r" display={false} /> es la distancia entre estos dos puntos.
             Por definición se cumple: <Math tex="d(P,C) = r" display={false} />.
           </p>
-          <Math tex="\sqrt{(x-\alpha)^2+(y-\beta)^2} = r" />
+          <Math tex="\\sqrt{(x-\\alpha)^2+(y-\\beta)^2} = r" />
           <p>Se elevan al cuadrado ambos miembros:</p>
-          <Math tex="\left(\sqrt{(x-\alpha)^2+(y-\beta)^2}\right)^2 = (r)^2" />
+          <Math tex="\\left(\\sqrt{(x-\\alpha)^2+(y-\\beta)^2}\\right)^2 = (r)^2" />
         </div>
       </Split>
       <p>En este caso es posible eliminar la raíz con el cuadrado:</p>
-      <Math tex="(x-\alpha)^2+(y-\beta)^2 = (r)^2" />
+      <Math tex="(x-\\alpha)^2+(y-\\beta)^2 = (r)^2" />
       <p>Al hacer las cuentas y reordenar se obtiene la ecuación:</p>
-      <Math tex="\boxed{x^2+y^2-2\alpha x-2\beta y+\alpha^2+\beta^2-r^2 = 0}" />
+      <Math tex="\\boxed{x^2+y^2-2\\alpha x-2\\beta y+\\alpha^2+\\beta^2-r^2 = 0}" />
 
       <div class="prob">
         <strong>Ejemplo.</strong> Hallar la ecuación de una circunferencia
@@ -101,28 +102,28 @@ import "../styles/capitulo1.css";
         <Math tex="(2,-3)" display={false} /> y radio igual a
         <Math tex="5" display={false} />.
         <p>
-          Basta sustituir <Math tex="\alpha = 2" display={false} />,
-          <Math tex="\beta = -3" display={false} />,
+          Basta sustituir <Math tex="\\alpha = 2" display={false} />,
+          <Math tex="\\beta = -3" display={false} />,
           <Math tex="r = 5" display={false} />:
         </p>
         <Math tex="x^2+y^2-2(2)x-2(-3)y+(2)^2+(-3)^2-(5)^2 = 0" />
-        <Math tex="\boxed{(C) \quad x^2+y^2-4x+6y-12 = 0}" />
+        <Math tex="\\boxed{(C) \\quad x^2+y^2-4x+6y-12 = 0}" />
       </div>
 
       <h3>1.3. Otra forma para la ecuación de la circunferencia</h3>
       <p>
         Para determinar la ecuación es necesario encontrar el centro
-        <Math tex="C(\alpha,\beta)" display={false} /> y el radio
+        <Math tex="C(\\alpha,\\beta)" display={false} /> y el radio
         <Math tex="r" display={false} />. Pero en muchos casos es más sencillo
         tomar como incógnita el centro <Math
-          tex="C(\alpha,\beta)"
+          tex="C(\\alpha,\\beta)"
           display={false}
         /> y el término independiente <Math tex="F" display={false} />. Se hace
         la sustitución:
       </p>
-      <Math tex="\alpha^2+\beta^2-r^2 = F" />
+      <Math tex="\\alpha^2+\\beta^2-r^2 = F" />
       <Math
-        tex="\boxed{\text{Ecuación de la circunferencia: } x^2+y^2-2\alpha x-2\beta y+F = 0}"
+        tex="\\boxed{\\text{Ecuación de la circunferencia: } x^2+y^2-2\\alpha x-2\\beta y+F = 0}"
       />
       <p>
         A partir de la ecuación general se exige que los puntos dados la
@@ -145,15 +146,15 @@ import "../styles/capitulo1.css";
           display={false}
         />,
         <Math tex="(3,5)" display={false} />.
-        <Math tex="(9,5) \in (C) \Rightarrow 81+25-18\alpha-10\beta+F = 0" />
-        <Math tex="(7,1) \in (C) \Rightarrow 49+1-14\alpha-2\beta+F = 0" />
-        <Math tex="(3,5) \in (C) \Rightarrow 9+25-6\alpha-10\beta+F = 0" />
+        <Math tex="(9,5) \\in (C) \\Rightarrow 81+25-18\\alpha-10\\beta+F = 0" />
+        <Math tex="(7,1) \\in (C) \\Rightarrow 49+1-14\\alpha-2\\beta+F = 0" />
+        <Math tex="(3,5) \\in (C) \\Rightarrow 9+25-6\\alpha-10\\beta+F = 0" />
         <p>
-          Resultados del sistema: <Math tex="\alpha = 6" display={false} />,
-          <Math tex="\beta = 4" display={false} />,
+          Resultados del sistema: <Math tex="\\alpha = 6" display={false} />,
+          <Math tex="\\beta = 4" display={false} />,
           <Math tex="F = 42" display={false} />.
         </p>
-        <Math tex="\boxed{(C) \quad x^2+y^2-12x-8y+42 = 0}" />
+        <Math tex="\\boxed{(C) \\quad x^2+y^2-12x-8y+42 = 0}" />
       </div>
 
       <div class="prob">
@@ -169,17 +170,17 @@ import "../styles/capitulo1.css";
           que uno de los extremos pertenezca a la circunferencia.
         </p>
         <Math
-          tex="\text{Centro } \left(\frac{3+(-7)}{2},\frac{-5+7}{2}\right) = (-2,1)"
+          tex="\\text{Centro } \\left(\\frac{3+(-7)}{2},\\frac{-5+7}{2}\\right) = (-2,1)"
         />
         <p>
-          O sea <Math tex="\alpha = -2" display={false} />,
-          <Math tex="\beta = 1" display={false} />:
-          <Math tex="(C) \quad x^2+y^2-2(-2)x-2(1)y+F = 0" display={false} />.
+          O sea <Math tex="\\alpha = -2" display={false} />,
+          <Math tex="\\beta = 1" display={false} />:
+          <Math tex="(C) \\quad x^2+y^2-2(-2)x-2(1)y+F = 0" display={false} />.
         </p>
         <Math
-          tex="(3,-5) \in (C) \Rightarrow (3)^2+(-5)^2+4(3)-2(-5)+F = 0 \quad F = -56"
+          tex="(3,-5) \\in (C) \\Rightarrow (3)^2+(-5)^2+4(3)-2(-5)+F = 0 \\quad F = -56"
         />
-        <Math tex="\boxed{(C) \quad x^2+y^2+4x-2y-56 = 0}" />
+        <Math tex="\\boxed{(C) \\quad x^2+y^2+4x-2y-56 = 0}" />
       </div>
     </Seccion>
 
@@ -211,24 +212,24 @@ import "../styles/capitulo1.css";
       </p>
       <p>
         <strong>3)</strong> El radio debe ser positivo. Cálculo del centro:
-        <Math tex="-2\alpha = -2" display={false} />, <Math
-          tex="\alpha = 1"
+        <Math tex="-2\\alpha = -2" display={false} />, <Math
+          tex="\\alpha = 1"
           display={false}
         />;
-        <Math tex="-2\beta = -6" display={false} />, <Math
-          tex="\beta = 3"
+        <Math tex="-2\\beta = -6" display={false} />, <Math
+          tex="\\beta = 3"
           display={false}
         />.
       </p>
-      <Math tex="r = \sqrt{\alpha^2+\beta^2-F}" />
-      <Math tex="r = \sqrt{(1)^2+(3)^2-(-18)} \qquad \boxed{r = \sqrt{28}}" />
+      <Math tex="r = \\sqrt{\\alpha^2+\\beta^2-F}" />
+      <Math tex="r = \\sqrt{(1)^2+(3)^2-(-18)} \\qquad \\boxed{r = \\sqrt{28}}" />
       <p>
         Por lo tanto representa una circunferencia de centro
         <Math tex="(1,3)" display={false} /> y radio igual a
-        <Math tex="\sqrt{28}" display={false} />.
+        <Math tex="\\sqrt{28}" display={false} />.
       </p>
       <Nota etiqueta="NOTA">
-        CUANDO <Math tex="A = C \neq 1" display={false} />, PARA HALLAR EL
+        CUANDO <Math tex="A = C \\neq 1" display={false} />, PARA HALLAR EL
         CENTRO Y EL RADIO DEBE DIVIDIRSE PRIMERO TODA LA ECUACIÓN ENTRE EL VALOR
         DE
         <Math tex="A" display={false} />.
@@ -253,8 +254,8 @@ import "../styles/capitulo1.css";
             viewBox="0 0 300 200"
           />
           <p>
-            Si <Math tex="C(\alpha,\beta)" display={false} /> está en el origen: <Math
-              tex="\alpha = 0 \quad \beta = 0"
+            Si <Math tex="C(\\alpha,\\beta)" display={false} /> está en el origen: <Math
+              tex="\\alpha = 0 \\quad \\beta = 0"
               display={false}
             />.
           </p>
@@ -268,9 +269,9 @@ import "../styles/capitulo1.css";
           />
           <p>
             Si está sobre el eje de las abscisas: <Math
-              tex="\beta = 0"
+              tex="\\beta = 0"
               display={false}
-            />; centro <Math tex="C(\alpha,0)" display={false} />.
+            />; centro <Math tex="C(\\alpha,0)" display={false} />.
           </p>
         </div>
         <div class="prob">
@@ -282,9 +283,9 @@ import "../styles/capitulo1.css";
           />
           <p>
             Si está sobre el eje de las ordenadas: <Math
-              tex="\alpha = 0"
+              tex="\\alpha = 0"
               display={false}
-            />; centro <Math tex="C(0,\beta)" display={false} />.
+            />; centro <Math tex="C(0,\\beta)" display={false} />.
           </p>
         </div>
         <div class="prob">
@@ -294,7 +295,7 @@ import "../styles/capitulo1.css";
             descripcion="Circunferencia tangente al eje y, radio igual al valor absoluto de alfa"
             viewBox="0 0 300 200"
           />
-          <p>El radio es igual a: <Math tex="|\alpha|" display={false} />.</p>
+          <p>El radio es igual a: <Math tex="|\\alpha|" display={false} />.</p>
         </div>
         <div class="prob">
           <strong>Tangente al eje de las abscisas</strong>
@@ -303,7 +304,7 @@ import "../styles/capitulo1.css";
             descripcion="Circunferencia tangente al eje x, radio igual al valor absoluto de beta"
             viewBox="0 0 300 200"
           />
-          <p>El radio es igual a: <Math tex="|\beta|" display={false} />.</p>
+          <p>El radio es igual a: <Math tex="|\\beta|" display={false} />.</p>
         </div>
         <div class="prob">
           <strong>Tangente a ambos ejes</strong>
@@ -313,16 +314,16 @@ import "../styles/capitulo1.css";
             viewBox="0 0 300 200"
           />
           <p>
-            Se cumple <Math tex="|\alpha| = |\beta| = r" display={false} /> entre
+            Se cumple <Math tex="|\\alpha| = |\\beta| = r" display={false} /> entre
             centro y radio.
           </p>
         </div>
       </div>
       <Nota etiqueta="NOTA">
-        EL RADIO SIEMRE ES POSITIVO. SI <Math tex="\alpha" display={false} /> o
-        <Math tex="\beta" display={false} /> son negativos se debe considerar
-        <Math tex="r = |\alpha|" display={false} /> o <Math
-          tex="r = |\beta|"
+        EL RADIO SIEMRE ES POSITIVO. SI <Math tex="\\alpha" display={false} /> o
+        <Math tex="\\beta" display={false} /> son negativos se debe considerar
+        <Math tex="r = |\\alpha|" display={false} /> o <Math
+          tex="r = |\\beta|"
           display={false}
         /> según corresponda.
       </Nota>
@@ -338,7 +339,7 @@ import "../styles/capitulo1.css";
             <strong>Circunferencia que pasa por el origen.</strong> Por Pitágoras:
           </p>
           <Math
-            tex="\alpha^2+\beta^2 = r^2 \quad \text{o sea} \quad \alpha^2+\beta^2-r^2 = 0"
+            tex="\\alpha^2+\\beta^2 = r^2 \\quad \\text{o sea} \\quad \\alpha^2+\\beta^2-r^2 = 0"
           />
           <p>
             Por lo tanto no tiene término independiente (<Math
@@ -365,26 +366,26 @@ import "../styles/capitulo1.css";
         />.
         <p>
           Si es tangente a los ejes, <Math
-            tex="|\alpha| = |\beta| = r"
+            tex="|\\alpha| = |\\beta| = r"
             display={false}
           />. La ecuación se expresa como
           <Math
-            tex="x^2+y^2-2\alpha x-2\alpha y+\alpha^2 = 0"
+            tex="x^2+y^2-2\\alpha x-2\\alpha y+\\alpha^2 = 0"
             display={false}
           />. Si
           <Math tex="(-4,-2)" display={false} /> pertenece:
           <Math
-            tex="(-4)^2+(-2)^2-2\alpha(-4)-2\alpha(-2)+\alpha^2 = 0"
+            tex="(-4)^2+(-2)^2-2\\alpha(-4)-2\\alpha(-2)+\\alpha^2 = 0"
             display={false}
           />, o sea
-          <Math tex="\alpha^2+12\alpha+20 = 0" display={false} />, de soluciones
-          <Math tex="\alpha = -2" display={false} />, <Math
-            tex="\alpha = -10"
+          <Math tex="\\alpha^2+12\\alpha+20 = 0" display={false} />, de soluciones
+          <Math tex="\\alpha = -2" display={false} />, <Math
+            tex="\\alpha = -10"
             display={false}
           />.
         </p>
-        <Math tex="\text{Con } \alpha = -2 \to x^2+y^2+4x+4y+4 = 0" />
-        <Math tex="\text{Con } \alpha = -10 \to x^2+y^2+20x+20y+100 = 0" />
+        <Math tex="\\text{Con } \\alpha = -2 \\to x^2+y^2+4x+4y+4 = 0" />
+        <Math tex="\\text{Con } \\alpha = -10 \\to x^2+y^2+20x+20y+100 = 0" />
       </div>
 
       <style>
@@ -404,7 +405,10 @@ import "../styles/capitulo1.css";
         .casos li {
           margin-block: 4px;
         }
-        @media (max-width: 48rem) {
+        /* Solo se apila en pantallas pequeñas. En impresión el
+           viewport (~680px) simula un ancho estrecho, pero queremos
+           conservar la rejilla de 2 columnas como en la web. */
+        @media screen and (max-width: 48rem) {
           .casos {
             grid-template-columns: 1fr;
           }
@@ -421,7 +425,7 @@ import "../styles/capitulo1.css";
         por sus respectivas ecuaciones:
       </p>
       <Math
-        tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ y = mx+n \end{cases}"
+        tex="\\begin{cases} x^2+y^2-2\\alpha x-2\\beta y+F = 0 \\\\ y = mx+n \\end{cases}"
       />
       <p>
         Se despeja la <Math tex="x" display={false} /> o la <Math
@@ -473,7 +477,7 @@ import "../styles/capitulo1.css";
         <strong>Ejemplo.</strong> Puntos de corte de
         <Math tex="x^2+y^2+3x-4y = 0" display={false} /> con
         <Math tex="y = 2x" display={false} />.
-        <Math tex="x^2+(2x)^2+3x-4(2x) = 0 \qquad 5x^2-5x = 0" />
+        <Math tex="x^2+(2x)^2+3x-4(2x) = 0 \\qquad 5x^2-5x = 0" />
         <p>
           Raíces <Math tex="x = 0" display={false} /> y <Math
             tex="x = 1"
@@ -496,10 +500,10 @@ import "../styles/capitulo1.css";
         consiste en resolver:
       </p>
       <Math
-        tex="\begin{cases} x^2+y^2-2\alpha x-2\beta y+F = 0 \\ x^2+y^2-2\alpha'x-2\beta'y+F' = 0 \end{cases}"
+        tex="\\begin{cases} x^2+y^2-2\\alpha x-2\\beta y+F = 0 \\\\ x^2+y^2-2\\alpha'x-2\\beta'y+F' = 0 \\end{cases}"
       />
       <p>El primer paso es <strong>restar</strong> ambas ecuaciones:</p>
-      <Math tex="(2\alpha'-2\alpha)x+(2\beta'-2\beta)y+F-F' = 0" />
+      <Math tex="(2\\alpha'-2\\alpha)x+(2\\beta'-2\\beta)y+F-F' = 0" />
       <p>
         Al restar se obtiene una recta (primer grado en
         <Math tex="x" display={false} /> e <Math tex="y" display={false} />): el
@@ -540,13 +544,13 @@ import "../styles/capitulo1.css";
         <Math tex="x^2+y^2-4x-6y+9 = 0" display={false} /> y
         <Math tex="x^2+y^2-8x-2y+13 = 0" display={false} />.
         <p>Restando (segunda por <Math tex="-1" display={false} />):</p>
-        <Math tex="4x-4y-4 = 0 \quad \longrightarrow \quad x-y-1 = 0" />
+        <Math tex="4x-4y-4 = 0 \\quad \\longrightarrow \\quad x-y-1 = 0" />
         <p>
           Eje radical <Math tex="x-y-1 = 0" display={false} />, o sea
           <Math tex="x = y+1" display={false} />. Sustituyendo en la primera:
         </p>
         <Math
-          tex="(y+1)^2+y^2-4(y+1)-6y+9 = 0 \quad \longrightarrow \quad 2y^2-8y+6 = 0"
+          tex="(y+1)^2+y^2-4(y+1)-6y+9 = 0 \\quad \\longrightarrow \\quad 2y^2-8y+6 = 0"
         />
         <p>
           Raíces <Math tex="y = 1" display={false} />, <Math
@@ -572,16 +576,16 @@ import "../styles/capitulo1.css";
         <div>
           <p>
             Sea <Math tex="f(x,y) = 0" display={false} /> la ecuación. Generalmente
-            el interior responde a <Math tex="f(x,y) \lt 0" display={false} /> y el
+            el interior responde a <Math tex="f(x,y) \\lt 0" display={false} /> y el
             exterior a
-            <Math tex="f(x,y) \gt 0" display={false} />; sobre la curva
+            <Math tex="f(x,y) \\gt 0" display={false} />; sobre la curva
             <Math tex="f(x,y) = 0" display={false} />.
           </p>
         </div>
       </Split>
       <div class="prob">
         <strong>Ejemplo.</strong> Resolver
-        <Math tex="-x^2-y^2+2x-4y \gt 0" display={false} />.
+        <Math tex="-x^2-y^2+2x-4y \\gt 0" display={false} />.
         <Split>
           <Figura
             simbolo="circ-region-ej1"
@@ -592,7 +596,7 @@ import "../styles/capitulo1.css";
             <p>
               Es el interior de la circunferencia de centro
               <Math tex="(1,-2)" display={false} /> y radio
-              <Math tex="\sqrt{5}" display={false} />: todo el disco sombreado.
+              <Math tex="\\sqrt{5}" display={false} />: todo el disco sombreado.
             </p>
             <p>Al pedir mayor estricto no se incluye la circunferencia.</p>
           </div>
@@ -605,7 +609,7 @@ import "../styles/capitulo1.css";
       </div>
       <div class="prob">
         <strong>Ejemplo.</strong> Resolver
-        <Math tex="(x^2+y^2-4x)(x^2+y^2-1) \leq 0" display={false} />.
+        <Math tex="(x^2+y^2-4x)(x^2+y^2-1) \\leq 0" display={false} />.
         <Split>
           <Figura
             simbolo="circ-region-ej2"
@@ -670,7 +674,6 @@ import "../styles/capitulo1.css";
             alt="Superficie esférica centrada en el origen de coordenadas, con los ejes x, y, z"
             width="219"
             height="225"
-            loading="lazy"
           />
         </figure>
         <div>

@@ -9,7 +9,29 @@ interface Props {
 }
 
 const { tex, display = true } = Astro.props;
-const html = katex.renderToString(tex, { displayMode: display, throwOnError: false });
+
+/* El compilador de .astro interpreta \b, \t, \n, \v, \f y \r como
+   escapes de control al serializar los atributos: la secuencia
+   "\b" se convierte en UN solo caracter 0x08 (backspace), perdiendo
+   el backslash. Restauramos el comando completo para que el TeX
+   llegue íntegro a KaTeX. */
+const CONTROL_A_COMANDO: Record<string, string> = {
+  "\b": "\\b",
+  "\t": "\\t",
+  "\n": "\\n",
+  "\v": "\\v",
+  "\f": "\\f",
+  "\r": "\\r",
+};
+const texSeguro = tex.replace(
+  /[\b\t\n\v\f\r]/g,
+  (c) => CONTROL_A_COMANDO[c] ?? c,
+);
+
+const html = katex.renderToString(texSeguro, {
+  displayMode: display,
+  throwOnError: false,
+});
 ---
 
 {display ? <div class="formula" set:html={html} /> : <span set:html={html} />}

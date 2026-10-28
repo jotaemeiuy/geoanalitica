@@ -53,10 +53,10 @@ import "../styles/capitulo1.css";
         <Figura simbolo="recta-x-h" descripcion="Recta vertical x igual a h" viewBox="0 0 300 170" />
         <div>
           <p>
-            Todos los puntos de una recta paralela al eje <Math tex="\overrightarrow{oy}" display={false} />
+            Todos los puntos de una recta paralela al eje <Math tex="\\overrightarrow{oy}" display={false} />
             tienen la misma abscisa <Math tex="h" display={false} />. Verifican:
           </p>
-          <Math tex="\boxed{x = h}" />
+          <Math tex="\\boxed{x = h}" />
           <p>Es la ecuación de la recta paralela al eje de ordenadas que pasa por (h, 0).</p>
         </div>
       </Split>
@@ -66,11 +66,11 @@ import "../styles/capitulo1.css";
         <Figura simbolo="recta-y-k" descripcion="Recta horizontal y igual a k" viewBox="0 0 300 170" />
         <div>
           <p>Todos los puntos tienen la misma ordenada:</p>
-          <Math tex="\boxed{y = k}" />
+          <Math tex="\\boxed{y = k}" />
           <p>
             Casos particulares: <Math tex="x = 0" display={false} /> es el eje
-            <Math tex="\overrightarrow{oy}" display={false} />; <Math tex="y = 0" display={false} />
-            es el eje <Math tex="\overrightarrow{ox}" display={false} />.
+            <Math tex="\\overrightarrow{oy}" display={false} />; <Math tex="y = 0" display={false} />
+            es el eje <Math tex="\\overrightarrow{ox}" display={false} />.
           </p>
         </div>
       </Split>
@@ -80,12 +80,12 @@ import "../styles/capitulo1.css";
         <Figura simbolo="recta-origen" descripcion="Recta por el origen con ángulo omega" viewBox="0 0 300 200" />
         <div>
           <p>
-            Sea una recta por (0, 0) que forma un ángulo <Math tex="\omega" display={false} /> con el
-            eje <Math tex="\overrightarrow{ox}" display={false} />. Para P(x, y) sobre ella:
+            Sea una recta por (0, 0) que forma un ángulo <Math tex="\\omega" display={false} /> con el
+            eje <Math tex="\\overrightarrow{ox}" display={false} />. Para P(x, y) sobre ella:
           </p>
-          <Math tex="\operatorname{tg}\,\omega = \frac{y}{x}" />
-          <p>Designando <Math tex="m = \operatorname{tg}\,\omega" display={false} />:</p>
-          <Math tex="\boxed{y = m \cdot x}" />
+          <Math tex="\\operatorname{tg}\\,\\omega = \\frac{y}{x}" />
+          <p>Designando <Math tex="m = \\operatorname{tg}\\,\\omega" display={false} />:</p>
+          <Math tex="\\boxed{y = m \\cdot x}" />
           <p>A <Math tex="m" display={false} /> se le llama <strong>coeficiente angular</strong>.</p>
         </div>
       </Split>
@@ -95,19 +95,19 @@ import "../styles/capitulo1.css";
         <Figura simbolo="recta-mxn" descripcion="Recta y igual a mx más n por traslación de ejes" viewBox="0 0 320 220" />
         <div>
           <p>
-            Sea <Math tex="O'" display={false} /> el corte con <Math tex="\overrightarrow{oy}" display={false} />
-            y <Math tex="n" display={false} /> su ordenada. Trasladando <Math tex="\overrightarrow{ox}" display={false} />
+            Sea <Math tex="O'" display={false} /> el corte con <Math tex="\\overrightarrow{oy}" display={false} />
+            y <Math tex="n" display={false} /> su ordenada. Trasladando <Math tex="\\overrightarrow{ox}" display={false} />
             hasta <Math tex="O'" display={false} /> la recta pasa por el origen del sistema
             <Math tex="x'O'y'" display={false} />: <Math tex="y' = m x'" display={false} />,
-            con <Math tex="m = \operatorname{tg}\,\omega" display={false} />.
+            con <Math tex="m = \\operatorname{tg}\\,\\omega" display={false} />.
           </p>
-          <Math tex="x = x' \qquad y = y' + n" />
+          <Math tex="x = x' \\qquad y = y' + n" />
           <p>Sustituyendo <Math tex="x' = x" display={false} />, <Math tex="y' = y - n" display={false} />:</p>
-          <Math tex="\boxed{y = mx + n}" />
+          <Math tex="\\boxed{y = mx + n}" />
         </div>
       </Split>
       <p>
-        Corta al eje <Math tex="\overrightarrow{oy}" display={false} /> en (0, n):
+        Corta al eje <Math tex="\\overrightarrow{oy}" display={false} /> en (0, n):
         <strong>n es la ordenada en el origen</strong>. Es de primer grado en x e y.
         Recíprocamente, toda ecuación <Math tex="Ax+By+C=0" display={false} /> con A y B no
         simultáneamente nulos representa una recta, pues se puede llevar a la forma
@@ -115,8 +115,8 @@ import "../styles/capitulo1.css";
       </p>
       <div class="prob">
         <strong>Ecuaciones de la recta.</strong> Implícita:
-        <Math tex="f(x,y)=0 \longrightarrow Ax+By+C=0" display={false} /> ·
-        Explícita: <Math tex="y=f(x) \longrightarrow y=mx+n" display={false} />.
+        <Math tex="f(x,y)=0 \\longrightarrow Ax+By+C=0" display={false} /> ·
+        Explícita: <Math tex="y=f(x) \\longrightarrow y=mx+n" display={false} />.
       </div>
 
       <h3>1.8. Recta que pasa por un punto dado P(x₀, y₀)</h3>
@@ -127,9 +127,9 @@ import "../styles/capitulo1.css";
             Sea <Math tex="y = mx+n" display={false} />. Si pasa por
             <Math tex="P(x_0,y_0)" display={false} />, sus coordenadas la verifican:
           </p>
-          <Math tex="y_0 = m \cdot x_0 + n" />
+          <Math tex="y_0 = m \\cdot x_0 + n" />
           <p>Despejando <Math tex="n = y_0 - m x_0" display={false} /> y sustituyendo:</p>
-          <Math tex="\boxed{y - y_0 = m \cdot (x - x_0)}" />
+          <Math tex="\\boxed{y - y_0 = m \\cdot (x - x_0)}" />
         </div>
       </Split>
 
@@ -143,10 +143,10 @@ import "../styles/capitulo1.css";
             <Math tex="P_1" display={false} /> son <Math tex="y-y_1 = m(x-x_1)" display={false} />.
             En el triángulo <Math tex="P_1RP_2" display={false} />:
           </p>
-          <Math tex="m = \operatorname{tg}\,\alpha = \frac{y_2-y_1}{x_2-x_1}" />
+          <Math tex="m = \\operatorname{tg}\\,\\alpha = \\frac{y_2-y_1}{x_2-x_1}" />
         </div>
       </Split>
-      <Math tex="\boxed{y - y_1 = \frac{y_2-y_1}{x_2-x_1}\,(x - x_1)}" />
+      <Math tex="\\boxed{y - y_1 = \\frac{y_2-y_1}{x_2-x_1}\\,(x - x_1)}" />
 
       <h3>1.11. Discusión de la ecuación general Ax + By + C = 0</h3>
       <p>
@@ -168,7 +168,7 @@ import "../styles/capitulo1.css";
           <ul>
             <li>B = 0, C = 0: <Math tex="x=0" display={false} />, <strong>eje oy</strong>.</li>
             <li>B = 0, C ≠ 0: <Math tex="x=-(C/A)" display={false} />, <strong>paralela a oy</strong>.</li>
-            <li>B ≠ 0, C = 0: <Math tex="y=-(A/B)\cdot x" display={false} />, <strong>pasa por el origen</strong>.</li>
+            <li>B ≠ 0, C = 0: <Math tex="y=-(A/B)\\cdot x" display={false} />, <strong>pasa por el origen</strong>.</li>
             <li>
               Ninguno nulo: corta a ox en <Math tex="(-C/A,0)" display={false} /> y a oy en
               <Math tex="(0,-C/B)" display={false} />.
@@ -228,13 +228,13 @@ import "../styles/capitulo1.css";
           <p>
             Dadas <Math tex="y = mx+n" display={false} /> y
             <Math tex="y = m'x+n'" display={false} /> paralelas, forman el mismo ángulo con
-            <Math tex="\overrightarrow{ox}" display={false} />:
+            <Math tex="\\overrightarrow{ox}" display={false} />:
           </p>
-          <Math tex="\alpha = \alpha' \qquad \operatorname{tg}\,\alpha = \operatorname{tg}\,\alpha' \qquad \boxed{m = m'}" />
+          <Math tex="\\alpha = \\alpha' \\qquad \\operatorname{tg}\\,\\alpha = \\operatorname{tg}\\,\\alpha' \\qquad \\boxed{m = m'}" />
           <p>Condición necesaria (no suficiente: si n = n′ son coincidentes):</p>
         </div>
       </Split>
-      <Math tex="\boxed{m = m' \;\begin{cases} n = n' & \text{coincidencia} \\ n \neq n' & \text{paralelismo} \end{cases}}" />
+      <Math tex="\\boxed{m = m' \\;\\begin{cases} n = n' & \\text{coincidencia} \\\\ n \\neq n' & \\text{paralelismo} \\end{cases}}" />
     </Seccion>
 
     <Seccion id="s3" tituloHtml="3 — <em>RECTAS PERPENDICULARES</em>">
@@ -242,18 +242,18 @@ import "../styles/capitulo1.css";
         <Figura simbolo="rectas-perp" descripcion="Dos rectas perpendiculares r y r prima" viewBox="0 0 300 200" />
         <div>
           <p>Dadas (r) <Math tex="y = mx+n" display={false} /> y (r′) <Math tex="y = m'x+n'" display={false} />:</p>
-          <Math tex="\gamma + \beta = 180^{\circ} \quad \text{(plano)}" />
-          <Math tex="\alpha + \gamma = 90^{\circ} \quad \text{(triángulo rectángulo)}" />
+          <Math tex="\\gamma + \\beta = 180^{\\circ} \\quad \\text{(plano)}" />
+          <Math tex="\\alpha + \\gamma = 90^{\\circ} \\quad \\text{(triángulo rectángulo)}" />
           <p>
-            Restando: <Math tex="\beta - \alpha = 90^{\circ}" display={false} />, o sea
-            <Math tex="\beta = \alpha + 90^{\circ}" display={false} />.
+            Restando: <Math tex="\\beta - \\alpha = 90^{\\circ}" display={false} />, o sea
+            <Math tex="\\beta = \\alpha + 90^{\\circ}" display={false} />.
           </p>
         </div>
       </Split>
-      <Math tex="\operatorname{tg}\,\beta = \operatorname{tg}\,(\alpha + 90^{\circ}) = \frac{-1}{\operatorname{tg}\,\alpha}" />
-      <p>Con <Math tex="m = \operatorname{tg}\,\alpha" display={false} />, <Math tex="m' = \operatorname{tg}\,\beta" display={false} />:</p>
-      <Math tex="\boxed{m' = \frac{-1}{m}}" />
-      <p>Coeficientes inversos y de signo contrario. La perpendicular a <Math tex="y = mx+n" display={false} /> es <Math tex="y = -\frac{1}{m}\,x + n" display={false} />.</p>
+      <Math tex="\\operatorname{tg}\\,\\beta = \\operatorname{tg}\\,(\\alpha + 90^{\\circ}) = \\frac{-1}{\\operatorname{tg}\\,\\alpha}" />
+      <p>Con <Math tex="m = \\operatorname{tg}\\,\\alpha" display={false} />, <Math tex="m' = \\operatorname{tg}\\,\\beta" display={false} />:</p>
+      <Math tex="\\boxed{m' = \\frac{-1}{m}}" />
+      <p>Coeficientes inversos y de signo contrario. La perpendicular a <Math tex="y = mx+n" display={false} /> es <Math tex="y = -\\frac{1}{m}\\,x + n" display={false} />.</p>
     </Seccion>
 
     <Seccion id="s4" tituloHtml="4 — <em>DISTANCIA DE UN PUNTO A UNA RECTA</em>">
@@ -265,18 +265,18 @@ import "../styles/capitulo1.css";
             <Math tex="Ax+By+C=0" display={false} />, la distancia h es la longitud del segmento
             perpendicular de P a (r).
           </p>
-          <Math tex="\boxed{h = \left|\frac{Ax_0+By_0+C}{\pm\sqrt{A^2+B^2}}\right|}" />
+          <Math tex="\\boxed{h = \\left|\\frac{Ax_0+By_0+C}{\\pm\\sqrt{A^2+B^2}}\\right|}" />
         </div>
       </Split>
       <Nota etiqueta="NOTA">
         USAR VALOR ABSOLUTO: LA DISTANCIA ES SIEMPRE POSITIVA. Para la recta
         <Math tex="y = Mx+N" display={false} /> vale
-        <Math tex="h = \left|\frac{y_0-Mx_0-N}{\pm\sqrt{1+M^2}}\right|" display={false} />.
-        Caso particular: distancia del origen: <Math tex="|C|/\sqrt{A^2+B^2}" display={false} />.
+        <Math tex="h = \\left|\\frac{y_0-Mx_0-N}{\\pm\\sqrt{1+M^2}}\\right|" display={false} />.
+        Caso particular: distancia del origen: <Math tex="|C|/\\sqrt{A^2+B^2}" display={false} />.
       </Nota>
       <div class="prob">
         <strong>Ejemplo.</strong> Distancia de P(−3, 4) a y = −2x + 1, o sea 2x + y − 1 = 0:
-        <Math tex="h = \frac{|2(-3)+4-1|}{\sqrt{5}} = \frac{3}{\sqrt{5}} = \frac{3\sqrt{5}}{5}" />
+        <Math tex="h = \\frac{|2(-3)+4-1|}{\\sqrt{5}} = \\frac{3}{\\sqrt{5}} = \\frac{3\\sqrt{5}}{5}" />
       </div>
     </Seccion>
 
@@ -285,23 +285,23 @@ import "../styles/capitulo1.css";
         <Figura simbolo="angulo-rectas" descripcion="Ángulo omega entre las rectas r y r prima" viewBox="0 0 300 200" />
         <div>
           <p>Dadas (r) <Math tex="y = mx+n" display={false} /> y (r′) <Math tex="y = m'x+n'" display={false} />:</p>
-          <Math tex="\omega = \alpha - \beta \qquad \operatorname{tg}\,\omega = \operatorname{tg}\,(\alpha-\beta)" />
-          <Math tex="\operatorname{tg}\,(\alpha-\beta) = \frac{\operatorname{tg}\,\alpha-\operatorname{tg}\,\beta}{1+\operatorname{tg}\,\alpha\cdot\operatorname{tg}\,\beta}" />
+          <Math tex="\\omega = \\alpha - \\beta \\qquad \\operatorname{tg}\\,\\omega = \\operatorname{tg}\\,(\\alpha-\\beta)" />
+          <Math tex="\\operatorname{tg}\\,(\\alpha-\\beta) = \\frac{\\operatorname{tg}\\,\\alpha-\\operatorname{tg}\\,\\beta}{1+\\operatorname{tg}\\,\\alpha\\cdot\\operatorname{tg}\\,\\beta}" />
         </div>
       </Split>
-      <Math tex="\boxed{\operatorname{tg}\,\omega = \frac{m-m'}{1+m\cdot m'}}" />
+      <Math tex="\\boxed{\\operatorname{tg}\\,\\omega = \\frac{m-m'}{1+m\\cdot m'}}" />
       <Nota etiqueta="OJO">
-        <Math tex="\omega" display={false} /> SE MIDE EN SENTIDO ANTIHORARIO, DE r′ A r.
+        <Math tex="\\omega" display={false} /> SE MIDE EN SENTIDO ANTIHORARIO, DE r′ A r.
       </Nota>
       <p>
-        Si son perpendiculares, <Math tex="\omega = 90^{\circ}" display={false} /> no tiene tangente:
-        el denominador vale cero, <Math tex="1+m\cdot m' = 0" display={false} />. Si son paralelas,
-        <Math tex="\omega = 0^{\circ}" display={false} />, el numerador vale cero,
+        Si son perpendiculares, <Math tex="\\omega = 90^{\\circ}" display={false} /> no tiene tangente:
+        el denominador vale cero, <Math tex="1+m\\cdot m' = 0" display={false} />. Si son paralelas,
+        <Math tex="\\omega = 0^{\\circ}" display={false} />, el numerador vale cero,
         <Math tex="m - m' = 0" display={false} />.
       </p>
-      <p>En forma implícita <Math tex="Ax+By+C=0" display={false} />, <Math tex="A'x+B'y+C'=0" display={false} />, con <Math tex="m = -\frac{A}{B}" display={false} />, <Math tex="m' = -\frac{A'}{B'}" display={false} />:</p>
-      <Math tex="\text{Paralelismo: } \boxed{AB'-A'B = 0} \qquad \text{Perpendicularidad: } \boxed{AA'+BB' = 0}" />
-      <Math tex="\operatorname{tg}\,\omega = -\,\frac{AB'-A'B}{AA'+BB'}" />
+      <p>En forma implícita <Math tex="Ax+By+C=0" display={false} />, <Math tex="A'x+B'y+C'=0" display={false} />, con <Math tex="m = -\\frac{A}{B}" display={false} />, <Math tex="m' = -\\frac{A'}{B'}" display={false} />:</p>
+      <Math tex="\\text{Paralelismo: } \\boxed{AB'-A'B = 0} \\qquad \\text{Perpendicularidad: } \\boxed{AA'+BB' = 0}" />
+      <Math tex="\\operatorname{tg}\\,\\omega = -\\,\\frac{AB'-A'B}{AA'+BB'}" />
     </Seccion>
 
     <Seccion id="s6" tituloHtml="6 — <em>ÁREA DE UN TRIÁNGULO</em>">
@@ -312,14 +312,14 @@ import "../styles/capitulo1.css";
             Vértices <Math tex="P_1(x_1,y_1)" display={false} />,
             <Math tex="P_2(x_2,y_2)" display={false} />,
             <Math tex="P_3(x_3,y_3)" display={false} />. Base
-            <Math tex="\overline{P_2P_3} = \sqrt{(x_3-x_2)^2+(y_3-y_2)^2}" display={false} />,
+            <Math tex="\\overline{P_2P_3} = \\sqrt{(x_3-x_2)^2+(y_3-y_2)^2}" display={false} />,
             recta <Math tex="P_2P_3" display={false} />:
             <Math tex="(x_3-x_2)(y-y_2)-(y_3-y_2)(x-x_2) = 0" display={false} />.
             La altura h es la distancia de <Math tex="P_1" display={false} /> a esa recta.
           </p>
         </div>
       </Split>
-      <Math tex="\text{Área } P_1P_2P_3 = \frac{1}{2}\,\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\big]" />
+      <Math tex="\\text{Área } P_1P_2P_3 = \\frac{1}{2}\\,\\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\\big]" />
       <Nota etiqueta="NOTA">
         NUMERAR LOS VÉRTICES EN SENTIDO ANTIHORARIO PARA QUE LA FÓRMULA DÉ UN VALOR POSITIVO.
       </Nota>
@@ -332,7 +332,7 @@ import "../styles/capitulo1.css";
         <div>
           <p>
             Toda recta <Math tex="Ax+By+C=0" display={false} /> divide al plano en dos regiones:
-            <Math tex="Ax+By+C \gt 0" display={false} /> y <Math tex="Ax+By+C \lt 0" display={false} />.
+            <Math tex="Ax+By+C \\gt 0" display={false} /> y <Math tex="Ax+By+C \\lt 0" display={false} />.
           </p>
           <p>
             Sea <Math tex="x+y+1 = 0" display={false} />: el origen (0, 0) da +1, queda en la
@@ -343,8 +343,8 @@ import "../styles/capitulo1.css";
       <h3>9.2. Caso general</h3>
       <p>
         Dada <Math tex="F(x,y) = 0" display={false} />, el plano queda dividido en dos regiones y
-        la curva: <Math tex="f(x,y) \lt 0" display={false} />,
-        <Math tex="f(x,y) = 0" display={false} />, <Math tex="f(x,y) \gt 0" display={false} />.
+        la curva: <Math tex="f(x,y) \\lt 0" display={false} />,
+        <Math tex="f(x,y) = 0" display={false} />, <Math tex="f(x,y) \\gt 0" display={false} />.
       </p>
       <div class="prob">
         <strong>Ejemplo.</strong> La recta (r) −2x + 5y + 3 = 0 es borde de dos semiplanos.

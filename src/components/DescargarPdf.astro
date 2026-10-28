@@ -1,0 +1,74 @@
+---
+interface Props {
+  etiqueta?: string;
+}
+
+const { etiqueta = "Descargar PDF" } = Astro.props;
+---
+
+<button type="button" class="btn-pdf" data-descargar-pdf>
+  <svg
+    viewBox="0 0 24 24"
+    width="15"
+    height="15"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3v12" />
+    <path d="m7 11 5 5 5-5" />
+    <path d="M4 19h16" />
+  </svg>
+  {etiqueta}
+</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("button[data-descargar-pdf]").forEach((btn) => {
+    btn.addEventListener("click", () => window.print());
+  });
+</script>
+
+<style>
+  .btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-self: start;
+    margin-block-start: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    border: 2px solid var(--accent-dark);
+    border-radius: var(--radius-s);
+    padding: 8px 16px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--accent-dark);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--accent-dark);
+      outline-offset: 2px;
+    }
+
+    & svg {
+      flex: 0 0 auto;
+    }
+  }
+
+  /* El botón nunca se imprime (regla en la misma hoja que el
+     estilo del componente: gana por orden frente al scoped). */
+  @media print {
+    .btn-pdf {
+      display: none;
+    }
+  }
+</style>

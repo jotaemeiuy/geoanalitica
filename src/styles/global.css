@@ -2,6 +2,9 @@
 @import "./tokens.css";
 @import "./base.css";
 @import "./components.css";
+/* print.css va sin @layer (ver fichero): las reglas sin capa
+   ganan a cualquier capa sin necesidad de !important. */
+@import "./print.css";
 
 /* Orden de cascada (primero = menor prioridad).
    Cada fichero de tema aporta su propia @layer page. */

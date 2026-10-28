@@ -56,12 +56,12 @@ import "../styles/formulas.css";
     <div class="grid">
       <FormulaCard id="medio" titulo="⌖ Punto medio">
         <Figura simbolo="plano-punto-medio" descripcion="Plano con puntos P1, M y P2" />
-        <Math tex="x_m = \frac{x_1+x_2}{2} \qquad y_m = \frac{y_1+y_2}{2}" />
+        <Math tex="x_m = \\frac{x_1+x_2}{2} \\qquad y_m = \\frac{y_1+y_2}{2}" />
         <CalcPuntoMedio />
       </FormulaCard>
 
       <FormulaCard id="distancia" titulo="⟷ Distancia entre dos puntos" variante="accent">
-        <Math tex="\overline{P_1P_2} = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}" />
+        <Math tex="\\overline{P_1P_2} = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}" />
         <CalcDistancia />
         <p style="font-size:.85rem">
           Es Pitágoras aplicado al segmento <Math tex="P_1P_2" display={false} />.
@@ -71,11 +71,11 @@ import "../styles/formulas.css";
       <FormulaCard id="recta" titulo="Ecuaciones de la recta" anchoCompleto>
         <div class="row2">
           <Formula>
-            Forma implícita: <Math tex="f(x,y)=0 \longrightarrow" display={false} />
+            Forma implícita: <Math tex="f(x,y)=0 \\longrightarrow" display={false} />
             <Math tex="Ax+By+C=0" />
           </Formula>
           <Formula>
-            Forma explícita: <Math tex="y=f(x) \longrightarrow" display={false} />
+            Forma explícita: <Math tex="y=f(x) \\longrightarrow" display={false} />
             <Math tex="y = mx+n" />
           </Formula>
         </div>
@@ -87,14 +87,14 @@ import "../styles/formulas.css";
         variante="accent"
         anchoCompleto
       >
-        <Math tex="y = mx+n \qquad y = m'x+n'" />
+        <Math tex="y = mx+n \\qquad y = m'x+n'" />
         <div class="row2">
           <Formula>Condición de <b>paralelismo</b>: <Math tex="m = m'" /></Formula>
           <Formula
-            >Condición de <b>perpendicularidad</b>: <Math tex="m = -\frac{1}{m'}" /></Formula
+            >Condición de <b>perpendicularidad</b>: <Math tex="m = -\\frac{1}{m'}" /></Formula
           >
         </div>
-        <Math tex="Ax+By+C=0 \qquad A'x+B'y+C'=0" />
+        <Math tex="Ax+By+C=0 \\qquad A'x+B'y+C'=0" />
         <div class="row2">
           <Formula>Paralelismo: <Math tex="AB'-A'B = 0" /></Formula>
           <Formula>Perpendicularidad: <Math tex="AA'+BB' = 0" /></Formula>
@@ -103,10 +103,10 @@ import "../styles/formulas.css";
 
       <FormulaCard titulo="Notas — ejes y casos particulares" anchoCompleto>
         <Formula>
-          NOTA: la ecuación del eje <Math tex="\overrightarrow{OX}" display={false} /> es: <Math
+          NOTA: la ecuación del eje <Math tex="\\overrightarrow{OX}" display={false} /> es: <Math
             tex="Y=0"
             display={false}
-          /> · la ecuación del eje <Math tex="\overrightarrow{OY}" display={false} /> es: <Math
+          /> · la ecuación del eje <Math tex="\\overrightarrow{OY}" display={false} /> es: <Math
             tex="X=0"
             display={false}
           />
@@ -126,23 +126,23 @@ import "../styles/formulas.css";
         titulo="Recta por dos puntos (x₁,y₁) (x₂,y₂)"
         variante="accent"
       >
-        <Math tex="y-y_1 = \frac{y_2-y_1}{x_2-x_1}\,(x-x_1)" />
+        <Math tex="y-y_1 = \\frac{y_2-y_1}{x_2-x_1}\\,(x-x_1)" />
       </FormulaCard>
 
       <FormulaCard id="dist-punto" titulo="Distancia del punto (x₀,y₀) a la recta Ax+By+C=0">
-        <Math tex="h = \left|\frac{Ax_0+By_0+C}{\pm\sqrt{A^2+B^2}}\right|" />
+        <Math tex="h = \\left|\\frac{Ax_0+By_0+C}{\\pm\\sqrt{A^2+B^2}}\\right|" />
         <CalcPuntoRecta />
       </FormulaCard>
 
       <FormulaCard id="dist-punto2" titulo="Distancia del punto (x₀,y₀) a la recta y=mx+n">
-        <Math tex="h = \left|\frac{Y_0-Mx_0-N}{\pm\sqrt{1+M^2}}\right|" />
+        <Math tex="h = \\left|\\frac{Y_0-Mx_0-N}{\\pm\\sqrt{1+M^2}}\\right|" />
       </FormulaCard>
 
       <FormulaCard id="angulo" titulo="Ángulo ω entre dos rectas">
-        <Math tex="\mathrm{tg}\,\omega = \frac{m-m'}{1+m\cdot m'}" />
+        <Math tex="\\mathrm{tg}\\,\\omega = \\frac{m-m'}{1+m\\cdot m'}" />
         <Nota etiqueta="OJO">
           Al utilizar esta fórmula se debe tener en cuenta que <Math
-            tex="\omega"
+            tex="\\omega"
             display={false}
           /> se mide en sentido antihorario.
         </Nota>
@@ -165,7 +165,7 @@ import "../styles/formulas.css";
           </div>
           <div>
             <Math
-              tex="P_1P_2P_3 = \frac{1}{2}\,\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\big]"
+              tex="P_1P_2P_3 = \\frac{1}{2}\\,\\big[(x_3-x_2)(y_1-y_2)-(y_3-y_2)(x_1-x_2)\\big]"
             />
             <Nota etiqueta="NOTA">
               ES IMPORTANTE QUE LA NUMERACIÓN DE LOS VÉRTICES SE HAGA EN SENTIDO ANTIHORARIO,
@@ -186,9 +186,9 @@ import "../styles/formulas.css";
             />
           </div>
           <div>
-            <Math tex="(x-\alpha)^2+(y-\beta)^2 = r^2" />
-            <Math tex="x^2+y^2-2\alpha x-2\beta y+F = 0 \qquad F = \alpha^2+\beta^2-r^2" />
-            <Math tex="r = \sqrt{\alpha^2+\beta^2-F}" />
+            <Math tex="(x-\\alpha)^2+(y-\\beta)^2 = r^2" />
+            <Math tex="x^2+y^2-2\\alpha x-2\\beta y+F = 0 \\qquad F = \\alpha^2+\\beta^2-r^2" />
+            <Math tex="r = \\sqrt{\\alpha^2+\\beta^2-F}" />
             <CalcCircCentroRadio />
           </div>
         </div>
@@ -198,16 +198,16 @@ import "../styles/formulas.css";
             circunferencia si <Math tex="A = C" display={false} /> (mismo coeficiente en
             <Math tex="x^2" display={false} /> e <Math tex="y^2" display={false} />),
             <Math tex="B = 0" display={false} /> (sin término en <Math tex="xy" display={false} />) y
-            el radio al cuadrado <Math tex="\alpha^2+\beta^2-F" display={false} /> es positivo.
+            el radio al cuadrado <Math tex="\\alpha^2+\\beta^2-F" display={false} /> es positivo.
           </div>
           <div>
             <strong>Casos particulares:</strong>
-            centro en el origen: <Math tex="\alpha=\beta=0" display={false} />;
-            sobre <Math tex="\overrightarrow{OX}" display={false} />: <Math tex="\beta=0" display={false} />;
-            sobre <Math tex="\overrightarrow{OY}" display={false} />: <Math tex="\alpha=0" display={false} />;
-            tangente a OX: <Math tex="r=|\beta|" display={false} />;
-            tangente a OY: <Math tex="r=|\alpha|" display={false} />;
-            tangente a ambos ejes: <Math tex="|\alpha|=|\beta|=r" display={false} />;
+            centro en el origen: <Math tex="\\alpha=\\beta=0" display={false} />;
+            sobre <Math tex="\\overrightarrow{OX}" display={false} />: <Math tex="\\beta=0" display={false} />;
+            sobre <Math tex="\\overrightarrow{OY}" display={false} />: <Math tex="\\alpha=0" display={false} />;
+            tangente a OX: <Math tex="r=|\\beta|" display={false} />;
+            tangente a OY: <Math tex="r=|\\alpha|" display={false} />;
+            tangente a ambos ejes: <Math tex="|\\alpha|=|\\beta|=r" display={false} />;
             por el origen: <Math tex="F=0" display={false} />.
           </div>
         </div>
@@ -215,22 +215,22 @@ import "../styles/formulas.css";
           <div>
             <strong>Corte recta-circunferencia:</strong> sustituir
             <Math tex="y=mx+n" display={false} /> en la ecuación general; el discriminante
-            <Math tex="\Delta" display={false} /> de la cuadrática resultante distingue secante
-            (<Math tex="\Delta \gt 0" display={false} />), tangente
-            (<Math tex="\Delta = 0" display={false} />) y exterior
-            (<Math tex="\Delta \lt 0" display={false} />).
+            <Math tex="\\Delta" display={false} /> de la cuadrática resultante distingue secante
+            (<Math tex="\\Delta \\gt 0" display={false} />), tangente
+            (<Math tex="\\Delta = 0" display={false} />) y exterior
+            (<Math tex="\\Delta \\lt 0" display={false} />).
           </div>
           <div>
             <strong>Eje radical de dos circunferencias:</strong> restar ambas ecuaciones da la recta
-            <Math tex="2(\alpha'-\alpha)x+2(\beta'-\beta)y+F-F' = 0" display={false} />;
+            <Math tex="2(\\alpha'-\\alpha)x+2(\\beta'-\\beta)y+F-F' = 0" display={false} />;
             los puntos de corte salen de resolver el sistema de una circunferencia con esa recta.
           </div>
         </div>
         <div class="row2" style="align-items:start">
           <div>
             <strong>Regiones del plano:</strong> si <Math tex="f(x,y)=0" display={false} /> es la
-            ecuación, entonces <Math tex="f(x,y) \lt 0" display={false} /> es el interior,
-            <Math tex="f(x,y) \gt 0" display={false} /> es el exterior y
+            ecuación, entonces <Math tex="f(x,y) \\lt 0" display={false} /> es el interior,
+            <Math tex="f(x,y) \\gt 0" display={false} /> es el exterior y
             <Math tex="f(x,y) = 0" display={false} /> es la circunferencia.
           </div>
           <div>
